@@ -446,27 +446,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let result = null;
 
-    // 1. If backend server is available, attempt remote inference
+    // 1. Primary: Query the live PyTorch Backend
     try {
       const response = await fetch(`${API_BASE}/api/upload`, {
         method: "POST",
+        headers: {
+          "bypass-tunnel-reminder": "true"
+        },
         body: formData
       });
       if (response.ok) {
         result = await response.json();
       }
     } catch (err) {
-      // Backend not running on local port/remote endpoint, proceed to local vision AI
+      console.warn("Backend server connection attempt:", err);
     }
 
-    // 2. If no server response, run local Computer Vision Engine
-    if (!result || result.status !== "success") {
-      const matchKey = Object.keys(SAMPLE_DIAGNOSES).find(k => file.name && file.name.toLowerCase().includes(k.replace(".jpg", "").replace(/_/g, "")));
-      if (matchKey && SAMPLE_DIAGNOSES[matchKey]) {
-        result = { status: "success", ...SAMPLE_DIAGNOSES[matchKey] };
-      } else {
-        result = await analyzeLeafImageLocally(file, dataUrl);
-      }
+    // 2. If PyTorch backend returned diagnosis (even with low_confidence status), use it!
+    if (result && (result.status === "success" || result.status === "low_confidence" || result.crop)) {
+      result.status = "success";
+      elements.loadingState.style.display = "none";
+      state.currentScanResult = result;
+      saveLocalScan(result);
+      renderResults(result, dataUrl);
+      showToast(`Diagnosed: ${result.crop} - ${result.disease}!`, "success");
+      return;
+    }
+
+    // 3. Fallback: Check if it's one of the known sample leaves
+    const matchKey = Object.keys(SAMPLE_DIAGNOSES).find(k => file.name && file.name.toLowerCase().includes(k.replace(".jpg", "").replace(/_/g, "")));
+    if (matchKey && SAMPLE_DIAGNOSES[matchKey]) {
+      result = { status: "success", ...SAMPLE_DIAGNOSES[matchKey] };
+    } else {
+      // 4. Pixel-level Canvas Vision Analysis
+      result = await analyzeLeafImageLocally(file, dataUrl);
     }
 
     elements.loadingState.style.display = "none";
