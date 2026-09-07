@@ -21,8 +21,8 @@ ML_SERVICE_TIMEOUT_SEC = 5
 # Database Settings
 DB_PATH = DATABASE_DIR / "cropguard.db"
 
-# Max Upload Size (16MB)
-MAX_CONTENT_LENGTH = 16 * 1024 * 1024
+# Max Upload Size (25MB)
+MAX_CONTENT_LENGTH = 25 * 1024 * 1024
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp", "bmp"}
 
 # -------------------------------------------------------------
@@ -35,8 +35,8 @@ RATE_LIMIT_REQUESTS = 30
 RATE_LIMIT_WINDOW_SECONDS = 60
 
 # Maximum size for a single uploaded image.
-# Kept below Flask's overall MAX_CONTENT_LENGTH.
-MAX_IMAGE_SIZE = 5 * 1024 * 1024
+# Kept in line with Flask's overall MAX_CONTENT_LENGTH.
+MAX_IMAGE_SIZE = 25 * 1024 * 1024
 
 # Never expose Flask's secret key directly in source code.
 # Set CROP_GUARD_SECRET_KEY as an environment variable in deployment.

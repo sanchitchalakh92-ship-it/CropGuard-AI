@@ -13,6 +13,12 @@ from collections import defaultdict
 from threading import Lock
 import re
 import secrets
+
+# Fix Windows console UTF-8 encoding
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8")
 from flask import Flask, request, jsonify, send_from_directory, send_file
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
@@ -54,8 +60,8 @@ CORS(app)
 # -------------------------------------------------------------
 # Security Configuration
 # -------------------------------------------------------------
-# Reject HTTP requests larger than 5 MB before they reach the upload handler.
-app.config["MAX_CONTENT_LENGTH"] = 5 * 1024 * 1024
+# Reject HTTP requests larger than 25 MB before they reach the upload handler.
+app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
 
 # Simple in-memory rate limiter for the public POST APIs.
 # This requires no extra package and is suitable for the current MVP/local deployment.
@@ -170,6 +176,7 @@ def serve_static(path):
 # -------------------------------------------------------------
 # API Endpoints
 # -------------------------------------------------------------
+@app.route("/health", methods=["GET"])
 @app.route("/api/health", methods=["GET"])
 def health():
     return jsonify({

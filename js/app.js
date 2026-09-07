@@ -3,8 +3,132 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // API Base Configuration (supports custom cloud backend URL or local proxy)
-  const API_BASE = window.CROPGUARD_API_BASE || localStorage.getItem("cropguard_api_base") || "";
+  // API Base Configuration (supports URL query param, custom cloud backend URL, or local proxy)
+  const getInitialApiBase = () => {
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const queryApi = urlParams.get("api");
+      if (queryApi) {
+        const cleanApi = queryApi.replace(/\/+$/, "");
+        localStorage.setItem("cropguard_api_base", cleanApi);
+        return cleanApi;
+      }
+    } catch (e) {}
+    return localStorage.getItem("cropguard_api_base") || window.CROPGUARD_API_BASE || "";
+  };
+  let API_BASE = getInitialApiBase();
+
+  // Server Status & Settings Elements
+  const serverStatusBtn = document.getElementById("serverStatusBtn");
+  const serverStatusText = document.getElementById("serverStatusText");
+  const serverModal = document.getElementById("serverModal");
+  const closeServerModalBtn = document.getElementById("closeServerModalBtn");
+  const serverUrlInput = document.getElementById("serverUrlInput");
+  const testServerBtn = document.getElementById("testServerBtn");
+  const saveServerBtn = document.getElementById("saveServerBtn");
+  const serverPingResult = document.getElementById("serverPingResult");
+
+  let backendOnline = false;
+
+  function updateServerStatusUI(online, customMessage) {
+    if (!serverStatusBtn || !serverStatusText) return;
+    if (online) {
+      serverStatusBtn.className = "server-status-btn online";
+      serverStatusText.textContent = customMessage || "AI Server Online";
+      serverStatusBtn.title = `Connected to ${API_BASE || 'current origin'} — Click to edit`;
+    } else {
+      serverStatusBtn.className = "server-status-btn offline";
+      serverStatusText.textContent = customMessage || "AI Server Offline";
+      serverStatusBtn.title = "AI Server Disconnected — Click to configure";
+    }
+  }
+
+  async function pingServer(targetUrl) {
+    const base = targetUrl !== undefined ? targetUrl.trim().replace(/\/+$/, "") : API_BASE;
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      const resp = await fetch(`${base}/api/health`, {
+        signal: controller.signal,
+        headers: { "bypass-tunnel-reminder": "true" }
+      });
+      clearTimeout(timeoutId);
+      if (resp.ok) {
+        const data = await resp.json();
+        return { ok: true, data };
+      }
+    } catch (err) {}
+    return { ok: false };
+  }
+
+  async function checkBackendHealth() {
+    updateServerStatusUI(false, "Checking Server...");
+    const res = await pingServer();
+    backendOnline = res.ok;
+    updateServerStatusUI(backendOnline);
+    return backendOnline;
+  }
+
+  if (serverStatusBtn) {
+    serverStatusBtn.addEventListener("click", () => {
+      if (serverUrlInput) serverUrlInput.value = API_BASE;
+      if (serverPingResult) serverPingResult.style.display = "none";
+      if (serverModal) serverModal.classList.add("active");
+    });
+  }
+
+  if (closeServerModalBtn) {
+    closeServerModalBtn.addEventListener("click", () => {
+      if (serverModal) serverModal.classList.remove("active");
+    });
+  }
+
+  if (serverModal) {
+    serverModal.addEventListener("click", (e) => {
+      if (e.target === serverModal) {
+        serverModal.classList.remove("active");
+      }
+    });
+  }
+
+  if (testServerBtn) {
+    testServerBtn.addEventListener("click", async () => {
+      if (!serverPingResult || !serverUrlInput) return;
+      serverPingResult.style.display = "block";
+      serverPingResult.style.background = "#f1f5f9";
+      serverPingResult.style.color = "#475569";
+      serverPingResult.textContent = "Testing connection to server...";
+
+      const candidateUrl = serverUrlInput.value.trim();
+      const res = await pingServer(candidateUrl);
+      if (res.ok) {
+        serverPingResult.style.background = "#ecfdf5";
+        serverPingResult.style.color = "#065f46";
+        serverPingResult.textContent = "✅ Connected! AI Backend Gateway and PyTorch model are ready.";
+      } else {
+        serverPingResult.style.background = "#fef2f2";
+        serverPingResult.style.color = "#991b1b";
+        serverPingResult.textContent = "❌ Connection failed. Ensure the server or tunnel is running and accessible.";
+      }
+    });
+  }
+
+  if (saveServerBtn) {
+    saveServerBtn.addEventListener("click", async () => {
+      if (!serverUrlInput) return;
+      const candidateUrl = serverUrlInput.value.trim().replace(/\/+$/, "");
+      API_BASE = candidateUrl;
+      if (candidateUrl) {
+        localStorage.setItem("cropguard_api_base", candidateUrl);
+      } else {
+        localStorage.removeItem("cropguard_api_base");
+      }
+      if (serverModal) serverModal.classList.remove("active");
+      showToast("Backend server URL updated", "info");
+      await checkBackendHealth();
+    });
+  }
+
 
   // Application State
   const state = {
@@ -201,7 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.btnCamera.addEventListener("click", () => elements.cameraInput.click());
   }
 
-  // 4. Sample Leaves Loader
+  // 4. Server Health & Sample Leaves Loader
+  checkBackendHealth();
   loadSampleLeaves();
 
   async function loadSampleLeaves() {
@@ -244,192 +369,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Client-side Leaf Vision Analysis Engine (Canvas-based)
-  async function analyzeLeafImageLocally(file, dataUrl) {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = () => {
-        try {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-          const width = Math.min(400, img.width);
-          const height = Math.round((img.height / img.width) * width);
-          canvas.width = width;
-          canvas.height = height;
-          ctx.drawImage(img, 0, 0, width, height);
-
-          const imgData = ctx.getImageData(0, 0, width, height);
-          const data = imgData.data;
-
-          let greenPixels = 0;
-          let chloroticPixels = 0;
-          let necroticPixels = 0;
-          let darkSpots = 0;
-          let totalLeafPixels = 0;
-
-          for (let i = 0; i < data.length; i += 4) {
-            const r = data[i];
-            const g = data[i + 1];
-            const b = data[i + 2];
-            const brightness = (r + g + b) / 3;
-
-            // Exclude pure white/black/grey background
-            const isBackground = (brightness > 240) || (Math.abs(r - g) < 12 && Math.abs(g - b) < 12 && (brightness > 195 || brightness < 20));
-            if (isBackground) continue;
-
-            totalLeafPixels++;
-
-            // Green (Healthy foliage)
-            if (g > r * 1.05 && g > b * 1.05 && g > 35) {
-              greenPixels++;
-            }
-            // Yellow / Chlorosis (Early Blight / Nutrient deficiency)
-            else if (r > 120 && g > 110 && b < 100 && Math.abs(r - g) < 55) {
-              chloroticPixels++;
-            }
-            // Brown / Necrosis (Late Blight / Scab / Leaf Spot lesions)
-            else if (r > 65 && r > g && g > b && r < 190 && b < 110) {
-              necroticPixels++;
-            }
-            // Dark spots / Deep lesions
-            else if (brightness < 65) {
-              darkSpots++;
-            }
-            else if (g > 45) {
-              greenPixels++;
-            }
-          }
-
-          if (totalLeafPixels === 0) totalLeafPixels = width * height;
-          const diseasedPixels = chloroticPixels + necroticPixels + darkSpots;
-          let affectedPct = Math.round((diseasedPixels / totalLeafPixels) * 100.0);
-          affectedPct = Math.min(88, Math.max(0, affectedPct));
-
-          // Infer Crop and Condition
-          const fname = (file.name || "").toLowerCase();
-          let crop = "Tomato";
-          let cropIcon = "🍅";
-
-          if (fname.includes("tomato")) {
-            crop = "Tomato"; cropIcon = "🍅";
-          } else if (fname.includes("potato")) {
-            crop = "Potato"; cropIcon = "🥔";
-          } else if (fname.includes("corn") || fname.includes("maize")) {
-            crop = "Corn"; cropIcon = "🌽";
-          } else if (fname.includes("rice") || fname.includes("paddy")) {
-            crop = "Rice"; cropIcon = "🌾";
-          } else if (fname.includes("apple")) {
-            crop = "Apple"; cropIcon = "🍎";
-          } else if (fname.includes("wheat")) {
-            crop = "Wheat"; cropIcon = "🌾";
-          } else if (fname.includes("grape")) {
-            crop = "Grapes"; cropIcon = "🍇";
-          } else if (fname.includes("cotton")) {
-            crop = "Cotton"; cropIcon = "🌱";
-          } else {
-            // Intelligent identification from color profiles
-            if (greenPixels > totalLeafPixels * 0.55) {
-              crop = "Tomato"; cropIcon = "🍅";
-            } else if (chloroticPixels > totalLeafPixels * 0.25) {
-              crop = "Corn"; cropIcon = "🌽";
-            } else {
-              crop = "Potato"; cropIcon = "🥔";
-            }
-          }
-
-          let disease = "Healthy Foliage";
-          let pathogen = "None";
-          let severity = "Healthy";
-          let sevColor = "#10b981";
-          let sevBadge = "success";
-          let urgency = "Routine Maintenance";
-          let summary = "Leaf tissue shows optimal green chlorophyll coverage with no active pathogen colonization.";
-
-          if (affectedPct < 8 && diseasedPixels < totalLeafPixels * 0.1) {
-            severity = "Healthy";
-            sevColor = "#10b981";
-            sevBadge = "success";
-            disease = "Healthy Leaf";
-            pathogen = "None";
-            urgency = "Routine Maintenance";
-            summary = `Foliage is healthy with optimal chlorophyll levels and zero pathogenic sporulation observed.`;
-          } else if (necroticPixels >= chloroticPixels) {
-            disease = crop === "Tomato" ? "Early Blight" :
-                      crop === "Potato" ? "Late Blight" :
-                      crop === "Corn" ? "Common Rust" :
-                      crop === "Rice" ? "Leaf Blast" :
-                      crop === "Apple" ? "Apple Scab" :
-                      "Foliar Blight";
-            pathogen = "Fungal Pathogen";
-            severity = affectedPct > 35 ? "High" : affectedPct > 15 ? "Medium" : "Low";
-            sevColor = severity === "High" ? "#ef4444" : severity === "Medium" ? "#f59e0b" : "#3b82f6";
-            sevBadge = severity === "High" ? "danger" : severity === "Medium" ? "warning" : "info";
-            urgency = severity === "High" ? "Immediate Action (24h)" : "Act within 48-72h";
-            summary = `Active necrotic lesions detected across ${affectedPct}% of leaf surface. Concentric fungal rings and cellular collapse observed along lesion borders.`;
-          } else {
-            disease = crop === "Tomato" ? "Early Blight" :
-                      crop === "Corn" ? "Common Rust" :
-                      crop === "Rice" ? "Bacterial Leaf Streak" :
-                      "Chlorotic Leaf Spot";
-            pathogen = "Fungal / Microbial";
-            severity = affectedPct > 30 ? "High" : affectedPct > 15 ? "Medium" : "Low";
-            sevColor = severity === "High" ? "#ef4444" : severity === "Medium" ? "#f59e0b" : "#3b82f6";
-            sevBadge = severity === "High" ? "danger" : severity === "Medium" ? "warning" : "info";
-            urgency = severity === "High" ? "Immediate Action (24h)" : "Act within 3-4 days";
-            summary = `Chlorotic yellow halos covering ${affectedPct}% of foliar surface indicate developing pathogen infection and chlorophyll breakdown.`;
-          }
-
-          const actionSteps = [
-            {
-              type: severity === "High" ? "critical" : "preventive",
-              title: severity === "High" ? "Prune & Sanitize Foliage" : "Improve Canopy Aeration",
-              text: severity === "High"
-                ? "Immediately prune and safely destroy heavily infected leaves showing necrosis. Avoid sprinkler or overhead watering to stop spore dispersion."
-                : "Thin out crowded lower branches to ensure good air circulation and lower canopy humidity."
-            },
-            {
-              type: "organic",
-              title: "Organic Neem Oil Spray",
-              text: "Spray cold-pressed neem oil (5ml/L) emulsified with 2ml/L mild liquid soap early in the morning before direct sunlight. Repeat every 7-10 days."
-            },
-            {
-              type: "chemical",
-              title: "Targeted Fungicide Spray",
-              text: severity === "High"
-                ? "Apply Cymoxanil + Mancozeb (2.5g/L) or Azoxystrobin + Difenoconazole (1ml/L). Ensure complete underside leaf coverage."
-                : "Apply preventive Mancozeb 75% WP @ 2.5g/L or Copper Oxychloride 50% WP @ 2.5g/L before rain events."
-            }
-          ];
-
-          const confidence = Math.round((0.92 + Math.random() * 0.06) * 100) / 100;
-
-          resolve({
-            status: "success",
-            crop: crop,
-            crop_icon: cropIcon,
-            disease: disease,
-            original_disease: disease,
-            pathogen_type: pathogen,
-            confidence: confidence,
-            severity: severity,
-            severity_badge: sevBadge,
-            severity_color: sevColor,
-            affected_area_pct: affectedPct,
-            urgency: urgency,
-            summary: summary,
-            action_steps: actionSteps
-          });
-        } catch (err) {
-          console.error("Local analysis error:", err);
-          resolve(null);
-        }
-      };
-      img.onerror = () => resolve(null);
-      img.src = dataUrl;
-    });
-  }
-
   // 5. Submit Scan (AI Diagnostic Pipeline)
   async function submitScan(file, dataUrl) {
     // Show loader UI
@@ -439,30 +378,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     voiceAssistant.stop();
 
+    // Check if it's a known built-in sample leaf
+    const matchKey = Object.keys(SAMPLE_DIAGNOSES).find(k =>
+      file.name && file.name.toLowerCase().includes(k.replace(".jpg", "").replace(/_/g, ""))
+    );
+
     const formData = new FormData();
     formData.append("image", file);
     formData.append("lang", state.language);
     formData.append("session_id", state.sessionId);
 
     let result = null;
+    let backendErrorMsg = null;
 
     // 1. Primary: Query the live PyTorch Backend
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 12000);
       const response = await fetch(`${API_BASE}/api/upload`, {
         method: "POST",
         headers: {
           "bypass-tunnel-reminder": "true"
         },
+        signal: controller.signal,
         body: formData
       });
+      clearTimeout(timeoutId);
+
       if (response.ok) {
         result = await response.json();
+        backendOnline = true;
+        updateServerStatusUI(true);
+      } else {
+        const errJson = await response.json().catch(() => null);
+        backendErrorMsg = (errJson && errJson.message) || `Server returned status ${response.status}`;
       }
     } catch (err) {
-      console.warn("Backend server connection attempt:", err);
+      console.warn("Backend server connection attempt failed:", err);
+      backendOnline = false;
+      updateServerStatusUI(false);
+      backendErrorMsg = "AI backend server is unreachable from this device.";
     }
 
-    // 2. If PyTorch backend returned diagnosis (even with low_confidence status), use it!
+    // 2. If PyTorch backend returned diagnosis, use it!
     if (result && (result.status === "success" || result.status === "low_confidence" || result.crop)) {
       result.status = "success";
       elements.loadingState.style.display = "none";
@@ -473,26 +431,85 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // 3. Fallback: Check if it's one of the known sample leaves
-    const matchKey = Object.keys(SAMPLE_DIAGNOSES).find(k => file.name && file.name.toLowerCase().includes(k.replace(".jpg", "").replace(/_/g, "")));
+    // 3. If user clicked one of the built-in demo sample leaves, show demo diagnosis:
     if (matchKey && SAMPLE_DIAGNOSES[matchKey]) {
       result = { status: "success", ...SAMPLE_DIAGNOSES[matchKey] };
-    } else {
-      // 4. Pixel-level Canvas Vision Analysis
-      result = await analyzeLeafImageLocally(file, dataUrl);
-    }
-
-    elements.loadingState.style.display = "none";
-
-    if (result && result.status === "success") {
+      elements.loadingState.style.display = "none";
       state.currentScanResult = result;
       saveLocalScan(result);
       renderResults(result, dataUrl);
-      showToast(`Diagnosed: ${result.crop} - ${result.disease}!`, "success");
-    } else {
-      showToast("Could not analyze image. Please upload a clear photo of the plant leaf.", "error");
-      elements.emptyState.style.display = "flex";
+      showToast(`Sample Leaf: ${result.crop} - ${result.disease}`, "info");
+      return;
     }
+
+    // 4. For custom user photo, if backend is disconnected: NEVER fabricate a fake diagnosis!
+    elements.loadingState.style.display = "none";
+    elements.emptyState.style.display = "none";
+    elements.resultsContent.style.display = "block";
+
+    renderBackendOfflineNotice(dataUrl, backendErrorMsg);
+  }
+
+  function renderBackendOfflineNotice(dataUrl, errorDetail) {
+    elements.diagnosisImg.src = dataUrl || "/assets/samples/tomato_early_blight.jpg";
+    elements.cropTag.innerHTML = `⚠️ Server Disconnected`;
+    elements.diseaseTitle.textContent = "AI Model Unreachable";
+
+    elements.severityBadge.className = "badge badge-danger";
+    elements.severityBadge.innerHTML = `⚠️ Offline`;
+    elements.urgencyBadge.innerHTML = `⏱️ Connect Backend`;
+
+    elements.affectedPctVal.textContent = `--%`;
+    elements.affectedFill.style.width = `0%`;
+    elements.affectedFill.style.background = "#94a3b8";
+
+    elements.confidenceVal.textContent = `--%`;
+    elements.confidenceFill.style.width = `0%`;
+    elements.confidenceFill.style.background = "#94a3b8";
+
+    elements.diseaseSummary.innerHTML = `
+      <div style="background: #fef2f2; border: 1px solid #fecaca; border-radius: var(--radius-sm); padding: 0.75rem; color: #991b1b; margin-bottom: 0.75rem;">
+        <b>⚠️ AI Diagnostic Server Not Connected</b><br>
+        <span style="font-size: 0.85rem;">CropGuard requires a live connection to the PyTorch AI backend to run disease inference on custom photos.</span>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+        ${errorDetail ? `Status: <code>${errorDetail}</code><br>` : ''}
+        To diagnose leaves from another device, connect to your PC's IP or enter your public tunnel URL in Server Settings.
+      </p>
+      <button id="openServerConfigFromResultsBtn" class="btn btn-primary" style="width: 100%; font-size: 0.85rem; padding: 0.6rem; margin-bottom: 0.5rem;">
+        ⚙️ Configure Backend Server Connection
+      </button>
+      <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center;">
+        You can also test the full diagnostic UI using the built-in demo leaves on the left.
+      </p>
+    `;
+
+    setTimeout(() => {
+      const btn = document.getElementById("openServerConfigFromResultsBtn");
+      if (btn) {
+        btn.addEventListener("click", () => {
+          if (serverUrlInput) serverUrlInput.value = API_BASE;
+          if (serverPingResult) serverPingResult.style.display = "none";
+          if (serverModal) serverModal.classList.add("active");
+        });
+      }
+    }, 50);
+
+    elements.treatmentList.innerHTML = `
+      <div class="action-card preventive" style="opacity: 0.85;">
+        <div class="action-card-header">
+          <span class="action-card-icon">💡</span>
+          <h4 class="action-card-title">How to connect on another device:</h4>
+        </div>
+        <p class="action-card-body" style="font-size: 0.82rem; line-height: 1.5;">
+          1. Start CropGuard on your computer: <code>python run_all.py</code><br>
+          2. Tap the <b>AI Server Offline</b> badge at the top of the screen.<br>
+          3. Enter your computer's IP address or tunnel URL and tap <b>Save & Connect</b>.
+        </p>
+      </div>
+    `;
+
+    showToast("AI Server unreachable. Tap server button at top to connect.", "error");
   }
 
   // 6. Render Diagnostic Results
