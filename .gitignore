@@ -69,3 +69,6 @@ ml-model/data/*
 *.sqlite
 *.sqlite3
 
+
+.vercel
+.env*

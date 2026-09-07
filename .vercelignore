@@ -1,0 +1,16 @@
+ml-model
+ml-model/**
+backend
+backend/**
+database
+database/**
+frontend
+frontend/**
+*.py
+*.md
+LICENSE
+*.db
+*.log
+.git
+.git/**
+.env*
