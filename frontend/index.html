@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CropGuard AI — Early Crop Disease Detection & Local Farmer Advisory</title>
+  <meta name="description" content="AI-powered leaf disease detection and actionable pest management in regional languages for farmers.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="bg-ambient"></div>
+
+  <!-- Header Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <div class="brand-icon-box">🌿</div>
+        <div class="brand-text">
+          <div style="display: flex; align-items: center; gap: 0.4rem;">
+            <h1 data-i18n="appTitle">CropGuard AI</h1>
+            <span class="brand-badge">MVP 1.0</span>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--text-muted);" data-i18n="tagline">Early Crop Disease Detection & Local Farmer Advisory</p>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="lang-selector-wrap">
+          <span>🌐</span>
+          <select id="langSelect" class="lang-selector" aria-label="Select Language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="mr">मराठी (Marathi)</option>
+            <option value="es">Español (Spanish)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="app-nav">
+    <div class="nav-container">
+      <button class="nav-btn active" data-tab="scanner">
+        <span class="nav-icon">🔍</span>
+        <span data-i18n="tabScanner">Leaf Diagnosis</span>
+      </button>
+      <button class="nav-btn" data-tab="doctor">
+        <span class="nav-icon">🤖</span>
+        <span data-i18n="tabDoctor">Crop Doctor AI</span>
+      </button>
+      <button class="nav-btn" data-tab="weather">
+        <span class="nav-icon">🌦️</span>
+        <span data-i18n="tabWeather">Weather Risk Radar</span>
+      </button>
+      <button class="nav-btn" data-tab="history">
+        <span class="nav-icon">📜</span>
+        <span data-i18n="tabHistory">Scan History</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Application Content -->
+  <main class="app-main">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1: LEAF DIAGNOSIS SCANNER -->
+    <!-- ======================================================== -->
+    <section id="tab-scanner" class="tab-pane active">
+      
+      <!-- Hero Banner -->
+      <div class="hero-banner">
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>✨</span> <span>Precision Agriculture AI</span>
+          </div>
+          <h2 class="hero-title" data-i18n="heroTitle">Protect Your Harvest with AI Diagnostics</h2>
+          <p class="hero-subtitle" data-i18n="heroSubtitle">Instant leaf disease detection, % infection severity, and farmer-friendly remedies in your local language.</p>
+          
+          <div class="quick-stats-row">
+            <div class="stat-chip">
+              <span>🎯</span>
+              <div><b data-i18n="statAccuracy">96.4% Model Accuracy</b></div>
+            </div>
+            <div class="stat-chip">
+              <span>🦠</span>
+              <div><b data-i18n="statDiseases">18+ Crop Pathogens</b></div>
+            </div>
+            <div class="stat-chip">
+              <span>🗣️</span>
+              <div><b data-i18n="statLanguages">5 Regional Languages</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scanner Grid -->
+      <div class="scanner-grid">
+        
+        <!-- Left: Upload Box & Samples -->
+        <div class="upload-column">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <span>📸</span> <span data-i18n="uploadTitle">Upload or Capture Leaf Photo</span>
+              </h3>
+            </div>
+
+            <!-- Drag & Drop Zone -->
+            <div id="dropzone" class="dropzone-container">
+              <div class="dropzone-icon">🍃</div>
+              <div class="dropzone-text">
+                <h3 data-i18n="uploadTitle">Upload or Capture Leaf Photo</h3>
+                <p data-i18n="uploadSubtitle">Drag and drop leaf image or choose from your camera</p>
+              </div>
+
+              <div class="upload-action-buttons">
+                <!-- Mobile Camera Button -->
+                <button id="btnCamera" class="btn btn-camera" type="button">
+                  <span>📷</span> <span data-i18n="btnTakePhoto">Take Photo</span>
+                </button>
+                <!-- File Picker Button -->
+                <button id="btnPickFile" class="btn btn-primary" type="button">
+                  <span>📁</span> <span data-i18n="btnUpload">Choose Image</span>
+                </button>
+              </div>
+
+              <!-- Hidden Inputs -->
+              <input id="fileInput" class="file-input-hidden" type="file" accept="image/*">
+              <input id="cameraInput" class="file-input-hidden" type="file" accept="image/*" capture="environment">
+            </div>
+
+            <!-- Quick Test Sample Leaves Bar -->
+            <div class="sample-bar-section">
+              <div class="sample-bar-header">
+                <h4 data-i18n="sampleHeader">Quick Test with Sample Leaves</h4>
+                <span style="font-size: 0.75rem; color: var(--primary);">1-Click Demo</span>
+              </div>
+              <div id="samplesContainer" class="samples-carousel">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Results & Treatment Dashboard -->
+        <div class="results-column">
+          <div class="card results-card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <span>📋</span> <span>Diagnostic Analysis & Treatment</span>
+              </h3>
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+              <div class="empty-state-icon">🔬</div>
+              <h3 data-i18n="emptyStateTitle">No Leaf Analyzed Yet</h3>
+              <p data-i18n="emptyStateDesc">Take a photo of a sick leaf or select a quick sample leaf above to get an instant diagnosis.</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+              <div class="spinner"></div>
+              <h3 data-i18n="loadingTitle">Analyzing Leaf Image...</h3>
+              <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="loadingSubtitle">
+                Segmenting leaf tissue, identifying pathogens, and generating actionable remedy...
+              </p>
+            </div>
+
+            <!-- Filled Results Content -->
+            <div id="resultsContent" class="results-content">
+              
+              <!-- Crop & Disease Header -->
+              <div class="diagnosis-header-card">
+                <img id="diagnosisImg" class="diagnosis-img-preview" src="" alt="Analyzed Leaf">
+                <div class="diagnosis-meta">
+                  <div id="cropTag" class="crop-tag">🌱 Tomato</div>
+                  <h3 id="diseaseTitle" class="disease-name-title">Early Blight</h3>
+                  <div class="badge-row">
+                    <span id="severityBadge" class="badge badge-medium badge-pulse">⚠️ Severity: Medium</span>
+                    <span id="urgencyBadge" class="badge urgency-badge">⏱️ Act within 24-48 hours</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Dual Meters (Severity & AI Confidence) -->
+              <div class="meters-grid">
+                <!-- Leaf Infection Area Meter -->
+                <div class="meter-box">
+                  <div class="meter-header">
+                    <span data-i18n="affectedAreaLabel">Infected Leaf Area</span>
+                    <span id="affectedPctVal" class="meter-val">28.5%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div id="affectedFill" class="progress-fill" style="width: 28.5%; background: var(--severity-medium);"></div>
+                  </div>
+                </div>
+
+                <!-- AI Confidence Meter -->
+                <div class="meter-box">
+                  <div class="meter-header">
+                    <span data-i18n="confidenceLabel">AI Confidence</span>
+                    <span id="confidenceVal" class="meter-val">94%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div id="confidenceFill" class="progress-fill" style="width: 94%; background: var(--severity-healthy);"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Plan Section -->
+              <div class="action-plan-wrap">
+                <div class="section-subtitle">
+                  <span data-i18n="actionPlanTitle">Actionable Treatment Plan</span>
+                  <button id="speechBtn" class="speech-btn" type="button">
+                    <span>🔊</span> <span data-i18n="btnListen">Listen Aloud</span>
+                  </button>
+                </div>
+
+                <div id="actionStepsList" class="action-cards-list">
+                  <!-- Injected via JS -->
+                </div>
+              </div>
+
+              <!-- Ask Doctor for More Button -->
+              <div style="margin-top: 1.25rem;">
+                <button id="btnAskDoctorForScan" class="btn btn-outline" style="width: 100%;" type="button">
+                  <span>💬</span> <span data-i18n="btnAskDoctor">Ask Crop Doctor About This</span>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 2: CROP DOCTOR AI CHATBOT (KISAN SAHAYAK) -->
+    <!-- ======================================================== -->
+    <section id="tab-doctor" class="tab-pane">
+      <div class="chat-container">
+        
+        <div class="chat-header">
+          <div class="chat-header-info">
+            <div class="chat-avatar">👨‍🌾</div>
+            <div>
+              <h3 style="font-size: 1.05rem; font-weight: 700;">Kisan Sahayak (Crop Doctor AI)</h3>
+              <p style="font-size: 0.75rem; color: #d1fae5;">RAG Agronomy Knowledge Base • Real-time Guidance</p>
+            </div>
+          </div>
+          <span class="badge" style="background: rgba(255,255,255,0.2); color:#fff;">Online</span>
+        </div>
+
+        <div id="chatMessages" class="chat-messages-area">
+          <div class="chat-msg bot">
+            <div class="chat-bubble">
+              🌱 <b>Namaste Farmer Friend!</b><br>
+              I am your AI Crop Doctor. Ask me anything about leaf spots, pesticide dosages, organic neem sprays, crop rotation, or fungal disease prevention!
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggestion Chips Bar -->
+        <div class="chat-suggestions-bar">
+          <button class="chip-btn" type="button">How to treat Tomato Early Blight organically?</button>
+          <button class="chip-btn" type="button">What is the Mancozeb dosage for potato blight?</button>
+          <button class="chip-btn" type="button">How to cure whitefly infestation?</button>
+          <button class="chip-btn" type="button">How to prevent rice blast disease?</button>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-bar">
+          <input id="chatInput" class="chat-input" type="text" placeholder="Ask about organic neem sprays, fertilizer dosages, leaf spots..." data-i18n-placeholder="chatPlaceholder">
+          <button id="chatSendBtn" class="btn btn-primary" type="button">
+            <span>➤</span> <span data-i18n="btnSend">Ask</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 3: WEATHER & DISEASE RISK RADAR -->
+    <!-- ======================================================== -->
+    <section id="tab-weather" class="tab-pane">
+      <div class="weather-radar-grid">
+        
+        <!-- Controls Sidebar -->
+        <div class="weather-controls-box">
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;" data-i18n="weatherTitle">Weather-Driven Disease Risk</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;" data-i18n="weatherSubtitle">Microclimate parameters for disease sporulation</p>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>🌡️ Temperature</span>
+              <span id="tempVal" style="color: var(--primary); font-weight: 700;">26.0°C</span>
+            </div>
+            <input id="tempSlider" class="range-slider" type="range" min="10" max="45" step="0.5" value="26.0">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>💧 Relative Humidity</span>
+              <span id="humidityVal" style="color: #0284c7; font-weight: 700;">82%</span>
+            </div>
+            <input id="humiditySlider" class="range-slider" type="range" min="20" max="100" step="1" value="82">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span>🌧️ Rainfall / Dew</span>
+              <span id="rainVal" style="color: #6366f1; font-weight: 700;">4.5 mm</span>
+            </div>
+            <input id="rainSlider" class="range-slider" type="range" min="0" max="25" step="0.5" value="4.5">
+          </div>
+
+          <div style="background: #f1f5f9; padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-secondary);">
+            💡 <i>Fungal spores germinate when relative humidity exceeds 75% with temperatures between 18°C and 28°C.</i>
+          </div>
+        </div>
+
+        <!-- Radar Results Area -->
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h3 style="font-size: 1.2rem; font-weight: 800;">Real-Time Risk Analysis</h3>
+            <span id="weatherOverallBadge" class="badge badge-high">High Risk Alert</span>
+          </div>
+
+          <div style="margin-bottom: 1.5rem;">
+            <h4 id="weatherHeadline" style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">
+              High Fungal Blight Outbreak Risk Detected!
+            </h4>
+            <p id="weatherSummary" style="font-size: 0.9rem; color: var(--text-secondary);">
+              High relative humidity (82%) and optimal temp (26°C) create prime conditions for Late Blight, Scab, and Downy Mildew.
+            </p>
+          </div>
+
+          <!-- Risk Breakdown Cards -->
+          <div id="riskCardsContainer" class="risk-cards-grid" style="margin-bottom: 1.5rem;">
+            <!-- Injected via JS -->
+          </div>
+
+          <!-- Advisory Checklist -->
+          <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem;">
+            <h5 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.6rem;">🛡️ Agronomic Field Preparation Checklist:</h5>
+            <ul id="weatherChecklist" style="list-style: none;">
+              <!-- Injected via JS -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- TAB 4: SCAN HISTORY -->
+    <!-- ======================================================== -->
+    <section id="tab-history" class="tab-pane">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">
+            <span>📜</span> <span data-i18n="historyTitle">Previous Crop Scans</span>
+          </h3>
+          <button id="refreshHistoryBtn" class="btn btn-outline btn-sm" type="button">
+            <span>🔄</span> <span>Refresh</span>
+          </button>
+        </div>
+
+        <div id="historyGrid" class="history-grid">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <p>🌾 <b>CropGuard AI</b> — Empowering farmers with early disease detection and localized agronomy intelligence.</p>
+    <p style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--text-muted);">
+      Built for Hackathon MVP • Monorepo: /ml-model, /backend, /frontend, /database
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/i18n.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/camera.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

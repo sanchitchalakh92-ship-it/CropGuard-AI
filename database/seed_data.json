@@ -1,0 +1,2675 @@
+[
+  {
+    "crop": "Tomato",
+    "scientific_name": "Solanum lycopersicum",
+    "icon": "🍅",
+    "category": "Vegetable",
+    "diseases": [
+      {
+        "name": "Early Blight",
+        "pathogen_type": "Fungal (Alternaria solani)",
+        "description": "Characterized by dark brown concentric ring spots (target-like) on older lower leaves, causing yellowing and premature leaf drop.",
+        "recommended_action": "Prune and dispose of infected bottom leaves immediately. Avoid overhead sprinkler watering. Apply copper fungicide or chlorothalonil in early morning or evening.",
+        "prevention_tips": "Rotate crops every 2-3 years away from nightshades. Maintain 2-3 feet spacing for airflow. Apply 2 inches of clean straw mulch around plant base.",
+        "organic_control": "Spray neem oil solution (5ml/L) or copper octanoate soap spray once every 7 days. Spray bio-fungicide Trichoderma harzianum at root zone.",
+        "chemical_control": "Apply Mancozeb 75% WP @ 2.5g/L or Azoxystrobin 23% SC @ 1ml/L at the first appearance of concentric spots.",
+        "urgency": "Act within 24-48 hours",
+        "severity_notes": "Low (<15% leaf area): Prune infected leaves. Medium (15-40%): Apply fungicide immediately. High (>40%): Severe yield risk, isolate area.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का अगेती झुलसा (Early Blight)",
+            "recommended_action": "संक्रमित निचली पत्तियों को तुरंत काटकर नष्ट करें। ऊपर से पानी छिड़कने से बचें। तांबा युक्त फफूंदनाशक या मैंकोजेब का सुबह या शाम छिड़काव करें।",
+            "prevention_tips": "फसल चक्र अपनाएं। पौधों के बीच 2-3 फीट की दूरी रखें ताकि हवा का संचार हो सके। मिट्टी पर पुआल की मल्चिंग करें।",
+            "organic_control": "नीम का तेल (5 मिली प्रति लीटर पानी) या ट्राइकोडर्मा हरजिएनम का घोल 7 दिनों के अंतराल पर छिड़कें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) या एजोक्सीस्ट्रोबिन (1 मिली/लीटर) का तुरंत छिड़काव करें।",
+            "urgency": "24 से 48 घंटे के भीतर कदम उठाएं"
+          },
+          "mr": {
+            "name": "टोमॅटोवरील लवकर येणारा करपा (Early Blight)",
+            "recommended_action": "खालच्या बाधित पानांची छाटणी करून नष्ट करा. तुषार सिंचन टाळा. सकाळी किंवा संध्याकाळी कॉपर बुरशीनाशक फवारा.",
+            "prevention_tips": "पिकांची फेरपालट करा. झाडांमध्ये पुरेशी हवा खेळती राहण्यासाठी योग्य अंतर ठेवा. मुळांशी आच्छादन (मल्चिंग) करा.",
+            "organic_control": "कडुनिंब तेल (५ मिली/लिटर) किंवा ट्रायकोडर्मा बुरशीनाशकाची फवारणी करा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) किंवा अझोक्सीस्ट्रॉबिन फवारा.",
+            "urgency": "२४ ते ४८ तासांत उपाययोजना करा"
+          },
+          "es": {
+            "name": "Tizón Temprano del Tomate (Early Blight)",
+            "recommended_action": "Pode las hojas inferiores infectadas y destrúyalas. Evite el riego por aspersión superior. Aplique fungicida a base de cobre o mancozeb.",
+            "prevention_tips": "Rotación de cultivos cada 2 años. Mantenga buen espaciado entre plantas y coloque acolchado orgánico.",
+            "organic_control": "Aplique aceite de neem (5ml/L) o jabón con sulfato de cobre cada 7 días.",
+            "chemical_control": "Aplique Mancozeb al 75% WP (2.5g/L) o Azoxistrobina al primer síntoma.",
+            "urgency": "Actuar en 24 a 48 horas"
+          },
+          "te": {
+            "name": "టమోటా ముందస్తు తెగులు (Early Blight)",
+            "recommended_action": "సోకిన క్రింది ఆకులను వెంటనే తొలగించి కాల్చండి. కాపర్ శిలీంద్ర సంహారిణి లేదా మాంకోజెబ్ పిచికారీ చేయండి.",
+            "prevention_tips": "పంట మార్పిడి చేయండి. మొక్కల మధ్య తగినంత గాలి వెలుతురు ఉండేలా చూసుకోండి.",
+            "organic_control": "వేప నూనె (5 మి.లీ / లీటరు) లేదా ట్రైకోడెర్మా ద్రావణం పిచికారీ చేయండి.",
+            "chemical_control": "మాంకోజెబ్ 75% WP (2.5 గ్రా/లీ) లేదా అజాక్సిస్ట్రోబిన్ పిచికారీ చేయండి.",
+            "urgency": "24-48 గంటల్లో చర్య తీసుకోండి"
+          }
+        }
+      },
+      {
+        "name": "Late Blight",
+        "pathogen_type": "Oomycete (Phytophthora infestans)",
+        "description": "Rapidly spreading water-soaked dark lesions on leaves and stems with white fuzzy fungal growth on the underside during humid weather.",
+        "recommended_action": "HIGHLY CONTAGIOUS! Remove badly infected plants immediately to save the field. Spray systemic fungicide with metalaxyl or cymoxanil within 24 hours.",
+        "prevention_tips": "Plant certified disease-free resistant varieties. Avoid late evening overhead watering. Keep foliage completely dry.",
+        "organic_control": "Bordeaux mixture (1%) or preventive copper oxychloride spray before wet rainy periods.",
+        "chemical_control": "Metalaxyl 8% + Mancozeb 64% WP (Ridomil MZ) @ 2.5g/L or Cymoxanil 8% + Mancozeb 64% @ 2g/L.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Spreads in cool, wet weather. Can destroy entire crop in 7-10 days if unmanaged.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का पछेती झुलसा (Late Blight)",
+            "recommended_action": "अत्यंत संक्रामक! गंभीर रूप से संक्रमित पौधों को तुरंत उखाड़कर नष्ट करें। 24 घंटे के भीतर रिडोमिल या सिस्टेमिक फफूंदनाशक का छिड़काव करें।",
+            "prevention_tips": "रोगमुक्त प्रमाणित बीज लगाएं। शाम को पौधों के ऊपर पानी डालने से बचें।",
+            "organic_control": "बारिश से पहले बोर्डो मिश्रण (1%) या कॉपर ऑक्सीक्लोराइड का छिड़काव करें।",
+            "chemical_control": "रिडोमिल एमजेड (मेटालेक्सिल + मैंकोजेब) 2.5 ग्राम/लीटर पानी में घोलकर छिड़कें।",
+            "urgency": "अति आवश्यक: 24 घंटे में कार्रवाई करें"
+          },
+          "mr": {
+            "name": "टोमॅटोचा उशिरा येणारा करपा (Late Blight)",
+            "recommended_action": "अतिशय वेगाने पसरतो! जास्त बाधित रोपे शेतातून काढून नष्ट करा. २४ तासांत मेटॅलॅक्सिल किंवा सिस्टिमिक बुरशीनाशक फवारा.",
+            "prevention_tips": "प्रमाणित बियाणे वापरा. संध्याकाळी पानावरील पाणी देणे टाळा.",
+            "organic_control": "१% बोर्डो मिश्रण किंवा कॉपर ऑक्झिक्लोराईडची प्रतिबंधात्मक फवारणी करा.",
+            "chemical_control": "रिडोमिल एमझेड (२.५ ग्रॅम/लिटर) तातडीने फवारा.",
+            "urgency": "अति तातडीचे: २४ तासांत फवारणी करा"
+          },
+          "es": {
+            "name": "Tizón Tardío del Tomate (Late Blight)",
+            "recommended_action": "¡MUY CONTAGIOSO! Retire las plantas gravemente dañadas. Aplique fungicida sistémico con metalaxil dentro de las primeras 24 horas.",
+            "prevention_tips": "Use semillas certificadas libres de patógenos y evite humedecer el follaje.",
+            "organic_control": "Caldo bordelés al 1% o hidróxido de cobre preventivo.",
+            "chemical_control": "Metalaxil 8% + Mancozeb 64% WP (2.5 g/L).",
+            "urgency": "CRÍTICO: Actuar en 24 horas"
+          },
+          "te": {
+            "name": "టమోటా ఆలస్యపు తెగులు (Late Blight)",
+            "recommended_action": "అత్యంత ప్రమాదకరం! బాగా సోకిన మొక్కలను పీకి నాశనం చేయండి. 24 గంటల్లో రిడోమిల్ పిచికారీ చేయండి.",
+            "prevention_tips": "ఆరోగ్యకరమైన విత్తనాలు వాడండి. రాత్రి సమయాల్లో ఆకులపై నీరు పడకుండా చూడండి.",
+            "organic_control": "బోర్డో మిశ్రమం (1%) లేదా కాపర్ ఆక్సిక్లోరైడ్ పిచికారీ చేయండి.",
+            "chemical_control": "మెటలాక్సిల్ + మాంకోజెబ్ (2.5 గ్రా/లీ) తక్షణమే పిచికారీ చేయండి.",
+            "urgency": "అత్యవసరం: 24 గంటల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Tomato Yellow Leaf Curl Virus",
+        "pathogen_type": "Viral (TYLCV vectored by Whiteflies)",
+        "description": "Leaves curl upward, cup-shaped, severe stunting, yellow leaf margins, and flower drop leading to zero fruit set.",
+        "recommended_action": "Control whitefly vectors immediately using yellow sticky traps and insecticidal soap. Rogue out stunted infected plants.",
+        "prevention_tips": "Install 40-50 mesh insect nets in nurseries. Use silver reflective mulches to deter whiteflies.",
+        "organic_control": "Spray 2% Neem oil or Pongamia pinnata oil (5ml/L) + soap every 5 days to suffocate whitefly nymphs.",
+        "chemical_control": "Spray Imidacloprid 17.8% SL @ 0.3ml/L or Acetamiprid 20% SP @ 0.5g/L to eliminate vector whiteflies.",
+        "urgency": "Act within 2-3 days",
+        "severity_notes": "Once a plant is infected with the virus, it cannot be cured; focus is on preventing spread to healthy crop.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का पर्ण कुंचन विषाणु (Yellow Leaf Curl Virus)",
+            "recommended_action": "सफेद मक्खी (व्हाइटफ्लाई) कीट को नियंत्रित करें। पीले चिपचिपे ट्रैप लगाएं और गंभीर रूप से ग्रसित पौधों को उखाड़ें।",
+            "prevention_tips": "नर्सरी में कीट रोधक जाली (40 मेश) लगाएं और सिल्वर मल्चिंग का उपयोग करें।",
+            "organic_control": "नीम का तेल (5 मिली/लीटर) 5 दिन के अंतराल पर छिड़कें।",
+            "chemical_control": "इमिडाक्लोप्रिड 17.8% SL (0.3 मिली/लीटर) या एसिटामिप्रिड का छिड़काव करें।",
+            "urgency": "2-3 दिन में कीट नियंत्रण करें"
+          },
+          "mr": {
+            "name": "टोमॅटोवरील पर्णगुच्छ / चुरडा-मुरडा (Leaf Curl Virus)",
+            "recommended_action": "पांढरी माशीचे तातडीने नियंत्रण करा. पिवळे चिकट सापळे लावा. बाधित झाडे उपटून नष्ट करा.",
+            "prevention_tips": "रोपवाटिकेत कीटकरोधक जाळी वापरा. सिल्व्हर मल्चिंग पेपर वापरा.",
+            "organic_control": "निंबोळी अर्क ५% किंवा कडुनिंब तेल ५ मिली/लिटर फवारा.",
+            "chemical_control": "इमिडाक्लोप्रिड १७.८% SL (०.३ मिली/लिटर) फवारा.",
+            "urgency": "२ ते ३ दिवसांत कीड नियंत्रण करा"
+          },
+          "es": {
+            "name": "Virus del Rizado Amarillo del Tomate (TYLCV)",
+            "recommended_action": "Controle la mosca blanca de inmediato usando trampas adhesivas amarillas e insecticidas específicos.",
+            "prevention_tips": "Use mallas anti-insectos en semilleros y acolchados plásticos reflectantes plateados.",
+            "organic_control": "Aceite de neem al 2% con jabón potásico cada 5 días.",
+            "chemical_control": "Imidacloprid 17.8% SL (0.3 ml/L) o Acetamiprid 20% SP.",
+            "urgency": "Actuar en 2-3 días"
+          },
+          "te": {
+            "name": "టమోటా ఆకు ముడుత వైరస్ (Leaf Curl Virus)",
+            "recommended_action": "తెల్ల దోమల నివారణకు పసుపు రంగు జిగురు అట్టలు పెట్టండి. వైరస్ సోకిన మొక్కలను పీకేయండి.",
+            "prevention_tips": "నారుమళ్లలో నెట్ వాడండి. సిల్వర్ మల్చింగ్ వాడండి.",
+            "organic_control": "వేప నూనె (5 మి.లీ / లీ) పిచికారీ చేయండి.",
+            "chemical_control": "ఇమిడాక్లోప్రిడ్ (0.3 మి.లీ / లీ) పిచికారీ చేయండి.",
+            "urgency": "2-3 రోజుల్లో నివారించండి"
+          }
+        }
+      },
+      {
+        "name": "Bacterial Spot",
+        "pathogen_type": "Bacterial (Xanthomonas)",
+        "description": "Small water-soaked greasy spots on leaves turning dark brown with yellow halo, scab-like spots on green fruits.",
+        "recommended_action": "Do not work in the field when plants are wet. Spray copper hydroxide mixed with validamycin.",
+        "prevention_tips": "Use hot-water treated disease-free seeds. Avoid overhead irrigation.",
+        "organic_control": "Copper octanoate or Bordeaux mixture (0.5%) + Streptomyces bio-bactericide.",
+        "chemical_control": "Copper Oxychloride 50% WP @ 2.5g/L + Streptocycline @ 0.1g/L (1g in 10L water).",
+        "urgency": "Act within 2-3 days",
+        "severity_notes": "Bacterial infection driven by warm rain and wind splash.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का जीवाणु धब्बा (Bacterial Spot)",
+            "recommended_action": "गीली फसल में काम न करें। कॉपर ऑक्सीक्लोराइड और स्ट्रेप्टोसाइक्लिन का छिड़काव करें।",
+            "prevention_tips": "बीज को गर्म पानी से उपचारित करें और ड्रिप सिंचाई का प्रयोग करें।",
+            "organic_control": "कॉपर आधारित जैविक स्प्रे और स्यूडोमोनास का छिड़काव करें।",
+            "chemical_control": "कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) + स्ट्रेप्टोसाइक्लिन (1 ग्राम प्रति 10 लीटर पानी)।",
+            "urgency": "2-3 दिन में छिड़काव करें"
+          },
+          "mr": {
+            "name": "टोमॅटोवरील जिवाणूजन्य ठिपके (Bacterial Spot)",
+            "recommended_action": "ओल्या पिकात आंतरमशागत टाळा. कॉपर ऑक्झिक्लोराईड आणि स्ट्रेप्टोसायक्लिन फवारा.",
+            "prevention_tips": "प्रमाणित बियाणे वापरा, ठिबक सिंचनाचा वापर करा.",
+            "organic_control": "स्यूडोमोनास फ्लोरोसेन्स जैविक जिवाणूची फवारणी करा.",
+            "chemical_control": "कॉपर ऑक्झिक्लोराईड (२.५ ग्रॅम) + स्ट्रेप्टोसायक्लिन (१ ग्रॅम/१० लिटर) फवारा.",
+            "urgency": "२ ते ३ दिवसांत फवारा"
+          },
+          "es": {
+            "name": "Mancha Bacteriana del Tomate (Bacterial Spot)",
+            "recommended_action": "Evite manipular plantas húmedas. Aplique hidróxido de cobre combinado con sulfato de estreptomicina.",
+            "prevention_tips": "Utilice semillas tratadas y evite salpicaduras de agua.",
+            "organic_control": "Cobre orgánico y biofungicidas de Bacillus subtilis.",
+            "chemical_control": "Oxicloruro de cobre al 50% (2.5 g/L) + bactericida antibiótico agrícola.",
+            "urgency": "Actuar en 2-3 días"
+          },
+          "te": {
+            "name": "టమోటా బాక్టీరియల్ మచ్చల తెగులు (Bacterial Spot)",
+            "recommended_action": "కాపర్ ఆక్సిక్లోరైడ్ + స్ట్రెప్టోసైక్లిన్ కలిపి పిచికారీ చేయండి.",
+            "prevention_tips": "విత్తన శుద్ధి చేయండి, బిందు సేద్యం పాటించండి.",
+            "organic_control": "సూడోమోనాస్ ద్రావణం పిచికారీ చేయండి.",
+            "chemical_control": "కాపర్ ఆక్సిక్లోరైడ్ (2.5 గ్రా/లీ) + స్ట్రెప్టోసైక్లిన్ (1 గ్రా/10 లీటర్లు) కలపండి.",
+            "urgency": "2-3 రోజుల్లో పిచికారీ చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Plant foliage is vibrant, robust green with no sign of chlorosis, necrosis, lesions, or insect damage.",
+        "recommended_action": "No treatment required! Continue balanced nutrition (NPK 19:19:19) and regular scouting.",
+        "prevention_tips": "Maintain standard weeding, optimal irrigation schedule, and apply prophylactic organic neem spray once a month.",
+        "organic_control": "Monthly prophylactic spray of diluted seaweed extract or cow urine (5%) + neem cake at roots.",
+        "chemical_control": "No chemical application needed.",
+        "urgency": "Healthy - Routine Monitoring",
+        "severity_notes": "0% affected area. Optimal crop health.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ फसल (Healthy Leaf)",
+            "recommended_action": "कोई उपचार की आवश्यकता नहीं है! फसल स्वस्थ है। संतुलित पोषण और नियमित निगरानी जारी रखें।",
+            "prevention_tips": "नियमित निराई-गुड़ाई करें और महीने में एक बार नीम तेल का सुरक्षात्मक छिड़काव करें।",
+            "organic_control": "महीने में एक बार जैविक खाद व अमृतपानी का उपयोग करें।",
+            "chemical_control": "किसी रासायनिक छिड़काव की जरूरत नहीं है।",
+            "urgency": "स्वस्थ - सामान्य देखभाल"
+          },
+          "mr": {
+            "name": "निरोगी पीक (Healthy Crop)",
+            "recommended_action": "कोणत्याही औषधाची गरज नाही! पीक अतिशय निरोगी आहे. संतुलित खते व पाणी व्यवस्थापन ठेवा.",
+            "prevention_tips": "नियमित तणनियंत्रण करा आणि दर महिन्याला कडुनिंब अर्काची प्रतिबंधात्मक फवारणी करा.",
+            "organic_control": "जीवामृत किंवा सेंद्रिय खतांचा नियमित वापर करा.",
+            "chemical_control": "रासायनिक फवारणीची गरज नाही.",
+            "urgency": "निरोगी - नियमित निगा"
+          },
+          "es": {
+            "name": "Planta Saludable (Healthy)",
+            "recommended_action": "¡No requiere tratamiento! La planta está sana y vigorosa.",
+            "prevention_tips": "Mantenga el riego regular y nutrición balanceada con monitoreo continuo.",
+            "organic_control": "Aplicaciones preventivas mensuales de extracto de algas.",
+            "chemical_control": "No se requiere aplicación química.",
+            "urgency": "Saludable - Monitoreo de rutina"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన పంట (Healthy)",
+            "recommended_action": "ఎలాంటి మందులు వాడాల్సిన అవసరం లేదు! పంట ఆరోగ్యంగా ఉంది.",
+            "prevention_tips": "సమతుల్య ఎరువులు, సమయానికి నీటి తడులు ఇవ్వండి.",
+            "organic_control": "నెలకోసారి వేప నూనె రక్షణగా పిచికారీ చేయండి.",
+            "chemical_control": "ఎలాంటి రసాయనాలు అవసరం లేదు.",
+            "urgency": "ఆరోగ్యకరం - సాధారణ పర్యవేక్షణ"
+          }
+        }
+      },
+      {
+        "name": "Leaf Mold",
+        "pathogen_type": "Fungal (Passalora fulva / Cladosporium fulvum)",
+        "description": "Pale greenish-yellow spots on upper leaf surface with velvety olive-green to brown fungal mold on the underside.",
+        "recommended_action": "Increase ventilation and reduce humidity. Spray protective or systemic fungicide.",
+        "prevention_tips": "Keep humidity below 85%. Prune lower suckers to allow airflow.",
+        "organic_control": "Spray copper soap fungicide or potassium bicarbonate.",
+        "chemical_control": "Spray Difenoconazole 25% EC @ 1ml/L or Chlorothalonil 75% WP @ 2g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Common in polyhouses and humid shaded gardens.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का लीफ मोल्ड / पत्ती फफूंद (Leaf Mold)",
+            "recommended_action": "पॉलीहाउस में हवा का संचार बढ़ाएं और डाइफेनोकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "नमी 85% से कम रखें। नीचे की पत्तियों की छंटाई करें।",
+            "organic_control": "कॉपर या पोटाश बाईकार्बोनेट का छिड़काव करें।",
+            "chemical_control": "डाइफेनोकोनाजोल 25% EC (1 मिली/लीटर) या क्लोरोथैलोनिल छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "टोमॅटोवरील पानावरील बुरशी / लीफ मोल्ड (Leaf Mold)",
+            "recommended_action": "हवा खेळती ठेवा आणि डायफेनोकोनाझोल फवारा.",
+            "prevention_tips": "पॉलीहाऊसमध्ये आर्द्रता नियंत्रित ठेवा.",
+            "organic_control": "कॉपर फवारा.",
+            "chemical_control": "डायफेनोकोनाझोल (१ मिली/लिटर) फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      },
+      {
+        "name": "Septoria Leaf Spot",
+        "pathogen_type": "Fungal (Septoria lycopersici)",
+        "description": "Numerous small circular spots with dark brown margins and sunken grayish-white centers containing tiny black specks on lower leaves.",
+        "recommended_action": "Remove infected lower leaves and mulch around base. Spray protectant fungicide.",
+        "prevention_tips": "Avoid overhead watering; maintain 2-3 years rotation away from nightshades.",
+        "organic_control": "Copper soap or neem oil spray every 7 days.",
+        "chemical_control": "Spray Chlorothalonil 75% WP @ 2g/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes rapid progressive defoliation from ground level upwards.",
+        "translations": {
+          "hi": {
+            "name": "टमाटर का सेप्टोरिया पत्ती धब्बा (Septoria Leaf Spot)",
+            "recommended_action": "संक्रमित निचली पत्तियां तोड़ें। क्लोरोथैलोनिल या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "पौधों के आधार पर पुआल की मल्चिंग करें। ऊपर से पानी न डालें।",
+            "organic_control": "नीम का तेल (5 मिली/लीटर) या कॉपर साबुन का छिड़काव करें।",
+            "chemical_control": "क्लोरोथैलोनिल 75% WP (2 ग्राम/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "टोमॅटोवरील सेप्टोरिया पानांवरील ठिपके (Septoria Leaf Spot)",
+            "recommended_action": "बाधित पाने तोडा आणि क्लोरोथॅलोनिल किंवा मॅन्कोझेब फवारा.",
+            "prevention_tips": "मुळांशी मल्चिंग करा.",
+            "organic_control": "नीम तेल फवारा.",
+            "chemical_control": "क्लोरोथॅलोनिल (२ ग्रॅम/लिटर) किंवा मॅन्कोझेब फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Potato",
+    "scientific_name": "Solanum tuberosum",
+    "icon": "🥔",
+    "category": "Tuber",
+    "diseases": [
+      {
+        "name": "Late Blight",
+        "pathogen_type": "Oomycete (Phytophthora infestans)",
+        "description": "Dark brown-to-purplish water-soaked patches on leaves with pale green borders; causes tuber rotting in storage.",
+        "recommended_action": "Destroy severely blighted foliage before tuber infection. Spray Curzate (Cymoxanil + Mancozeb) or Revus immediately.",
+        "prevention_tips": "Use disease-free certified seed tubers. Hill up soil well around stems to prevent spores reaching tubers.",
+        "organic_control": "Copper sulphate + lime (Bordeaux mixture 1%) sprayed preventively when high humidity is forecast.",
+        "chemical_control": "Cymoxanil 8% + Mancozeb 64% WP @ 2.5g/L or Dimethomorph 50% WP @ 1g/L.",
+        "urgency": "URGENT: Act within 24-48 hours",
+        "severity_notes": "High humidity + cool nights trigger explosive spread across potato fields.",
+        "translations": {
+          "hi": {
+            "name": "आलू का पछेती झुलसा (Potato Late Blight)",
+            "recommended_action": "संक्रमित पौधों को तुरंत छांटें। 24-48 घंटे में साइमोक्सानिल + मैंकोजेब या डाइमेथोमॉर्फ का छिड़काव करें।",
+            "prevention_tips": "प्रमाणित रोगमुक्त आलू बीज का उपयोग करें और पौधों पर मिट्टी अच्छी तरह चढ़ाएं।",
+            "organic_control": "नमी और कोहरे के मौसम से पहले बोर्डो मिश्रण (1%) का छिड़काव करें।",
+            "chemical_control": "साइमोक्सानिल + मैंकोजेब (2.5 ग्राम/लीटर) या डाइमेथोमॉर्फ (1 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "बटाट्यावरील उशिरा येणारा करपा (Late Blight)",
+            "recommended_action": "लगेच सायमॉक्सॅनिल किंवा मॅन्कोझेब बुरशीनाशक फवारा. कंदांना संसर्ग होण्यापूर्वी मातीची भर लावा.",
+            "prevention_tips": "प्रमाणित बेणे वापरा. कंदांभोवती भरपूर माती लावा जेणेकरून बुरशी कंदांपर्यंत पोहोचणार नाही.",
+            "organic_control": "१% बोर्डो मिश्रणाची प्रतिबंधात्मक फवारणी करा.",
+            "chemical_control": "सायमॉक्सॅनिल + मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "तातडीने २४-४८ तासांत फवारा"
+          },
+          "es": {
+            "name": "Tizón Tardío de la Papa (Late Blight)",
+            "recommended_action": "Aplique fungicida curativo sistémico como Cimoxanilo + Mancozeb dentro de las 48 horas.",
+            "prevention_tips": "Use tubérculos semilla certificados y aporque bien los camellones.",
+            "organic_control": "Caldo bordelés al 1% preventivo.",
+            "chemical_control": "Cimoxanilo 8% + Mancozeb 64% WP (2.5 g/L).",
+            "urgency": "URGENTE: 24-48 horas"
+          },
+          "te": {
+            "name": "బంగాళాదుంప ఆలస్యపు తెగులు (Late Blight)",
+            "recommended_action": "వెంటనే సైమోక్సానిల్ లేదా మాంకోజెబ్ మందును పిచికారీ చేయండి.",
+            "prevention_tips": "ధృవీకరించబడిన విత్తన దుంపలు వాడండి.",
+            "organic_control": "బోర్డో మిశ్రమం పిచికారీ చేయండి.",
+            "chemical_control": "సైమోక్సానిల్ + మాంకోజెబ్ (2.5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "24-48 గంటల్లో చర్య తీసుకోండి"
+          }
+        }
+      },
+      {
+        "name": "Early Blight",
+        "pathogen_type": "Fungal (Alternaria solani)",
+        "description": "Target-like circular brown necrotic spots with concentric rings starting on older potato leaves.",
+        "recommended_action": "Remove affected lower foliage. Spray Chlorothalonil or Mancozeb to halt spread.",
+        "prevention_tips": "Avoid nitrogen deficiency (keep plants vigorous) and ensure proper vine spacing.",
+        "organic_control": "Bio-fungicide Bacillus subtilis or Trichoderma spray every 7-10 days.",
+        "chemical_control": "Mancozeb 75% WP @ 2.5g/L or Tebuconazole 25.9% EC @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces photosynthetic capacity and tuber size if untreated.",
+        "translations": {
+          "hi": {
+            "name": "आलू का अगेती झुलसा (Potato Early Blight)",
+            "recommended_action": "निचली ग्रसित पत्तियों को हटाएं। मैंकोजेब या टेबुकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "नाइट्रोजन की कमी न होने दें और खेत में जल निकासी अच्छी रखें।",
+            "organic_control": "ट्राइकोडर्मा या बैसिलस सबटिलिस का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) या टेबुकोनाजोल (1 मिली/लीटर)।",
+            "urgency": "3 दिन के भीतर छिड़काव करें"
+          },
+          "mr": {
+            "name": "बटाट्यावरील लवकर येणारा करपा (Early Blight)",
+            "recommended_action": "खालची खराब झालेली पाने काढा. मॅन्कोझेब किंवा टेबुकोनाझोलची फवारणी करा.",
+            "prevention_tips": "पोषक तत्वांचा संतुलित पुरवठा ठेवा आणि पाण्याचा योग्य निचरा करा.",
+            "organic_control": "ट्रायकोडर्मा बुरशीनाशकाची फवारणी करा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          },
+          "es": {
+            "name": "Tizón Temprano de la Papa (Early Blight)",
+            "recommended_action": "Pode el follaje inferior afectado y aplique fungicida protector.",
+            "prevention_tips": "Mantenga fertilización balanceada y buen drenaje.",
+            "organic_control": "Bacillus subtilis cada 7 a 10 días.",
+            "chemical_control": "Mancozeb 75% WP (2.5 g/L) o Tebuconazol.",
+            "urgency": "Actuar en 3 días"
+          },
+          "te": {
+            "name": "బంగాళాదుంప ముందస్తు తెగులు (Early Blight)",
+            "recommended_action": "సోకిన ఆకులను తొలగించి మాంకోజెబ్ పిచికారీ చేయండి.",
+            "prevention_tips": "సరైన పోషకాలు అందించండి.",
+            "organic_control": "ట్రైకోడెర్మా పిచికారీ చేయండి.",
+            "chemical_control": "మాంకోజెబ్ (2.5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "3 రోజుల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Potato foliage is dense, green, and free from blight lesions or curling.",
+        "recommended_action": "Maintain soil moisture and ensure adequate potassium for good tuber development.",
+        "prevention_tips": "Keep ridges well-earthed up and monitor for aphid vectors.",
+        "organic_control": "Soil drenching with bio-fertilizers (Potash Mobilizing Bacteria).",
+        "chemical_control": "No chemicals required.",
+        "urgency": "Healthy - Routine Monitoring",
+        "severity_notes": "0% affected area. Optimal plant health.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ आलू फसल (Healthy Potato)",
+            "recommended_action": "फसल स्वस्थ है। कंदों के अच्छे विकास के लिए पोटाश और उचित नमी बनाए रखें।",
+            "prevention_tips": "आलू के पौधों पर मिट्टी चढ़ाए रखें और माहू कीट पर नजर रखें।",
+            "organic_control": "पोटाश घोलक जीवाणु (KMB) का उपयोग करें।",
+            "chemical_control": "किसी दवा की जरूरत नहीं।",
+            "urgency": "स्वस्थ - सामान्य निगरानी"
+          },
+          "mr": {
+            "name": "निरोगी बटाटा पीक (Healthy Potato)",
+            "recommended_action": "पीक उत्तम स्थितीत आहे. कंद पोसण्यासाठी योग्य पाणी व खते द्या.",
+            "prevention_tips": "झाडांभोवती मातीची भर व्यवस्थित ठेवा.",
+            "organic_control": "सेंद्रिय खतांचा वापर सुरू ठेवा.",
+            "chemical_control": "कोणतेही रसायन फवारू नका.",
+            "urgency": "निरोगी - नियमित निगा"
+          },
+          "es": {
+            "name": "Papa Saludable (Healthy Potato)",
+            "recommended_action": "El cultivo está sano. Mantenga humedad adecuada para el llenado de tubérculos.",
+            "prevention_tips": "Aporque bien y monitoree presencia de pulgones.",
+            "organic_control": "Abonos orgánicos y biofertilizantes.",
+            "chemical_control": "No se requiere producto químico.",
+            "urgency": "Saludable"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన బంగాళాదుంప (Healthy)",
+            "recommended_action": "పంట ఆరోగ్యంగా ఉంది. తగినంత తేమను నిర్వహించండి.",
+            "prevention_tips": "మట్టిని సరిగ్గా ఎగదోయండి.",
+            "organic_control": "సేంద్రీయ ఎరువులు వాడండి.",
+            "chemical_control": "ఎలాంటి రసాయనాలు అవసరం లేదు.",
+            "urgency": "ఆరోగ్యకరం"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Corn (Maize)",
+    "scientific_name": "Zea mays",
+    "icon": "🌽",
+    "category": "Cereal",
+    "diseases": [
+      {
+        "name": "Common Rust",
+        "pathogen_type": "Fungal (Puccinia sorghi)",
+        "description": "Small, powdery, cinnamon-brown to reddish pustules scattered over both upper and lower leaf surfaces.",
+        "recommended_action": "Spray triazole or strobilurin fungicides if pustules appear before tassel stage. Plant resistant hybrids.",
+        "prevention_tips": "Plant early to avoid late-season rust spore showers. Use rust-resistant certified seed hybrids.",
+        "organic_control": "Wettable sulfur spray @ 3g/L or potassium bicarbonate foliar spray.",
+        "chemical_control": "Propiconazole 25% EC @ 1ml/L or Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1ml/L.",
+        "urgency": "Act within 3-5 days",
+        "severity_notes": "Mild infection late in season rarely reduces yield; early infection before pollination reduces ear weight.",
+        "translations": {
+          "hi": {
+            "name": "मक्के का सामान्य रतुआ (Corn Common Rust)",
+            "recommended_action": "यदि बालियां निकलने से पहले भूरे दाने दिखाई दें तो प्रोपिकोनाजोल या एजोक्सीस्ट्रोबिन का छिड़काव करें।",
+            "prevention_tips": "प्रतिरोधी संकर बीज बोएं और समय पर बुवाई करें।",
+            "organic_control": "घुलनशील गंधक (सल्फर) 3 ग्राम/लीटर का छिड़काव करें।",
+            "chemical_control": "प्रोपिकोनाजोल 25% EC (1 मिली/लीटर पानी) का छिड़काव करें।",
+            "urgency": "3 से 5 दिन में उपाय करें"
+          },
+          "mr": {
+            "name": "मक्यावरील तांबेरा (Corn Rust)",
+            "recommended_action": "पानांवर तांबडे पुरळ दिसल्यास प्रोपिकोनाझोल बुरशीनाशकाची फवारणी करा.",
+            "prevention_tips": "रोगप्रतिकारक संकरित वाण वापरा आणि वेळेवर पेरणी करा.",
+            "organic_control": "विद्राव्य गंधक (३ ग्रॅम/लिटर) फवारा.",
+            "chemical_control": "प्रोपिकोनाझोल २५% EC (१ मिली/लिटर) फवारा.",
+            "urgency": "३-५ दिवसांत फवारा"
+          },
+          "es": {
+            "name": "Roya Común del Maíz (Common Rust)",
+            "recommended_action": "Aplique fungicidas del grupo triazol si las pústulas aparecen antes del espigado.",
+            "prevention_tips": "Siembra temprana con híbridos resistentes a la roya.",
+            "organic_control": "Azufre elemental mojable (3g/L).",
+            "chemical_control": "Propiconazol 25% EC (1 ml/L).",
+            "urgency": "Actuar en 3 a 5 días"
+          },
+          "te": {
+            "name": "మొక్కజొన్న కుంకుమ తెగులు (Common Rust)",
+            "recommended_action": "ప్రొపికొనజోల్ లేదా అజాక్సిస్ట్రోబిన్ పిచికారీ చేయండి.",
+            "prevention_tips": "తెగులు తట్టుకునే రకాలను నాటండి.",
+            "organic_control": "సల్ఫర్ ద్రావణం (3 గ్రా/లీ) పిచికారీ చేయండి.",
+            "chemical_control": "ప్రొపికొనజోల్ (1 మి.లీ/లీ) పిచికారీ చేయండి.",
+            "urgency": "3-5 రోజుల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Northern Leaf Blight",
+        "pathogen_type": "Fungal (Exserohilum turcicum)",
+        "description": "Long, elliptical cigar-shaped grayish-green to tan lesions (1-6 inches long) spreading across corn leaves.",
+        "recommended_action": "Apply foliar fungicide if lesions appear on the ear leaf or higher around tasseling.",
+        "prevention_tips": "Deep tillage to bury infected crop residue. Rotate away from corn for at least 1 season.",
+        "organic_control": "Trichoderma viride foliar spray (5g/L) + compost tea.",
+        "chemical_control": "Pyraclostrobin + Fluxapyroxad or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes significant photosynthetic loss if ear leaf is blighted during grain fill.",
+        "translations": {
+          "hi": {
+            "name": "मक्के का उत्तरी पत्ती झुलसा (Northern Leaf Blight)",
+            "recommended_action": "सिगार के आकार के लंबे धब्बे दिखने पर मैंकोजेब या पाइराक्लोस्ट्रोबिन का छिड़काव करें।",
+            "prevention_tips": "गहरी जुताई करें और पिछले अवशेष नष्ट करें। फसल चक्र अपनाएं।",
+            "organic_control": "ट्राइकोडर्मा विरिडी (5 ग्राम/लीटर) का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) या एजोक्सीस्ट्रोबिन।",
+            "urgency": "3 दिन में छिड़काव करें"
+          },
+          "mr": {
+            "name": "मक्यावरील लांबट पानांचा करपा (Northern Leaf Blight)",
+            "recommended_action": "पानांवर लांबट सिगारसारखे डाग दिसल्यास मॅन्कोझेब फवारा.",
+            "prevention_tips": "खोल नांगरट करा आणि पिकांची फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्मा विरिडीची फवारणी करा.",
+            "chemical_control": "मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          },
+          "es": {
+            "name": "Tizón Foliar del Maíz (Northern Leaf Blight)",
+            "recommended_action": "Aplique fungicida foliar si las lesiones alcanzan la hoja de la mazorca.",
+            "prevention_tips": "Rotación de cultivos y enterrar los rastrojos infectados.",
+            "organic_control": "Trichoderma viride foliar.",
+            "chemical_control": "Mancozeb 75% WP (2.5 g/L).",
+            "urgency": "Actuar en 3 días"
+          },
+          "te": {
+            "name": "మొక్కజొన్న ఆకు ఎండు తెగులు (Northern Leaf Blight)",
+            "recommended_action": "మాంకోజెబ్ మందును పిచికారీ చేయండి.",
+            "prevention_tips": "పంట మార్పిడి చేయండి.",
+            "organic_control": "ట్రైకోడెర్మా పిచికారీ చేయండి.",
+            "chemical_control": "మాంకోజెబ్ (2.5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "3 రోజుల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Corn leaves are wide, dark green, free of rust pustules or blights.",
+        "recommended_action": "Top-dress with nitrogen (urea) at knee-high stage and ensure adequate moisture during silking.",
+        "prevention_tips": "Scout weekly for fall armyworm and corn borer entry holes.",
+        "organic_control": "Pheromone traps for pest monitoring.",
+        "chemical_control": "No chemicals needed.",
+        "urgency": "Healthy",
+        "severity_notes": "0% affected area.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ मक्का (Healthy Corn)",
+            "recommended_action": "फसल स्वस्थ है। घुटने की ऊंचाई पर यूरिया की टॉप ड्रेसिंग करें और सिंचाई का ध्यान रखें।",
+            "prevention_tips": "फॉल आर्मीवर्म कीट के लिए नियमित निरीक्षण करें।",
+            "organic_control": "फेरोमोन ट्रैप लगाएं।",
+            "chemical_control": "किसी रसायन की आवश्यकता नहीं।",
+            "urgency": "स्वस्थ"
+          },
+          "mr": {
+            "name": "निरोगी मका (Healthy Corn)",
+            "recommended_action": "पीक जोमदार आहे. योग्य वेळी युरिया खताचा हप्ता द्या.",
+            "prevention_tips": "लष्करी अळीसाठी पिकाची पाहणी करत राहा.",
+            "organic_control": "कामगंध सापळे लावा.",
+            "chemical_control": "औषधाची गरज नाही.",
+            "urgency": "निरोगी"
+          },
+          "es": {
+            "name": "Maíz Saludable (Healthy Corn)",
+            "recommended_action": "Planta sana. Aplique fertilización nitrogenada en etapa V6.",
+            "prevention_tips": "Monitoreo semanal de gusano cogollero.",
+            "organic_control": "Trampas de feromonas.",
+            "chemical_control": "Sin aplicación.",
+            "urgency": "Saludable"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన మొక్కజొన్న (Healthy)",
+            "recommended_action": "పంట బాగుంది. తగిన సమయంలో ఎరువులు వేయండి.",
+            "prevention_tips": "కత్తెర పురుగు ఆశించకుండా చూడండి.",
+            "organic_control": "ఫెరమోన్ ట్రాప్స్ వాడండి.",
+            "chemical_control": "ఎలాంటి మందులు అక్కర్లేదు.",
+            "urgency": "ఆరోగ్యకరం"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Apple",
+    "scientific_name": "Malus domestica",
+    "icon": "🍎",
+    "category": "Fruit",
+    "diseases": [
+      {
+        "name": "Apple Scab",
+        "pathogen_type": "Fungal (Venturia inaequalis)",
+        "description": "Olive-green velvety spots on young leaves that turn dark brown to black and corky; causes deformed, scabby fruit.",
+        "recommended_action": "Spray Dodine, Captan, or Myclobutanil fungicide immediately upon pink bud and petal fall stages.",
+        "prevention_tips": "Shred or rake fallen leaves in autumn to eliminate overwintering ascospore sources.",
+        "organic_control": "Sulfur spray (3g/L) or potassium silicate sprays during early spring before leaf wetness periods.",
+        "chemical_control": "Captan 50% WP @ 2.5g/L or Difenoconazole 25% EC @ 0.5ml/L.",
+        "urgency": "Act within 24-48 hours",
+        "severity_notes": "Primary infection occurs during spring rains lasting >6 hours.",
+        "translations": {
+          "hi": {
+            "name": "सेब का स्कैब / पपड़ी रोग (Apple Scab)",
+            "recommended_action": "पत्तियों पर मखमली जैतून-भूरे धब्बे दिखते ही कैप्टन या डाइफेनोकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "पतझड़ में गिरी हुई पत्तियों को इकट्ठा करके जलाएं या दबा दें ताकि फफूंद न फैले।",
+            "organic_control": "घुलनशील गंधक (सल्फर) या चूना-सल्फर का छिड़काव करें।",
+            "chemical_control": "कैप्टन 50% WP (2.5 ग्राम/लीटर) या डाइफेनोकोनाजोल (0.5 मिली/लीटर)।",
+            "urgency": "24 से 48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "सफरचंदावरील खपली रोग (Apple Scab)",
+            "recommended_action": "कॅप्टन किंवा डायफेनोकोनाझोल बुरशीनाशकाची ताबडतोब फवारणी करा.",
+            "prevention_tips": "गळून पडलेली पाने गोळा करून नष्ट करा.",
+            "organic_control": "सल्फर पावडरची फवारणी करा.",
+            "chemical_control": "कॅप्टन ५०% WP (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          },
+          "es": {
+            "name": "Sarna o Moteado del Manzano (Apple Scab)",
+            "recommended_action": "Aplique Captan o Difenoconazol al inicio de los brotes y caída de pétalos.",
+            "prevention_tips": "Recoja y destruya las hojas caídas en otoño.",
+            "organic_control": "Azufre mojable antes de lluvias.",
+            "chemical_control": "Captan 50% WP (2.5 g/L) o Difenoconazol 25% EC (0.5 ml/L).",
+            "urgency": "Actuar en 24-48 horas"
+          },
+          "te": {
+            "name": "యాపిల్ గజ్జి తెగులు (Apple Scab)",
+            "recommended_action": "క్యాప్టాన్ లేదా డైఫెనోకోనజోల్ పిచికారీ చేయండి.",
+            "prevention_tips": "రాలిన ఆకులను తీసివేయండి.",
+            "organic_control": "సల్ఫర్ పిచికారీ చేయండి.",
+            "chemical_control": "క్యాప్టాన్ (2.5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "24-48 గంటల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Cedar Apple Rust",
+        "pathogen_type": "Fungal (Gymnosporangium juniperi-virginianae)",
+        "description": "Bright yellow-orange circular spots on upper leaf surfaces, with tube-like spore horns underneath.",
+        "recommended_action": "Apply preventive sterol-inhibitor fungicides (Myclobutanil) between bud break and petal fall.",
+        "prevention_tips": "Remove nearby wild cedar/juniper trees within 500 meters if feasible.",
+        "organic_control": "Sulfur sprays starting when cedar galls become gelatinous in rain.",
+        "chemical_control": "Myclobutanil 10% WP @ 0.5g/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3-4 days",
+        "severity_notes": "Requires both apple and juniper trees to complete its life cycle.",
+        "translations": {
+          "hi": {
+            "name": "सेब का रतुआ रोग (Cedar Apple Rust)",
+            "recommended_action": "पत्तियों पर चमकीले पीले-नारंगी धब्बे दिखते ही माइक्लोबुटानिल या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "बगीचे के आसपास से जंगली जुनिपर या देवदार के पौधों को हटाएं।",
+            "organic_control": "सल्फर स्प्रे का छिड़काव करें।",
+            "chemical_control": "माइक्लोबुटानिल 10% WP (0.5 ग्राम/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर)।",
+            "urgency": "3-4 दिन में छिड़काव करें"
+          },
+          "mr": {
+            "name": "सफरचंदाचा शेंदरी तांबेरा (Cedar Apple Rust)",
+            "recommended_action": "पानांवर पिवळे-केशरी ठिपके दिसल्यास मायक्लोब्युटॅनिल फवारा.",
+            "prevention_tips": "बागेभोवतीचे संसर्गजन्य जंगली झाडे काढा.",
+            "organic_control": "गंधकाची फवारणी करा.",
+            "chemical_control": "मायक्लोब्युटॅनिल (०.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३-४ दिवसांत फवारा"
+          },
+          "es": {
+            "name": "Roya del Manzano (Cedar Apple Rust)",
+            "recommended_action": "Aplique Myclobutanil o Mancozeb durante el desarrollo de hojas tiernas.",
+            "prevention_tips": "Elimine enebros o cedros silvestres cercanos.",
+            "organic_control": "Tratamientos preventivos con azufre.",
+            "chemical_control": "Myclobutanil 10% WP (0.5 g/L).",
+            "urgency": "Actuar en 3-4 días"
+          },
+          "te": {
+            "name": "యాపిల్ తుప్పు తెగులు (Cedar Apple Rust)",
+            "recommended_action": "మైక్లోబుటానిల్ లేదా మాంకోజెబ్ పిచికారీ చేయండి.",
+            "prevention_tips": "తోట చుట్టూ ఉన్న కలుపు చెట్లను తొలగించండి.",
+            "organic_control": "సల్ఫర్ పిచికారీ చేయండి.",
+            "chemical_control": "మైక్లోబుటానిల్ (0.5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "3-4 రోజుల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Apple foliage is glossy green, firm, and free of scab lesions or leaf spot.",
+        "recommended_action": "Maintain balanced calcium foliar sprays to ensure fruit quality and storage life.",
+        "prevention_tips": "Winter pruning for good sun penetration and air circulation.",
+        "organic_control": "Dormant oil spray in winter to smother overwintering scale insects and mite eggs.",
+        "chemical_control": "No chemicals needed.",
+        "urgency": "Healthy",
+        "severity_notes": "0% affected area.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ सेब का पौधा (Healthy Apple)",
+            "recommended_action": "पौधा पूरी तरह स्वस्थ है। फलों की गुणवत्ता के लिए कैल्शियम का पर्णीय छिड़काव करें।",
+            "prevention_tips": "सर्दियों में उचित कटाई-छंटाई करें ताकि धूप और हवा पौधों के बीच आ सके।",
+            "organic_control": "सर्दियों में हॉर्टिकल्चरल ऑयल का छिड़काव करें।",
+            "chemical_control": "दवा की आवश्यकता नहीं।",
+            "urgency": "स्वस्थ"
+          },
+          "mr": {
+            "name": "निरोगी सफरचंद (Healthy Apple)",
+            "recommended_action": "झाड निरोगी आहे. फळांच्या पोषणासाठी योग्य काळजी घ्या.",
+            "prevention_tips": "योग्य छाटणी करून सूर्यप्रकाश व हवा खेळती ठेवा.",
+            "organic_control": "सेंद्रिय खतांचा वापर करा.",
+            "chemical_control": "फवारणीची गरज नाही.",
+            "urgency": "निरोगी"
+          },
+          "es": {
+            "name": "Manzano Saludable (Healthy Apple)",
+            "recommended_action": "Árbol sano. Mantenga nutrición foliar con calcio para calidad de fruta.",
+            "prevention_tips": "Poda de invierno para buena ventilación.",
+            "organic_control": "Aceites minerales en dormancia.",
+            "chemical_control": "Sin químicos.",
+            "urgency": "Saludable"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన యాపిల్ (Healthy)",
+            "recommended_action": "చెట్టు బాగుంది. కాల్షియం పిచికారీ చేయండి.",
+            "prevention_tips": "శీతాకాలంలో కొమ్మల కత్తిరింపు చేయండి.",
+            "organic_control": "సేంద్రీయ నూనెలు వాడండి.",
+            "chemical_control": "ఎలాంటి మందులు అక్కర్లేదు.",
+            "urgency": "ఆరోగ్యకరం"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Grape",
+    "scientific_name": "Vitis vinifera",
+    "icon": "🍇",
+    "category": "Fruit",
+    "diseases": [
+      {
+        "name": "Black Rot",
+        "pathogen_type": "Fungal (Guignardia bidwellii)",
+        "description": "Small reddish-brown circular leaf spots with dark borders and tiny black pycnidia dots inside; turns grapes into black shriveled mummies.",
+        "recommended_action": "Apply Difenoconazole or Mancozeb before and immediately after bloom. Remove all mummified grape clusters.",
+        "prevention_tips": "Prune grape canopy to ensure fast leaf drying after rain. Remove old dried berries from vines.",
+        "organic_control": "Copper hydroxide + wettable sulfur foliar sprays from early spring bud break.",
+        "chemical_control": "Difenoconazole 25% EC @ 0.5ml/L or Mancozeb 75% WP @ 2.5g/L or Kresoxim-methyl @ 0.7ml/L.",
+        "urgency": "Act within 24-48 hours",
+        "severity_notes": "Warm rainy weather (24-30°C) with 7+ hours leaf wetness triggers massive infection.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का ब्लैक रॉट (Grape Black Rot)",
+            "recommended_action": "फूल आने से पहले और बाद में डाइफेनोकोनाजोल या मैंकोजेब का छिड़काव करें। सूखे सड़े अंगूरों को बेल से हटाएं।",
+            "prevention_tips": "बेलों की छंटाई करें ताकि हवा और धूप पत्तियों तक पहुंचे। सूखे गुच्छे नष्ट करें।",
+            "organic_control": "कॉपर हाइड्रोक्साइड और गंधक का छिड़काव करें।",
+            "chemical_control": "डाइफेनोकोनाजोल (0.5 मिली/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर)।",
+            "urgency": "24-48 घंटे में छिड़काव करें"
+          },
+          "mr": {
+            "name": "द्राक्षावरील काळा कुजव्या / ब्लॅक रॉट (Black Rot)",
+            "recommended_action": "डायफेनोकोनाझोल किंवा मॅन्कोझेबची फवारणी करा. वाळलेले मणी वेलीवरून काढून टाका.",
+            "prevention_tips": "वेलींची योग्य छाटणी करून हवा खेळती ठेवा.",
+            "organic_control": "कॉपर व सल्फरची फवारणी करा.",
+            "chemical_control": "डायफेनोकोनाझोल (०.५ मिली/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          },
+          "es": {
+            "name": "Podredumbre Negra de la Vid (Black Rot)",
+            "recommended_action": "Aplique Difenoconazol o Mancozeb antes y después de la floración. Elimine racimos momificados.",
+            "prevention_tips": "Deshoje alrededor de los racimos para mejorar la aireación.",
+            "organic_control": "Hidróxido de cobre + azufre mojable.",
+            "chemical_control": "Difenoconazol 25% EC (0.5 ml/L).",
+            "urgency": "Actuar en 24-48 horas"
+          },
+          "te": {
+            "name": "ద్రాక్ష నల్ల కుళ్ళు తెగులు (Black Rot)",
+            "recommended_action": "డైఫెనోకోనజోల్ లేదా మాంకోజెబ్ పిచికారీ చేయండి.",
+            "prevention_tips": "తీగలను సరిగ్గా కత్తిరించండి.",
+            "organic_control": "కాపర్ మరియు సల్ఫర్ పిచికారీ చేయండి.",
+            "chemical_control": "డైఫెనోకోనజోల్ (0.5 మి.లీ/లీ) పిచికారీ చేయండి.",
+            "urgency": "24-48 గంటల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Grape leaves are vibrant emerald green with no fungal spots, powdery coating, or scorch.",
+        "recommended_action": "Continue cluster thinning and canopy management for optimal berry sizing.",
+        "prevention_tips": "Maintain drip irrigation and balanced micronutrients (Boron, Zinc).",
+        "organic_control": "Apply vermicompost tea or fermented organic bio-stimulants.",
+        "chemical_control": "No chemicals needed.",
+        "urgency": "Healthy",
+        "severity_notes": "0% affected area.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ अंगूर की बेल (Healthy Grape)",
+            "recommended_action": "बेलें पूरी तरह स्वस्थ हैं। अच्छे फल विकास के लिए विरलीकरण और पोषण जारी रखें।",
+            "prevention_tips": "ड्रिप से संतुलित पानी और सूक्ष्म पोषक तत्व (बोरॉन, जिंक) दें।",
+            "organic_control": "वर्मीवाश या जीवामृत का प्रयोग करें।",
+            "chemical_control": "दवा की जरूरत नहीं।",
+            "urgency": "स्वस्थ"
+          },
+          "mr": {
+            "name": "निरोगी द्राक्ष बाग (Healthy Grape)",
+            "recommended_action": "बाग अतिशय उत्तम आहे. मण्यांच्या चांगल्या वाढीसाठी योग्य व्यवस्थापन ठेवा.",
+            "prevention_tips": "सूक्ष्म अन्नद्रव्ये व ठिबक सिंचन योग्य ठेवा.",
+            "organic_control": "जिवामृत वापरा.",
+            "chemical_control": "फवारणीची गरज नाही.",
+            "urgency": "निरोगी"
+          },
+          "es": {
+            "name": "Vid Saludable (Healthy Grape)",
+            "recommended_action": "Planta sana. Continúe con el aclareo de racimos y riego equilibrado.",
+            "prevention_tips": "Monitoreo de micronutrientes como Boro y Zinc.",
+            "organic_control": "Bioestimulantes orgánicos.",
+            "chemical_control": "Sin aplicación.",
+            "urgency": "Saludable"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన ద్రాక్ష (Healthy)",
+            "recommended_action": "పంట బాగుంది. సాధారణ పోషణ కొనసాగించండి.",
+            "prevention_tips": "సూక్ష్మ పోషకాలను అందించండి.",
+            "organic_control": "సేంద్రీయ ఎరువులు వాడండి.",
+            "chemical_control": "ఎలాంటి మందులు అక్కర్లేదు.",
+            "urgency": "ఆరోగ్యకరం"
+          }
+        }
+      },
+      {
+        "name": "Anthracnose",
+        "pathogen_type": "Fungal (Elsinoe ampelina)",
+        "description": "Bird's-eye spots on berries and crater-like cankers on shoots and leaves.",
+        "recommended_action": "Prune and burn cankered canes. Spray contact-cum-systemic fungicide immediately.",
+        "prevention_tips": "Proper vine training for canopy airflow. Winter dormant spray with copper.",
+        "organic_control": "Dormant spray with lime sulphur (1:10) and foliar spray of Trichoderma harzianum.",
+        "chemical_control": "Spray Carbendazim 50% WP @ 1g/L or Difenoconazole 25% EC @ 0.5ml/L or Mancozeb @ 2.5g/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Destroys developing grape berries and girdles green shoots.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का एंथ्रेक्नोज / बर्ड्स आई (Anthracnose)",
+            "recommended_action": "काली धब्बेदार टहनियों की छंटाई करें। कार्बेन्डाजिम या डाइफेनोकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "छंटाई के बाद तनों पर कॉपर का लेप या स्प्रे करें।",
+            "organic_control": "ट्राइकोडर्मा का छिड़काव करें।",
+            "chemical_control": "कार्बेन्डाजिम (1 ग्राम/लीटर) या डाइफेनोकोनाजोल (0.5 मिली/लीटर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "द्राक्षांवरील करपा / ॲन्थ्रॅकनोज (Anthracnose)",
+            "recommended_action": "बाधित काड्यांची छाटणी करा आणि कार्बेन्डाझिम फवारा.",
+            "prevention_tips": "छाटणीनंतर बोर्डो पेस्ट लावा.",
+            "organic_control": "ट्रायकोडर्मा फवारा.",
+            "chemical_control": "कार्बेन्डाझिम (१ ग्रॅम/लिटर) किंवा डायफेनोकोनाझोल फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Downy Mildew",
+        "pathogen_type": "Oomycete (Plasmopara viticola)",
+        "description": "Translucent yellowish oil spots on upper leaf surface with delicate white fluffy downy mildew growth on underside.",
+        "recommended_action": "Spray systemic oomycete fungicide immediately when humid wet conditions occur.",
+        "prevention_tips": "Maintain open vine canopy. Avoid overhead sprinkling.",
+        "organic_control": "Preventive spray with 1% Bordeaux mixture before rainy spells.",
+        "chemical_control": "Spray Dimethomorph 50% WP @ 1g/L + Mancozeb @ 2g/L or Cymoxanil 8% + Mancozeb 64% @ 2g/L.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Can destroy entire crop bunches within 48-72 hours under warm wet conditions.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का डाउनी मिल्ड्यू / मृदुरोमिल आसिता (Downy Mildew)",
+            "recommended_action": "पत्तियों पर तेल जैसे धब्बे और नीचे सफेद फफूंद दिखने पर तुरंत डाइमेथोमॉर्फ का छिड़काव करें।",
+            "prevention_tips": "बारिश से पहले 1% बोर्डो मिश्रण का छिड़काव करें।",
+            "organic_control": "1% बोर्डो मिश्रण का छिड़काव करें।",
+            "chemical_control": "डाइमेथोमॉर्फ (1 ग्राम/लीटर) + मैंकोजेब (2 ग्राम/लीटर) का तुरंत छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "द्राक्षांवरील डाऊनी मिल्ड्यू / केवडा (Downy Mildew)",
+            "recommended_action": "पानांवर तेलकट डाग दिसताच डायमेथोमॉर्फ + मॅन्कोझेब फवारा.",
+            "prevention_tips": "पावसाळ्यापूर्वी १% बोर्डो मिश्रण फवारा.",
+            "organic_control": "१% बोर्डो मिश्रण फवारा.",
+            "chemical_control": "डायमेथोमॉर्फ (१ ग्रॅम/लिटर) + मॅन्कोझेब (२ ग्रॅम/लिटर) तातडीने फवारा.",
+            "urgency": "अति तातडीचे: २४ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Powdery Mildew",
+        "pathogen_type": "Fungal (Erysiphe necator)",
+        "description": "White powdery patches on leaves, canes, and berries. Infected berries crack open exposing seeds.",
+        "recommended_action": "Spray wettable sulphur or triazole fungicide during early vegetative and bunch development.",
+        "prevention_tips": "Good canopy pruning to maximize sunlight exposure.",
+        "organic_control": "Spray wettable sulfur 80% WDG @ 2-3g/L or potassium bicarbonate (4g/L).",
+        "chemical_control": "Spray Penconazole 10% EC @ 0.5ml/L or Hexaconazole 5% EC @ 1ml/L or Azoxystrobin @ 1ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Berries crack open leading to secondary bunch rots.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का चूर्णिल आसिता / पाउडरी मिल्ड्यू (Powdery Mildew)",
+            "recommended_action": "अंगूर पर सफेद पाउडर दिखते ही सल्फर या पेनकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "कैनोपी में धूप का प्रवेश सुनिश्चित करें।",
+            "organic_control": "घुलनशील गंधक (सल्फर) 2.5 ग्राम/लीटर का छिड़काव करें।",
+            "chemical_control": "पेनकोनाजोल 10% EC (0.5 मिली/लीटर) या हेक्साकोनाजोल (1 मिली/लीटर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "द्राक्षांवरील भुरी रोग (Powdery Mildew)",
+            "recommended_action": "पांढरी पावडर दिसताच विद्राव्य सल्फर किंवा पेनकोनाझोल फवारा.",
+            "prevention_tips": "बागेत सूर्यप्रकाश चांगला राहील अशी छाटणी करा.",
+            "organic_control": "विद्राव्य गंधक (सल्फर) २.५ ग्रॅम/लिटर फवारा.",
+            "chemical_control": "पेनकोनाझोल १०% EC (०.५ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Grey Mold (Botrytis)",
+        "pathogen_type": "Fungal (Botrytis cinerea)",
+        "description": "Soft water-soaked rotting of berries with thick grey furry mold coating, especially close to harvest.",
+        "recommended_action": "Apply targeted botryticide; thin dense clusters to improve air circulation.",
+        "prevention_tips": "Avoid bunch compactness; avoid mechanical damage during berry handling.",
+        "organic_control": "Spray bio-fungicide Bacillus subtilis or Trichoderma.",
+        "chemical_control": "Spray Boscalid 50% WG @ 0.8g/L or Pyrimethanil @ 1.5ml/L or Iprodione @ 2g/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Destroys mature table grapes during rain before harvest.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का धूसर सड़न / बोट्राइटिस (Grey Mold)",
+            "recommended_action": "गुच्छों पर धूसर फफूंद दिखने पर तुरंत बोस्कालिड या आइप्रोडियोन का छिड़काव करें।",
+            "prevention_tips": "गुच्छों में हवा का संचार रखें। फल को चोट से बचाएं।",
+            "organic_control": "ट्राइकोडर्मा या बैसिलस का छिड़काव करें।",
+            "chemical_control": "बोस्कालिड 50% WG (0.8 ग्राम/लीटर) या आइप्रोडियोन छिड़कें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "द्राक्षांवरील करडी कुज / बोट्रायटिस (Grey Mold)",
+            "recommended_action": "घडांवर करडी बुरशी दिसताच बोस्कॅलिड फवारा.",
+            "prevention_tips": "घडांमध्ये हवा खेळती राहील अशी विरळणी करा.",
+            "organic_control": "ट्रायकोडर्मा फवारा.",
+            "chemical_control": "बोस्कॅलिड ५०% WG (०.८ ग्रॅम/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Bacterial Leaf Spot",
+        "pathogen_type": "Bacterial (Xanthomonas ampelina)",
+        "description": "Angular black spots on leaves, necrotic cankers on stems, and soft rotting lesions on shoots.",
+        "recommended_action": "Spray copper-based bactericide plus antibiotic.",
+        "prevention_tips": "Disinfect pruning secateurs; remove dead diseased wood.",
+        "organic_control": "Copper soap spray + Pseudomonas fluorescens.",
+        "chemical_control": "Spray Streptocycline @ 0.1g/L + Copper Oxychloride @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Vigor and vine health declines systematically.",
+        "translations": {
+          "hi": {
+            "name": "अंगूर का जीवाणु पत्ती धब्बा (Bacterial Leaf Spot)",
+            "recommended_action": "स्ट्रेप्टोसाइक्लिन और कॉपर ऑक्सीक्लोराइड का छिड़काव करें।",
+            "prevention_tips": "औजारों को सैनिटाइज करें।",
+            "organic_control": "कॉपर स्प्रे और स्यूडोमोनास का छिड़काव करें।",
+            "chemical_control": "स्ट्रेप्टोसाइक्लिन (0.1 ग्राम/लीटर) + कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "द्राक्षांवरील जिवाणूजन्य ठिपके (Bacterial Leaf Spot)",
+            "recommended_action": "स्ट्रेप्टोमायसीन + कॉपर ऑक्झिक्लोराईड फवारा.",
+            "prevention_tips": "छाटणीची अवजारे निर्जंतुक करा.",
+            "organic_control": "स्युडोमोनास फवारा.",
+            "chemical_control": "स्ट्रेप्टोमायसीन (१ ग्रॅम/१० लिटर) + कॉपर ऑक्झिक्लोराईड फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Rice (Paddy)",
+    "scientific_name": "Oryza sativa",
+    "icon": "🌾",
+    "category": "Cereal",
+    "diseases": [
+      {
+        "name": "Rice Blast",
+        "pathogen_type": "Fungal (Magnaporthe oryzae)",
+        "description": "Diamond or spindle-shaped lesions with gray/whitish centers and dark brown margins on leaves; attacks node and neck of the panicle.",
+        "recommended_action": "Avoid excessive nitrogen fertilizers. Spray Tricyclazole or Isoprothiolane immediately at first diamond lesion.",
+        "prevention_tips": "Treat seeds with Carbendazim before nursery sowing. Avoid prolonged field drying followed by high humidity.",
+        "organic_control": "Spray Pseudomonas fluorescens @ 5g/L or Trichoderma viride. Apply silica amendments to strengthen leaf cuticle.",
+        "chemical_control": "Tricyclazole 75% WP @ 0.6g/L or Kasugamycin 3% SL @ 2ml/L.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Neck blast can cause up to 80-100% complete panicle grain emptiness.",
+        "translations": {
+          "hi": {
+            "name": "धान का झोंका रोग / ब्लास्ट (Rice Blast)",
+            "recommended_action": "अत्यधिक यूरिया देने से बचें। आंख/हीरे के आकार के धब्बे दिखते ही ट्राईसाइक्लाजोल या कासुगामाइसिन का तुरंत छिड़काव करें।",
+            "prevention_tips": "बुवाई से पहले कार्बेन्डाजिम से बीज उपचार करें। खेत में उचित जल स्तर रखें।",
+            "organic_control": "स्यूडोमोनास फ्लोरोसेन्स (5 ग्राम/लीटर) और सिलिका खाद का प्रयोग करें।",
+            "chemical_control": "ट्राईसाइक्लाजोल 75% WP (0.6 ग्राम/लीटर) या कासुगामाइसिन (2 मिली/लीटर)।",
+            "urgency": "अति आवश्यक: 24 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "भातावरील करपा / ब्लास्ट (Rice Blast)",
+            "recommended_action": "युरियाचा अतिरेक टाळा. डोळ्यासारखे डाग दिसताच ट्रायसायक्लॅझोल बुरशीनाशक तातडीने फवारा.",
+            "prevention_tips": "पेरणीपूर्वी बीजप्रक्रिया करा. शेतात पाण्याचे योग्य नियोजन ठेवा.",
+            "organic_control": "स्यूडोमोनास फ्लोरोसेन्स (५ ग्रॅम/लिटर) फवारा.",
+            "chemical_control": "ट्रायसायक्लॅझोल ७५% WP (०.६ ग्रॅम/लिटर) फवारा.",
+            "urgency": "अति तातडीचे: २४ तासांत फवारा"
+          },
+          "es": {
+            "name": "Piricularia o Añublo del Arroz (Rice Blast)",
+            "recommended_action": "Reduzca fertilización nitrogenada. Aplique Triciclazol o Kasugamicina de inmediato.",
+            "prevention_tips": "Tratamiento de semillas con fungicida antes de siembra.",
+            "organic_control": "Pseudomonas fluorescens y silicio foliar.",
+            "chemical_control": "Triciclazol 75% WP (0.6 g/L).",
+            "urgency": "CRÍTICO: 24 horas"
+          },
+          "te": {
+            "name": "వరి అగ్గి తెగులు / బ్లాస్ట్ (Rice Blast)",
+            "recommended_action": "యూరియా వాడకం తగ్గించండి. ట్రైసైక్లాజోల్ లేదా కసుగామైసిన్ వెంటనే పిచికారీ చేయండి.",
+            "prevention_tips": "విత్తన శుద్ధి చేయండి.",
+            "organic_control": "సూడోమోనాస్ (5 గ్రా/లీ) పిచికారీ చేయండి.",
+            "chemical_control": "ట్రైసైక్లాజోల్ (0.6 గ్రా/లీ) పిచికారీ చేయండి.",
+            "urgency": "అత్యవసరం: 24 గంటల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Healthy",
+        "pathogen_type": "None",
+        "description": "Rice leaves are erect, emerald green, without blast lesions, sheath rot, or brown plant hopper burns.",
+        "recommended_action": "Maintain optimal 2-3 cm standing water during panicle initiation and flowering.",
+        "prevention_tips": "Alternate wetting and moderate drying to promote root vigor.",
+        "organic_control": "Application of blue-green algae or Azolla bio-fertilizer.",
+        "chemical_control": "No chemicals required.",
+        "urgency": "Healthy",
+        "severity_notes": "0% affected area.",
+        "translations": {
+          "hi": {
+            "name": "स्वस्थ धान (Healthy Rice)",
+            "recommended_action": "धान की फसल बिल्कुल स्वस्थ है। बालियां निकलने के समय 2-3 सेमी पानी का स्तर बनाए रखें।",
+            "prevention_tips": "खेत में थोड़ी हवा लगने के लिए बीच-बीच में हल्का सुखाएं और पानी दें।",
+            "organic_control": "एजोला या नील-हरित शैवाल जैविक खाद डालें।",
+            "chemical_control": "किसी दवा की जरूरत नहीं।",
+            "urgency": "स्वस्थ"
+          },
+          "mr": {
+            "name": "निरोगी भात पीक (Healthy Rice)",
+            "recommended_action": "भात पीक उत्तम आहे. लोंब्या भरण्याच्या काळात योग्य पाण्याची पातळी ठेवा.",
+            "prevention_tips": "मुळांच्या चांगल्या वाढीसाठी पाण्याचे योग्य व्यवस्थापन करा.",
+            "organic_control": "अझोला जैविक खत वापरा.",
+            "chemical_control": "औषधाची गरज नाही.",
+            "urgency": "निरोगी"
+          },
+          "es": {
+            "name": "Arroz Saludable (Healthy Rice)",
+            "recommended_action": "Cultivo en perfecto estado. Mantenga lámina de agua de 2-3 cm.",
+            "prevention_tips": "Riego intermitente para aireación de raíces.",
+            "organic_control": "Biofertilizantes con Azolla.",
+            "chemical_control": "Sin aplicación.",
+            "urgency": "Saludable"
+          },
+          "te": {
+            "name": "ఆరోగ్యకరమైన వరి (Healthy)",
+            "recommended_action": "పంట ఆరోగ్యంగా ఉంది. పిలకలు వేసే సమయంలో సరిపడా నీరు ఉంచండి.",
+            "prevention_tips": "నీటి యాజమాన్యం సరిగ్గా చేయండి.",
+            "organic_control": "అజోల్లా ఎరువు వాడండి.",
+            "chemical_control": "ఎలాంటి మందులు అక్కర్లేదు.",
+            "urgency": "ఆరోగ్యకరం"
+          }
+        }
+      },
+      {
+        "name": "Bacterial Leaf Blight",
+        "pathogen_type": "Bacterial (Xanthomonas oryzae pv. oryzae)",
+        "description": "Water-soaked to yellowish-white wavy lesions along leaf margins progressing downwards with milky bacterial ooze droplets in early mornings.",
+        "recommended_action": "Drain flooded water from field temporarily. Avoid nitrogen top-dressing. Spray copper bactericide.",
+        "prevention_tips": "Use disease-free seed; avoid clipping seedling tips at transplanting. Apply balanced potassium.",
+        "organic_control": "Spray fresh cow dung water supernatant (20%) or neem seed kernel extract (5%).",
+        "chemical_control": "Spray Streptocycline @ 0.15g/L (1.5g in 10L) + Copper Oxychloride 50% WP @ 2.5g/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Can destroy 50-80% of grain yield during storm and flood periods.",
+        "translations": {
+          "hi": {
+            "name": "धान का जीवाणु झुलसा / बीएलबी (Bacterial Leaf Blight)",
+            "recommended_action": "खेत से पानी निकालें। यूरिया देना बंद करें। स्ट्रेप्टोसाइक्लिन और कॉपर का तुरंत छिड़काव करें।",
+            "prevention_tips": "रोपाई के समय पौधों के सिरे न काटें। पोटाश खाद की पूरी मात्रा दें।",
+            "organic_control": "ताजे गोबर का अर्क (20%) या 5% नीम तेल का छिड़काव करें।",
+            "chemical_control": "स्ट्रेप्टोसाइक्लिन (1.5 ग्राम प्रति 10 लीटर) + कॉपर ऑक्सीक्लोराइड (25 ग्राम प्रति 10 लीटर) का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "भातावरील जिवाणूजन्य करपा (Bacterial Leaf Blight)",
+            "recommended_action": "शेतातून पाणी काढून टाका. नत्र खत थांबवा. स्ट्रेप्टोमायसिन + कॉपर फवारा.",
+            "prevention_tips": "रोपांचे शेंडे तोडू नका. पलाश (पोटॅश) खताचा संतुलित वापर करा.",
+            "organic_control": "शेणाचा अर्क किंवा नीम तेल फवारा.",
+            "chemical_control": "स्ट्रेप्टोमायसीन (१.५ ग्रॅम/१० लिटर) + कॉपर ऑक्झिक्लोराईड (२५ ग्रॅम/१० लिटर) फवारा.",
+            "urgency": "तातडीने: २४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Brown Spot",
+        "pathogen_type": "Fungal (Bipolaris oryzae / Cochliobolus miyabeanus)",
+        "description": "Oval to circular sesame-seed-like brown spots with greyish centers evenly scattered over leaf blades and glumes.",
+        "recommended_action": "Apply balanced nutrition (NPK + zinc) and spray fungicide.",
+        "prevention_tips": "Associated with nutrient-poor or deficient soils. Apply farmyard manure and soil nutrients.",
+        "organic_control": "Seed treatment with Pseudomonas fluorescens (10g/kg).",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Tricyclazole 75% WP @ 0.6g/L or Propiconazole @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes grain discolouration and poor milling recovery.",
+        "translations": {
+          "hi": {
+            "name": "धान का भूरा धब्बा रोग (Brown Spot)",
+            "recommended_action": "संतुलित खाद (जिंक व पोटाश) दें और प्रोपिकोनाजोल या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "मिट्टी में पोषक तत्वों की कमी न होने दें। गोबर की खाद का प्रयोग करें।",
+            "organic_control": "स्यूडोमोनास (10 ग्राम/किग्रा) से बीजोपचार करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) अथवा प्रोपिकोनाजोल (1 मिली/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "भातावरील तपकिरी ठिपके (Brown Spot)",
+            "recommended_action": "पोषक खते द्या आणि प्रोपिकोनाझोल किंवा मॅन्कोझेब फवारा.",
+            "prevention_tips": "जमिनीत सूक्ष्म अन्नद्रव्यांची कमतरता भरून काढा.",
+            "organic_control": "स्युडोमोनासने बीजप्रक्रिया करा.",
+            "chemical_control": "मॅन्कोझेब (२.५ ग्रॅम/लिटर) किंवा प्रोपिकोनाझोल फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      },
+      {
+        "name": "Sheath Blight",
+        "pathogen_type": "Fungal (Rhizoctonia solani)",
+        "description": "Greenish-grey oval to irregular water-soaked spots on leaf sheaths near water line that enlarge with brown borders, causing lodging.",
+        "recommended_action": "Spray validamycin or hexaconazole directed at bottom leaf sheaths near water surface.",
+        "prevention_tips": "Avoid dense transplanting; drain field periodically; avoid excessive urea.",
+        "organic_control": "Foliar spray with Trichoderma harzianum @ 5g/L or Pseudomonas fluorescens @ 10g/L.",
+        "chemical_control": "Spray Validamycin 3% L @ 2ml/L or Hexaconazole 5% SC @ 2ml/L or Thifluzamide 24% SC @ 0.75ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Progresses vertically from water surface to top canopy in dense high-tillering crops.",
+        "translations": {
+          "hi": {
+            "name": "धान का पर्णच्छद झुलसा / शीथ ब्लाइट (Sheath Blight)",
+            "recommended_action": "पानी की सतह के पास तनों पर वैलिडामाइसिन या हेक्साकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "अधिक घना रोपण न करें। यूरिया का अत्यधिक प्रयोग न करें।",
+            "organic_control": "ट्राइकोडर्मा (5 ग्राम/लीटर) का छिड़काव करें।",
+            "chemical_control": "वैलिडामाइसिन 3% L (2 मिली/लीटर) या हेक्साकोनाजोल (2 मिली/लीटर) का छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "भातावरील पर्णकोष करपा / शीथ ब्लाइट (Sheath Blight)",
+            "recommended_action": "खोडांच्या तळाशी व्हॅलिडामायसीन किंवा हेक्झाकोनाझोल फवारा.",
+            "prevention_tips": "रोपांची गर्दी टाळा. नत्राचा अतिवापर थांबवा.",
+            "organic_control": "ट्रायकोडर्मा विरिडी फवारा.",
+            "chemical_control": "व्हॅलिडामायसीन ३% L (२ मिली/लिटर) किंवा हेक्झाकोनाझोल फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Tungro Disease",
+        "pathogen_type": "Viral (RTSV & RTBV transmitted by Green Leafhopper - Nephotettix virescens)",
+        "description": "Stunted plants, reduced tillering, and yellow to orange discoloration of leaves starting from tips downwards.",
+        "recommended_action": "Uproot infected clumps and spray systemic insecticide to eliminate green leafhopper vectors.",
+        "prevention_tips": "Install light traps (1/ha) to monitor leafhoppers. Sow resistant varieties.",
+        "organic_control": "Spray neem oil 5ml/L to deter green leafhoppers.",
+        "chemical_control": "Spray Thiamethoxam 25% WG @ 0.3g/L or Dinotefuran 20% SG @ 0.4g/L to control the vector.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Devastating viral disease capable of spreading across entire rice basins if vector is uncontrolled.",
+        "translations": {
+          "hi": {
+            "name": "धान का टुंग्रो रोग (Tungro Disease)",
+            "recommended_action": "पीले बौने पौधों को हटाएं और हरा फुदका मारने के लिए कीटनाशक छिड़कें।",
+            "prevention_tips": "प्रकाश प्रपंच लगाएं। रोगरोधी किस्में लगाएं।",
+            "organic_control": "नीम का तेल (5 मिली/लीटर) छिड़कें।",
+            "chemical_control": "थियामेथोक्सम 25% WG (0.3 ग्राम/लीटर) या डाइनोटेफ्यूरॉन का छिड़काव करें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "भातावरील तुंग्रो रोग (Tungro Disease)",
+            "recommended_action": "हिरव्या तुडतुड्यांचा त्वरित बंदोबस्त करा आणि रोगट रोपे काढून टाका.",
+            "prevention_tips": "प्रकाश सापळे लावा.",
+            "organic_control": "नीम तेल ५ मिली/लिटर फवारा.",
+            "chemical_control": "थायमेथॉक्सम २५% WG (०.३ ग्रॅम/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Sugarcane",
+    "scientific_name": "Saccharum officinarum",
+    "icon": "🎋",
+    "category": "Cash Crop",
+    "diseases": [
+      {
+        "name": "Red Root (Red Rot)",
+        "pathogen_type": "Fungal (Colletotrichum falcatum)",
+        "description": "Known as the cancer of sugarcane. Causes third or fourth leaf from top to wither, internal pith turns red with characteristic white transverse cross-patches and alcoholic sour odor.",
+        "recommended_action": "CRITICAL: Uproot and burn severely infected clumps immediately to halt field spread. Stop ratoon cropping in infected fields. Dip seed setts in carbendazim 0.1% solution before planting.",
+        "prevention_tips": "Use disease-free certified tissue-culture setts. Follow 2-year crop rotation with rice or green manure (sunn hemp). Avoid water stagnation in furrows.",
+        "organic_control": "Treat seed setts with Trichoderma viride / harzianum (10g/L) for 30 minutes before planting. Apply 2.5 kg/acre Trichoderma enriched FYM in soil at furrow opening.",
+        "chemical_control": "Dip setts in Carbendazim 50% WP @ 1g/L or Thiophanate Methyl 70% WP @ 1.5g/L water for 15 minutes before planting. Drench root zone with Carbendazim (2g/L) at early detection.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Highly devastating fungal disease capable of wiping out entire standing sugarcane crops if unmanaged.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का लाल सड़न / रेड रॉट (Red Rot)",
+            "recommended_action": "संक्रमित पौधों को तुरंत उखाड़कर जला दें। इस खेत में पेड़ी (ratoon) न लें। कार्बेन्डाजिम से उपचारित बीज ही बोएं।",
+            "prevention_tips": "प्रमाणित रोगमुक्त बीज गन्ने का उपयोग करें। धान या हरी खाद के साथ फसल चक्र अपनाएं। जलभराव से बचें।",
+            "organic_control": "ट्राइकोडर्मा विरिडी (10 ग्राम/लीटर) के घोल में 30 मिनट तक गन्ने के टुकड़ों को भिगोकर उपचारित करें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (1 ग्राम/लीटर) अथवा थायोफिनेट मिथाइल (1.5 ग्राम/लीटर) से टुकड़ों का उपचार करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में कार्रवाई करें"
+          },
+          "mr": {
+            "name": "उसावरील तांबेरा / लाल कुजव्या (Red Rot)",
+            "recommended_action": "बाधित उसाची बेटे मुळासकट उपटून जाळून नष्ट करा. खोडवा घेणे टाळा. बेणेप्रक्रिया केल्याशिवाय लागवड करू नका.",
+            "prevention_tips": "रोगमुक्त प्रमाणित बेणे वापरा. शेतात पाणी साचू देऊ नका. ताग किंवा धैंचाची हिरवळीची खते वापरा.",
+            "organic_control": "ट्रायकोडर्मा व्हिरीडी (१० ग्रॅम/लिटर) च्या द्रावणात बेणे ३० मिनिटे बुडवून बेणेप्रक्रिया करा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (१ ग्रॅम/लिटर) किंवा थायोफिनेट मिथाईल (१.५ ग्रॅम/लिटर) च्या द्रावणात बेणे प्रक्रिया करा.",
+            "urgency": "तातडीने: २४ तासांत कार्यवाही करा"
+          },
+          "es": {
+            "name": "Pudrición Roja de la Caña de Azúcar (Red Rot)",
+            "recommended_action": "Arranque y queme las cepas infectadas de inmediato. No conserve retoños infectados. Desinfecte los esquejes antes de sembrar.",
+            "prevention_tips": "Utilice esquejes certificados sanos. Rote cultivos con leguminosas y evite el estancamiento de agua.",
+            "organic_control": "Trate esquejes con Trichoderma viride (10g/L) durante 30 minutos antes de la siembra.",
+            "chemical_control": "Sumerja los esquejes en Carbendazim 50% WP (1 g/L) o Tiofanato de metilo (1.5 g/L).",
+            "urgency": "CRÍTICO: Actuar en 24 horas"
+          },
+          "te": {
+            "name": "చెరకు ఎర్ర కుళ్ళు తెగులు (Red Rot)",
+            "recommended_action": "సోకిన చెరకు దుబ్బులను పీకి తగలబెట్టండి. కార్బెండజిమ్ ద్రావణంలో విత్తన ముక్కలను శుద్ధి చేయండి.",
+            "prevention_tips": "ఆరోగ్యకరమైన విత్తన ముక్కలను ఎంపిక చేసుకోండి. పొలంలో నీరు నిల్వ ఉండకుండా చూడండి.",
+            "organic_control": "ట్రైకోడెర్మా విరిడి (10 గ్రా/లీ) ద్రావణంలో విత్తన ముక్కలను 30 నిమిషాలు నానబెట్టండి.",
+            "chemical_control": "కార్బెండజిమ్ 50% WP (1 గ్రా/లీ) తో విత్తన శుద్ధి చేయండి.",
+            "urgency": "అత్యవసరం: 24 గంటల్లో చేయండి"
+          }
+        }
+      },
+      {
+        "name": "Grassy Shoot Disease",
+        "pathogen_type": "Phytoplasma (Transmitted by Aphids)",
+        "description": "Proliferation of dense, narrow, pale yellow to chlorotic grass-like tillers from the base of the cane, stunting growth with no millable cane formation.",
+        "recommended_action": "Rogue out and destroy affected clumps immediately. Treat planting setts with hot water (50°C for 2 hours) or aerated steam.",
+        "prevention_tips": "Obtain certified seed from disease-free nurseries. Control insect vector (aphids) using sticky traps and insecticidal sprays.",
+        "organic_control": "Spray 5% neem seed kernel extract (NSKE) or neem oil (5ml/L) to deter aphid vectors.",
+        "chemical_control": "Spray Dimethoate 30% EC @ 1.7ml/L or Imidacloprid 17.8% SL @ 0.5ml/L to control vector aphids.",
+        "urgency": "Act within 2-3 days",
+        "severity_notes": "Systemic infection; ratoon crop is usually 100% damaged if plant crop is infected.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का घासिया प्ररोह रोग (Grassy Shoot)",
+            "recommended_action": "रोगग्रस्त पौधों को तुरंत उखाड़कर नष्ट करें। गर्म पानी उपचार के बाद ही नए सेट्स लगाएं।",
+            "prevention_tips": "प्रमाणित नर्सरी से ही बीज लें। माहू कीट का नियंत्रण रखें।",
+            "organic_control": "माहू की रोकथाम हेतु 5% नीम तेल (5 मिली/लीटर) का छिड़काव करें।",
+            "chemical_control": "इमिडाक्लोप्रिड 17.8% SL (0.5 मिली/लीटर) या डाइमेथोएट का छिड़काव करें।",
+            "urgency": "2-3 दिनों में कार्रवाई करें"
+          },
+          "mr": {
+            "name": "उसावरील गवताळ वाढ (Grassy Shoot Disease)",
+            "recommended_action": "बाधित बेटे उपटून जाळा. गरम पाणी प्रक्रिया केलेले बेणे वापरा.",
+            "prevention_tips": "रोगमुक्त बेणे मळ्यातून बेणे आणा. मावा किडीचा बंदोबस्त करा.",
+            "organic_control": "मावा नियंत्रणासाठी ५% निंबोळी अर्क किंवा नीम तेल (५ मिली/लिटर) फवारा.",
+            "chemical_control": "इमिडाक्लोप्रिड १७.८% SL (०.५ मिली/लिटर) फवारा.",
+            "urgency": "२ ते ३ दिवसांत उपाययोजना करा"
+          }
+        }
+      },
+      {
+        "name": "Pokkah Boeng (Top Rot)",
+        "pathogen_type": "Fungal (Fusarium moniliforme / sacchari)",
+        "description": "Chlorotic wrinkling and twisting of young spindle leaves at top canopy. In severe stages, apical bud rots, leaving a top rot whip.",
+        "recommended_action": "Foliar spray of systemic fungicide immediately across spindle leaves. Avoid excess nitrogen fertilization during monsoon onset.",
+        "prevention_tips": "Ensure proper surface drainage. Avoid excessive urea application; balance with potash (MOP).",
+        "organic_control": "Foliar spray with Trichoderma harzianum (5g/L) + Pseudomonas fluorescens (5g/L) at early whorl leaf stage.",
+        "chemical_control": "Foliar spray Carbendazim 50% WP @ 1g/L or Copper Oxychloride 50% WP @ 2.5g/L directly into top whorl/spindle.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "High humidity and sudden warm rain trigger rapid spindle rotting.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का पोक्का बोइंग / चोटी सड़न (Pokkah Boeng)",
+            "recommended_action": "शीर्ष पत्तियों पर तुरंत फफूंदनाशक का छिड़काव करें। बारिश में अत्यधिक यूरिया देने से बचें।",
+            "prevention_tips": "खेत में उचित जल निकासी रखें। पोटाश का संतुलित प्रयोग करें।",
+            "organic_control": "ट्राइकोडर्मा व स्यूडोमोनास (5 ग्राम/लीटर) का पत्तियों पर छिड़काव करें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (1 ग्राम/लीटर) या कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़काव करें"
+          },
+          "mr": {
+            "name": "उसावरील पोक्का बोईंग / शेंडा कुजव्या (Pokkah Boeng)",
+            "recommended_action": "उसाच्या शेंड्यावर बुरशीनाशकाची तातडीने फवारणी करा. नत्राचा अतिवापर टाळा.",
+            "prevention_tips": "पाण्याचा निचरा चांगला ठेवा. पोटॅश खताचा योग्य वापर करा.",
+            "organic_control": "ट्रायकोडर्मा (५ ग्रॅम/लिटर) शेंड्यावर फवारा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (१ ग्रॅम/लिटर) किंवा कॉपर ऑक्झिक्लोराईड (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारणी करा"
+          }
+        }
+      },
+      {
+        "name": "Smut",
+        "pathogen_type": "Fungal (Sporisorium scitamineum)",
+        "description": "Emergence of a long, black, whip-like unbranched structure from the top spindle containing millions of powdery black fungal chlamydospores.",
+        "recommended_action": "Carefully cover whip with a polythene bag, cut it at base, and burn it to stop wind dispersal of black soot spores.",
+        "prevention_tips": "Grow smut-resistant varieties (e.g., Co 86032, CoM 0265). Treat setts with hot water.",
+        "organic_control": "Sett dip treatment with bio-agent Trichoderma viride @ 10g/L.",
+        "chemical_control": "Dip setts in Triadimefon 25% WP @ 1g/L or Propiconazole 25% EC @ 1ml/L before planting. Spray Propiconazole (1ml/L) if field incidence occurs.",
+        "urgency": "Act within 24-48 hours",
+        "severity_notes": "Whips release billions of airborne spores that infect adjacent canes.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का कांगियारी / कंडुआ रोग (Sugarcane Smut)",
+            "recommended_action": "काले चाबुक जैसे डंठल को पॉलीथीन थैली से ढककर काटें और जला दें ताकि बीजाणु न फैलें।",
+            "prevention_tips": "रोगरोधी प्रजातियों की बुवाई करें। गर्म जल शोधित बीज ही बोएं।",
+            "organic_control": "ट्राइकोडर्मा (10 ग्राम/लीटर) के घोल में 30 मिनट बीज डुबोकर उपचारित करें।",
+            "chemical_control": "प्रोपिकोनाजोल 25% EC (1 मिली/लीटर) अथवा ट्रायडिमेफॉन से बीज उपचार व छिड़काव करें।",
+            "urgency": "24 से 48 घंटे में उपचार करें"
+          },
+          "mr": {
+            "name": "उसावरील काणी रोग (Sugarcane Smut)",
+            "recommended_action": "काळ्या चाबकासारखा भाग प्लास्टिक पिशवीत गुंडाळून अलगद कापून जाळून टाका.",
+            "prevention_tips": "काणी-प्रतिरोधक वाणांची निवड करा. बेणेप्रक्रिया अवश्य करा.",
+            "organic_control": "ट्रायकोडर्मा विरिडी (१० ग्रॅम/लिटर) ने बेणेप्रक्रिया करा.",
+            "chemical_control": "प्रोपिकोनाझोल २५% EC (१ मिली/लिटर) ची फवारणी करा.",
+            "urgency": "२४-४८ तासांत उपाय करा"
+          }
+        }
+      },
+      {
+        "name": "Wilt",
+        "pathogen_type": "Fungal (Cephalosporium sacchari / Fusarium)",
+        "description": "Gradual yellowing and drying of cane leaves from top downwards, hollow pith with muddy purple discoloration and boat-shaped cavities.",
+        "recommended_action": "Drain standing water immediately. Apply Trichoderma to root zone and rotate crops.",
+        "prevention_tips": "Provide proper drainage channels. Avoid planting in nematode-infested soils.",
+        "organic_control": "Apply Trichoderma viride enriched farmyard manure @ 500kg/acre around the base of clumps.",
+        "chemical_control": "Root zone drenching with Carbendazim 50% WP @ 2g/L or Thiophanate methyl @ 1.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Often combined with root borer infestation, accelerating stem drying.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का उकठा / विल्ट (Sugarcane Wilt)",
+            "recommended_action": "जलभराव तुरंत निकालें। जड़ों के पास ट्राइकोडर्मा युक्त खाद दें।",
+            "prevention_tips": "खेत में उचित ढलान और जल निकास बनाएं। फसल चक्र अपनाएं।",
+            "organic_control": "ट्राइकोडर्मा से उपचारित गोबर की खाद 500 किग्रा प्रति एकड़ थालों में डालें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (2 ग्राम/लीटर) का जड़ों में ड्रेन्चिंग करें।",
+            "urgency": "3 दिन के भीतर उपचार करें"
+          },
+          "mr": {
+            "name": "उसावरील उबळ रोग / मर (Sugarcane Wilt)",
+            "recommended_action": "पाण्याचा निचरा त्वरित करा. ट्रायकोडर्मायुक्त शेणखत बुंध्यापाशी द्या.",
+            "prevention_tips": "पाणी साचू देऊ नका. पिकांची फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्मा व्हिरीडीयुक्त शेणखत उसाच्या बुंध्याजवळ द्या.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (२ ग्रॅम/लिटर) बुंध्याभोवती आळवणी करा.",
+            "urgency": "३ दिवसांत आळवणी करा"
+          }
+        }
+      },
+      {
+        "name": "Stalk Rot",
+        "pathogen_type": "Fungal (Phaeocytostroma / Fusarium)",
+        "description": "Dark brown internal rotting of stalks with shrinking internodes and drying leaves.",
+        "recommended_action": "Harvest mature infected crop early to minimize sucrose inversion. Remove trash from field.",
+        "prevention_tips": "Avoid moisture stress during formative stages followed by waterlogging.",
+        "organic_control": "Soil enrichment with bio-fertilizers and Trichoderma (2.5 kg/acre).",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Copper Oxychloride @ 3g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces cane weight and recovery rate severely.",
+        "translations": {
+          "hi": {
+            "name": "गन्ने का तना सड़न (Stalk Rot)",
+            "recommended_action": "संक्रमित गन्ने की जल्द कटाई करें ताकि मिठास का नुकसान न हो। सूखी पत्तियां जलाएं।",
+            "prevention_tips": "गर्मियों में सूखे और बरसात में जलभराव दोनों से फसल को बचाएं।",
+            "organic_control": "ट्राइकोडर्मा युक्त गोबर की खाद खेत में मिलाएं।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) या कॉपर ऑक्सीक्लोराइड का छिड़काव करें।",
+            "urgency": "3 दिन में कार्रवाई करें"
+          },
+          "mr": {
+            "name": "उसावरील कांड कुजव्या (Stalk Rot)",
+            "recommended_action": "पक्व ऊस त्वरित कारखान्याला पाठवा. शेतातील पाचट स्वच्छ करा.",
+            "prevention_tips": "पिकावर पाण्याचा ताण पडू देऊ नका.",
+            "organic_control": "ट्रायकोडर्मा जैविक बुरशीनाशकाचा वापर करा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Brinjal",
+    "scientific_name": "Solanum melongena",
+    "icon": "🍆",
+    "category": "Vegetable",
+    "diseases": [
+      {
+        "name": "Bacterial Wilt",
+        "pathogen_type": "Bacterial (Ralstonia solanacearum)",
+        "description": "Rapid wilting and collapse of entire plant during warm sunny hours without prior leaf yellowing. Bacterial ooze streams out when cut stem is placed in clean water.",
+        "recommended_action": "Immediately uproot and destroy wilted plants. Drench surrounding root soil with copper bactericide + streptocycline.",
+        "prevention_tips": "Rotate with non-solanaceous crops like maize or marigold. Plant wilt-resistant cultivars (e.g., Pant Rituraj, Utkal Anushree).",
+        "organic_control": "Seedling root dip in Pseudomonas fluorescens (10g/L) for 20 minutes before transplanting. Soil incorporation of neem cake (100 kg/acre).",
+        "chemical_control": "Soil drenching with Streptocycline (0.15g/L) + Copper Oxychloride (2.5g/L) around base of unaffected plants.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Soil-borne bacterium that can wipe out 80-100% of the brinjal crop in warm wet conditions.",
+        "translations": {
+          "hi": {
+            "name": "बैंगन का जीवाणु उकठा / विल्ट (Bacterial Wilt)",
+            "recommended_action": "मुरझाए पौधों को तुरंत उखाड़ें। आसपास की मिट्टी में कॉपर और स्ट्रेप्टोसाइक्लिन का छिड़काव/ड्रेन्चिंग करें।",
+            "prevention_tips": "गेंदा या मक्का के साथ फसल चक्र अपनाएं। रोगरोधी किस्में लगाएं।",
+            "organic_control": "रोपाई से पहले स्यूडोमोनास फ्लोरोसेंस (10 ग्राम/लीटर) में जड़ों को 20 मिनट डुबोएं।",
+            "chemical_control": "स्ट्रेप्टोसाइक्लिन (0.15 ग्राम/लीटर) + कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) से थालों में ड्रेन्चिंग करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में करें"
+          },
+          "mr": {
+            "name": "वांग्यावरील जिवाणूजन्य मर (Bacterial Wilt)",
+            "recommended_action": "सुकेलेली झाडे लगेच उपटून नष्ट करा. शेजारील झाडांना कॉपर + स्ट्रेप्टोमायसिनची आळवणी करा.",
+            "prevention_tips": "झेंडू किंवा मक्यासोबत फेरपालट करा. रोगप्रतिकारक वाण लावा.",
+            "organic_control": "रोप पुनर्लागवडीपूर्वी स्युडोमोनास (१० ग्रॅम/लिटर) मध्ये बुडवून लावा.",
+            "chemical_control": "स्ट्रेप्टोमायसीन (१ ग्रॅम/१० लिटर) + कॉपर ऑक्झिक्लोराईड (२५ ग्रॅम/१० लिटर) ची आळवणी करा.",
+            "urgency": "तातडीने: २४ तासांत करा"
+          }
+        }
+      },
+      {
+        "name": "Cercospora Leaf Spot",
+        "pathogen_type": "Fungal (Cercospora melongenae)",
+        "description": "Circular to irregular brown lesions with grayish white center on foliage, leading to premature leaf shedding.",
+        "recommended_action": "Pick and destroy bottom spotted leaves. Spray protective contact fungicide.",
+        "prevention_tips": "Avoid high density planting; maintain airflow between rows.",
+        "organic_control": "Spray neem oil 5ml/L or baking soda solution (3g/L) + liquid soap weekly.",
+        "chemical_control": "Spray Chlorothalonil 75% WP @ 2g/L or Mancozeb 75% WP @ 2.5g/L every 10-12 days.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces fruit set due to loss of photosynthetic foliage.",
+        "translations": {
+          "hi": {
+            "name": "बैंगन का सर्कोस्पोरा पत्ती धब्बा (Cercospora Leaf Spot)",
+            "recommended_action": "निचली चित्तीदार पत्तियों को तोड़कर नष्ट करें। संपर्क कवकनाशी का छिड़काव करें।",
+            "prevention_tips": "पौधों के बीच पर्याप्त दूरी रखें ताकि धूप और हवा मिले।",
+            "organic_control": "नीम का तेल (5 मिली/लीटर) या बेकिंग सोडा घोल का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) अथवा क्लोरोथैलोनिल (2 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिनों में छिड़काव करें"
+          },
+          "mr": {
+            "name": "वांग्यावरील पानांवरील ठिपके (Cercospora Leaf Spot)",
+            "recommended_action": "ठिपके पडलेली खालची पाने खुडून नष्ट करा. बुरशीनाशकाची फवारणी करा.",
+            "prevention_tips": "झाडांमध्ये पुरेशी हवा राहील असे अंतर ठेवा.",
+            "organic_control": "नीम तेल (५ मिली/लिटर) ची फवारणी करा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) किंवा क्लोरोथॅलोनिल फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          }
+        }
+      },
+      {
+        "name": "Little Leaf Disease",
+        "pathogen_type": "Phytoplasma (Transmitted by Leafhopper - Hishimonus phycitis)",
+        "description": "Extreme reduction in leaf size resembling miniature clusters of bushes, bushy growth with phyllody, complete sterility.",
+        "recommended_action": "Uproot and bury all stunted bushy plants immediately. Spray insecticide to kill leafhopper vectors.",
+        "prevention_tips": "Install yellow sticky traps (15/acre). Remove weed hosts (Solanum nigrum / Datura) around borders.",
+        "organic_control": "Spray neem oil (5ml/L) or spinosad (0.3ml/L) to suppress leafhopper vectors organically.",
+        "chemical_control": "Spray Dimethoate 30% EC @ 1.7ml/L or Thiamethoxam 25% WG @ 0.3g/L to control the leafhopper vector.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Once infected, a plant cannot produce fruit; total loss on infected individual bushes.",
+        "translations": {
+          "hi": {
+            "name": "बैंगन का लिटल लीफ / छोटी पत्ती रोग (Little Leaf)",
+            "recommended_action": "झाड़ीनुमा बौने पौधों को तुरंत उखाड़कर नष्ट करें। पत्ती फुदका कीट को मारें।",
+            "prevention_tips": "पीले चिपचिपे कार्ड लगाएं। खेत की मेड़ों से खरपतवार हटाएं।",
+            "organic_control": "नीम तेल (5 मिली/लीटर) का छिड़काव करके फुदका कीट को नियंत्रित करें।",
+            "chemical_control": "थियामेथोक्सम 25% WG (0.3 ग्राम/लीटर) या डाइमेथोएट (1.7 मिली/लीटर) का छिड़काव करें।",
+            "urgency": "24-48 घंटे में रोकथाम करें"
+          },
+          "mr": {
+            "name": "वांग्यावरील लहान पाने रोग (Little Leaf Disease)",
+            "recommended_action": "झाडूच्या आकाराची खुजी झालेली झाडे उपटून नष्ट करा. तुडतुड्यांचा बंदोबस्त करा.",
+            "prevention_tips": "पिवळे चिकट सापळे एकरी १५ लावा. बांधावरील तण नष्ट करा.",
+            "organic_control": "नीम अर्क (५ मिली/लिटर) फवारून तुडतुडे नियंत्रणात ठेवा.",
+            "chemical_control": "थायमेथॉक्सम २५% WG (०.३ ग्रॅम/लिटर) फवारा.",
+            "urgency": "२४ ते ४८ तासांत उपाय करा"
+          }
+        }
+      },
+      {
+        "name": "Phomopsis Blight",
+        "pathogen_type": "Fungal (Phomopsis vexans)",
+        "description": "Round brownish leaf spots with clear pale centers, dark sunken circular lesions on fruit leading to soft fruit rot and stem cankers.",
+        "recommended_action": "Pick and dispose of infected fruits and leaves away from the field. Apply copper or thiophanate fungicide.",
+        "prevention_tips": "Use disease-free seed; hot water seed treatment (50°C for 30 minutes). Avoid flood irrigation.",
+        "organic_control": "Spray sour buttermilk (50ml/L) or neem formulation fortnightly.",
+        "chemical_control": "Spray Carbendazim 50% WP @ 1g/L or Mancozeb 75% WP @ 2.5g/L at flowering and fruit formation.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Causes up to 50% post-harvest and pre-harvest fruit rot.",
+        "translations": {
+          "hi": {
+            "name": "बैंगन का फोमोप्सिस झुलसा व फल सड़न (Phomopsis Blight)",
+            "recommended_action": "दागदार सड़े फलों को तोड़कर मिट्टी में गहरा दबाएं। फफूंदनाशक का छिड़काव करें।",
+            "prevention_tips": "बीज को 50 डिग्री से. पर 30 मिनट गर्म पानी से उपचारित करके ही बोएं।",
+            "organic_control": "खट्टी छाछ (50 मिली/लीटर) या नीम तेल का छिड़काव करें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (1 ग्राम/लीटर) अथवा मैंकोजेब (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़काव करें"
+          },
+          "mr": {
+            "name": "वांग्यावरील फोमोप्सिस करपा व फळ कुज (Phomopsis Blight)",
+            "recommended_action": "रोगट फळे तोडून नष्ट करा. बुरशीनाशक तातडीने फवारा.",
+            "prevention_tips": "गर्म पाण्याने बीजप्रक्रिया करूनच रोपे तयार करा.",
+            "organic_control": "आंबट ताक (५० मिली/लिटर) फवारा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (१ ग्रॅम/लिटर) किंवा मॅन्कोझेब फवारा.",
+            "urgency": "४८ तासांत फवारणी करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Cabbage",
+    "scientific_name": "Brassica oleracea var. capitata",
+    "icon": "🥬",
+    "category": "Vegetable",
+    "diseases": [
+      {
+        "name": "Black Rot (Black Root)",
+        "pathogen_type": "Bacterial (Xanthomonas campestris pv. campestris)",
+        "description": "V-shaped yellow to brown lesions progressing from leaf margins inward with prominent blackened veins. Stem cross-section shows a black vascular ring.",
+        "recommended_action": "Remove infected outer leaves. Disinfect knives and tools. Avoid working in fields when foliage is wet.",
+        "prevention_tips": "3-year crop rotation with non-cruciferous crops. Hot water seed soak (50°C for 25 min).",
+        "organic_control": "Foliar spray with Pseudomonas fluorescens (10g/L) + copper soap weekly.",
+        "chemical_control": "Spray Streptocycline @ 0.1g/L (1g per 10L) combined with Copper Oxychloride 50% WP @ 2.5g/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Most destructive bacterial disease of crucifers worldwide.",
+        "translations": {
+          "hi": {
+            "name": "पत्तागोभी का काला सड़न / ब्लैक रॉट (Black Rot)",
+            "recommended_action": "संक्रमित पत्तियों को निकालें। गीले खेत में काम न करें। स्ट्रेप्टोसाइक्लिन का छिड़काव करें।",
+            "prevention_tips": "सरसों/गोभी कुल के बिना 3 साल का फसल चक्र रखें। बीज को गर्म पानी से उपचारित करें।",
+            "organic_control": "स्यूडोमोनास फ्लोरोसेंस (10 ग्राम/लीटर) का छिड़काव करें।",
+            "chemical_control": "स्ट्रेप्टोसाइक्लिन (1 ग्राम प्रति 10 लीटर) + कॉपर ऑक्सीक्लोराइड (25 ग्राम प्रति 10 लीटर) का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कोबीवरील काळा कुजव्या / ब्लॅक रॉट (Black Rot)",
+            "recommended_action": "बाधित पाने तोडून नष्ट करा. स्ट्रेप्टोमायसिन व कॉपरची फवारणी करा.",
+            "prevention_tips": "कोबीवर्गीय पिकांशिवाय इतर पिकांची फेरपालट करा. बेणेप्रक्रिया करा.",
+            "organic_control": "स्युडोमोनास (१० ग्रॅम/लिटर) ची फवारणी करा.",
+            "chemical_control": "स्ट्रेप्टोमायसीन (१ ग्रॅम/१० लिटर) + कॉपर ऑक्झिक्लोराईड (२५ ग्रॅम/१० लिटर) फवारा.",
+            "urgency": "तातडीने: २४ ते ४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Alternaria Leaf Spot",
+        "pathogen_type": "Fungal (Alternaria brassicae)",
+        "description": "Concentric dark brown to black circular rings on foliage, leading to yellowing and paper-thin brittle spots.",
+        "recommended_action": "Prune infected leaves and destroy. Avoid sprinkler irrigation.",
+        "prevention_tips": "Maintain proper plant spacing (45-60 cm) for canopy ventilation.",
+        "organic_control": "Spray neem oil 5ml/L or garlic extract 5% at early symptom appearance.",
+        "chemical_control": "Apply Mancozeb 75% WP @ 2.5g/L or Iprodione 50% WP @ 2g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Downgrades head marketability.",
+        "translations": {
+          "hi": {
+            "name": "पत्तागोभी का अल्टरनेरिया पत्ती धब्बा (Alternaria Leaf Spot)",
+            "recommended_action": "संक्रमित निचली पत्तियों को हटाएं। कवकनाशी का छिड़काव करें।",
+            "prevention_tips": "पौधों के बीच 45 से 60 सेमी की दूरी रखें।",
+            "organic_control": "नीम तेल (5 मिली/लीटर) या लहसुन अर्क का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "कोबीवरील अल्टरनेरिया करपा (Alternaria Leaf Spot)",
+            "recommended_action": "बाधित पाने काढा. मॅन्कोझेब फवारा.",
+            "prevention_tips": "रोपांमध्ये योग्य अंतर ठेवा.",
+            "organic_control": "नीम अर्क ५ मिली/लिटर फवारा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          }
+        }
+      },
+      {
+        "name": "Downy Mildew",
+        "pathogen_type": "Oomycete (Peronospora parasitica)",
+        "description": "Purplish-brown angular spots on upper leaf surface with delicate white fluffy downy mildew growth on the underside.",
+        "recommended_action": "Apply systemic anti-oomycete spray immediately during humid weather.",
+        "prevention_tips": "Avoid dense seedbeds; water in early mornings to allow leaves to dry.",
+        "organic_control": "Spray 1% Bordeaux mixture or copper soap solution.",
+        "chemical_control": "Spray Metalaxyl 8% + Mancozeb 64% WP (Ridomil) @ 2.5g/L or Cymoxanil 8% + Mancozeb 64% @ 2g/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Destroys nursery seedlings within 4-5 days of persistent fog/dew.",
+        "translations": {
+          "hi": {
+            "name": "पत्तागोभी का मृदुरोमिल आसिता / डाउनी मिल्ड्यू (Downy Mildew)",
+            "recommended_action": "पत्तियों के नीचे सफेद फफूंद दिखने पर रिडोमिल का तुरंत छिड़काव करें।",
+            "prevention_tips": "नर्सरी में अधिक घना बीज न डालें। सुबह पानी दें।",
+            "organic_control": "बोर्डो मिश्रण (1%) या कॉपर युक्त जैविक स्प्रे करें।",
+            "chemical_control": "रिडोमिल एमजेड (मेटालेक्सिल + मैंकोजेब) 2.5 ग्राम/लीटर का छिड़काव करें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कोबीवरील केवडा / डाऊनी मिल्ड्यू (Downy Mildew)",
+            "recommended_action": "पानांच्या खालच्या बाजूला बुरशी दिसताच रिडोमिल फवारा.",
+            "prevention_tips": "गादीवाफ्यावर दाटीवाटीने बियाणे टाकू नका.",
+            "organic_control": "१% बोर्डो मिश्रण फवारा.",
+            "chemical_control": "रिडोमिल एमझेड (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Fusarium Yellows",
+        "pathogen_type": "Fungal (Fusarium oxysporum f. sp. conglutinans)",
+        "description": "One-sided yellowing of leaves and curved heads. Internal vascular ring turns dull brown.",
+        "recommended_action": "Uproot stunted yellowed plants. Avoid spreading soil from affected patches.",
+        "prevention_tips": "Plant resistant cultivars. Maintain neutral soil pH (6.5-7.0).",
+        "organic_control": "Soil drenching with Trichoderma harzianum (5g/L) enriched with compost.",
+        "chemical_control": "Carbendazim 50% WP @ 2g/L root drench around surviving adjacent plants.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Survives in soil for over 10 years as chlamydospores.",
+        "translations": {
+          "hi": {
+            "name": "पत्तागोभी का फ्यूजेरियम पीलिया / येलोज (Fusarium Yellows)",
+            "recommended_action": "पीले पड़े एकतरफा पौधों को उखाड़ें। आसपास ट्राइकोडर्मा या कार्बेन्डाजिम दें।",
+            "prevention_tips": "रोगरोधी किस्में लगाएं।",
+            "organic_control": "ट्राइकोडर्मा युक्त कम्पोस्ट खाद जड़ों में दें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (2 ग्राम/लीटर) से जड़ों की ड्रेन्चिंग करें।",
+            "urgency": "3 दिन में उपचार करें"
+          },
+          "mr": {
+            "name": "कोबीवरील पिवळे पडणे / फ्युजारियम विल्ट (Fusarium Yellows)",
+            "recommended_action": "पिवळी पडलेली झाडे उपटून टाका. ट्रायकोडर्माची आळवणी करा.",
+            "prevention_tips": "रोगप्रतिकारक वाण वापरा.",
+            "organic_control": "ट्रायकोडर्मायुक्त खत मुळांशी द्या.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (२ ग्रॅम/लिटर) आळवणी करा.",
+            "urgency": "३ दिवसांत आळवणी करा"
+          }
+        }
+      },
+      {
+        "name": "Clubroot",
+        "pathogen_type": "Protist (Plasmodiophora brassicae)",
+        "description": "Stunting and midday wilting with recovery at night. Roots form spindle-shaped clubbed galls.",
+        "recommended_action": "Apply hydrated lime to raise soil pH above 7.2. Rogue out severely gall-infected plants.",
+        "prevention_tips": "Never transplant seedlings with swollen roots. Clean tractors and tillers before moving between fields.",
+        "organic_control": "Apply agricultural lime @ 1-2 tons/ha 6 weeks before transplanting.",
+        "chemical_control": "Drench transplanting holes with Fluazinam 500 SC @ 1.5ml/L or Cyazofamid @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Acidic soils (pH < 6.5) heavily favor clubroot infection.",
+        "translations": {
+          "hi": {
+            "name": "पत्तागोभी का क्लब रूट / गांठ रोग (Clubroot)",
+            "recommended_action": "जड़ों में गांठ वाले पौधों को उखाड़ें। मिट्टी में चूना मिलाकर pH 7.2 से ऊपर करें।",
+            "prevention_tips": "नर्सरी की जड़ों की जांच करके ही रोपाई करें। औजार साफ रखें।",
+            "organic_control": "खेत में बुवाई से पूर्व 1-2 टन चूना प्रति हेक्टेयर मिलाएं।",
+            "chemical_control": "फ्लुआजिनाम (1.5 मिली/लीटर) से गड्ढों में ड्रेन्चिंग करें।",
+            "urgency": "3 दिन में उपचार करें"
+          },
+          "mr": {
+            "name": "कोबीवरील मुळांच्या गाठी / क्लब रूट (Clubroot)",
+            "recommended_action": "गाठी झालेली झाडे काढून टाका. जमिनीत चुना टाकून आम्लता कमी करा.",
+            "prevention_tips": "निरोगी रोपांचीच पुनर्लागवड करा.",
+            "organic_control": "लागवडीपूर्वी जमिनीत चुना मिसळा.",
+            "chemical_control": "फ्लुआझिनाम (१.५ मिली/लिटर) ची आळवणी करा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Cotton",
+    "scientific_name": "Gossypium hirsutum",
+    "icon": "🌱",
+    "category": "Cash Crop",
+    "diseases": [
+      {
+        "name": "Bacterial Blight",
+        "pathogen_type": "Bacterial (Xanthomonas citri pv. malvacearum)",
+        "description": "Angular water-soaked leaf spots bordered by veinlets (Angular Leaf Spot), black lesions running along veins, and black stem lesions (Blackarm).",
+        "recommended_action": "Spray bactericide combined with copper fungicide at early appearance of angular water-soaked spots.",
+        "prevention_tips": "Delint acid seed before sowing. Avoid high doses of nitrogenous fertilizers.",
+        "organic_control": "Foliar spray with Pseudomonas fluorescens (10g/L) + neem oil (5ml/L).",
+        "chemical_control": "Spray Streptocycline @ 0.1g/L (1g in 10L water) mixed with Copper Oxychloride 50% WP @ 2.5g/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Can lead to severe boll rot and complete defoliation under warm wet weather.",
+        "translations": {
+          "hi": {
+            "name": "कपास का जीवाणु झुलसा / काला हाथ (Bacterial Blight / Blackarm)",
+            "recommended_action": "पत्तियों पर कोणीय धब्बे दिखते ही स्ट्रेप्टोसाइक्लिन और कॉपर का छिड़काव करें।",
+            "prevention_tips": "तेजाब से बीजोपचार किए बीज ही बोएं। संतुलित यूरिया दें।",
+            "organic_control": "स्यूडोमोनास (10 ग्राम/लीटर) और नीम तेल का छिड़काव करें।",
+            "chemical_control": "स्ट्रेप्टोसाइक्लिन (1 ग्राम प्रति 10 लीटर) + कॉपर ऑक्सीक्लोराइड (25 ग्राम प्रति 10 लीटर) का छिड़काव करें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कापसावरील काळा डाग / जिवाणू करपा (Bacterial Blight)",
+            "recommended_action": "पानांवर कोनीय ठिपके दिसताच स्ट्रेप्टोमायसिन + कॉपरची फवारणी करा.",
+            "prevention_tips": "ऍसिड डिंलिंटेड बियाणे वापरा. नत्राचा अतिवापर टाळा.",
+            "organic_control": "स्युडोमोनास (१० ग्रॅम/लिटर) फवारा.",
+            "chemical_control": "स्ट्रेप्टोमायसीन (१ ग्रॅम/१० लिटर) + कॉपर ऑक्झिक्लोराईड (२५ ग्रॅम/१० लिटर) फवारा.",
+            "urgency": "२४ ते ४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Alternaria Leaf Spot",
+        "pathogen_type": "Fungal (Alternaria macrospora / alternata)",
+        "description": "Round brown spots with concentric target rings and purple margins; spots dry up leaving shot holes.",
+        "recommended_action": "Foliar spray with protective contact or systemic fungicide.",
+        "prevention_tips": "Ensure potassium nutrition; potassium deficiency predisposes cotton to Alternaria blight.",
+        "organic_control": "Spray 5% neem seed kernel extract (NSKE) or bio-fungicide Trichoderma.",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Pyraclostrobin 20% WG @ 1g/L or Propiconazole 25% EC @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Commonly flares during boll filling stage causing premature leaf drop.",
+        "translations": {
+          "hi": {
+            "name": "कपास का अल्टरनेरिया पत्ती धब्बा (Alternaria Leaf Spot)",
+            "recommended_action": "पत्तियों पर गोल छल्लेदार धब्बे दिखते ही फफूंदनाशक का छिड़काव करें।",
+            "prevention_tips": "खेत में पोटाश की कमी न होने दें।",
+            "organic_control": "5% नीम बीज अर्क (NSKE) का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) अथवा प्रोपिकोनाजोल (1 मिली/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "कापसावरील अल्टरनेरिया पानांवरील ठिपके (Alternaria Leaf Spot)",
+            "recommended_action": "बुरशीनाशकाची फवारणी करा. पोटॅश खताची कमतरता भरून काढा.",
+            "prevention_tips": "पोटॅशयुक्त खतांचा वापर वाढवा.",
+            "organic_control": "५% निंबोळी अर्क फवारा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) किंवा प्रोपिकोनाझोल (१ मिली/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          }
+        }
+      },
+      {
+        "name": "Grey Mildew",
+        "pathogen_type": "Fungal (Ramularia areola / Cercosporella gossypii)",
+        "description": "Angular pale translucent spots on leaves with frosty white to grey powdery growth on lower leaf surface (Areolate Mildew / Dahiya disease).",
+        "recommended_action": "Spray wettable sulphur or systemic strobilurin fungicide immediately.",
+        "prevention_tips": "Avoid excessively close plant spacing; allow sunlight penetration into lower branches.",
+        "organic_control": "Spray wettable sulfur 80% WDG @ 3g/L or sour buttermilk spray (50ml/L).",
+        "chemical_control": "Spray Carbendazim 50% WP @ 1g/L or Kresoxim-methyl 44.3% SC @ 1ml/L or Azoxystrobin @ 1ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Also known as Dahiya disease in central India; causes sudden heavy leaf fall.",
+        "translations": {
+          "hi": {
+            "name": "कपास का दहिया रोग / ग्रे मिल्ड्यू (Grey Mildew)",
+            "recommended_action": "पत्तियों के नीचे धूसर-सफेद पाउडर दिखते ही कार्बेन्डाजिम या सल्फर का छिड़काव करें।",
+            "prevention_tips": "पौधों के बीच पर्याप्त फासला रखें ताकि धूप नीचे तक पहुंचे।",
+            "organic_control": "घुलनशील गंधक (सल्फर) 3 ग्राम/लीटर या खट्टी छाछ का छिड़काव करें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (1 ग्राम/लीटर) या एजोक्सीस्ट्रोबिन (1 मिली/लीटर) का छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कापसावरील दहिया रोग (Grey Mildew / Dahiya)",
+            "recommended_action": "पानांच्या खाली पांढरी बुरशी दिसताच कार्बेन्डाझिम किंवा सल्फर फवारा.",
+            "prevention_tips": "झाडांमध्ये सूर्यप्रकाश खेळता राहील असे अंतर ठेवा.",
+            "organic_control": "विद्राव्य गंधक (सल्फर) ३ ग्रॅम/लिटर किंवा आंबट ताक फवारा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (१ ग्रॅम/लिटर) किंवा क्रेझोक्झिम-मिथाईल (१ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Fusarium Wilt",
+        "pathogen_type": "Fungal (Fusarium oxysporum f. sp. vasinfectum)",
+        "description": "Yellowing and browning of leaf margins progressing inward, wilting from bottom upwards, dark brown vascular discoloration in cut taproot.",
+        "recommended_action": "Uproot severely wilted plants. Avoid furrow irrigation moving from infected to healthy patches.",
+        "prevention_tips": "Grow wilt-resistant cotton hybrids. Treat seed with bio-agents.",
+        "organic_control": "Apply Trichoderma viride @ 2.5 kg/acre mixed with 200 kg FYM to soil.",
+        "chemical_control": "Drench root zone with Carbendazim 50% WP @ 2g/L or Benomyl @ 1.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Favored by acidic and sandy soils; persistent soil-borne pathogen.",
+        "translations": {
+          "hi": {
+            "name": "कपास का उकठा / फ्यूजेरियम विल्ट (Fusarium Wilt)",
+            "recommended_action": "मुरझाए पौधों को उखाड़ें। जड़ क्षेत्र में कार्बेन्डाजिम या ट्राइकोडर्मा की ड्रेन्चिंग करें।",
+            "prevention_tips": "रोगरोधी संकर किस्में लगाएं।",
+            "organic_control": "ट्राइकोडर्मा (2.5 किग्रा/एकड़) सड़ी गोबर की खाद में मिलाकर दें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (2 ग्राम/लीटर) का जड़ों में छिड़काव/ड्रेन्चिंग करें।",
+            "urgency": "3 दिन में उपचार करें"
+          },
+          "mr": {
+            "name": "कापसावरील मर रोग / फ्युजारियम विल्ट (Fusarium Wilt)",
+            "recommended_action": "वाळलेली झाडे उपटून टाका. मुळांशी कार्बेन्डाझिमची आळवणी करा.",
+            "prevention_tips": "रोगप्रतिकारक वाण वापरा.",
+            "organic_control": "ट्रायकोडर्मायुक्त शेणखत जमिनीत मिसळा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (२ ग्रॅम/लिटर) मुळांभोवती टाका.",
+            "urgency": "३ दिवसांत उपाय करा"
+          }
+        }
+      },
+      {
+        "name": "Verticillium Wilt",
+        "pathogen_type": "Fungal (Verticillium dahliae)",
+        "description": "Mottled yellowing between leaf veins giving a characteristic 'tiger-stripe' pattern, followed by necrosis and defoliation.",
+        "recommended_action": "Maintain balanced potassium and avoid excessive nitrogen. Solarize infested soil before next planting.",
+        "prevention_tips": "Long crop rotation with non-hosts like sorghum or paddy. Avoid deep inter-cultivation that injures roots.",
+        "organic_control": "Soil application of Trichoderma viride and Pseudomonas fluorescens.",
+        "chemical_control": "Soil drenching with Thiophanate-methyl 70% WP @ 1.5g/L or Carbendazim @ 2g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Flourishes in cool, moist soils and sub-optimal temperatures.",
+        "translations": {
+          "hi": {
+            "name": "कपास का वर्टिसिलियम विल्ट (Verticillium Wilt)",
+            "recommended_action": "बाघ जैसी धारीदार पीली पत्तियों वाले पौधों की जड़ों में फफूंदनाशक दें।",
+            "prevention_tips": "ज्वार या धान के साथ लंबा फसल चक्र अपनाएं। जड़ों को चोट न पहुंचाएं।",
+            "organic_control": "ट्राइकोडर्मा और स्यूडोमोनास का भूमि उपचार करें।",
+            "chemical_control": "थायोफिनेट-मिथाइल 70% WP (1.5 ग्राम/लीटर) का जड़ों में ड्रेन्चिंग करें।",
+            "urgency": "3 दिन में उपचार करें"
+          },
+          "mr": {
+            "name": "कापसावरील व्हर्टिसिलियम मर (Verticillium Wilt)",
+            "recommended_action": "पानांवर पट्टे दिसल्यास थायोफिनेट मिथाईलची आळवणी करा.",
+            "prevention_tips": "ज्वारी किंवा भातासोबत फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्मा जमिनीत मिसळा.",
+            "chemical_control": "थायोफिनेट मिथाईल (१.५ ग्रॅम/लिटर) आळवणी करा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Onion",
+    "scientific_name": "Allium cepa",
+    "icon": "🧅",
+    "category": "Vegetable",
+    "diseases": [
+      {
+        "name": "Purple Blotch",
+        "pathogen_type": "Fungal (Alternaria porri)",
+        "description": "Small, water-soaked lesions that quickly expand into elliptical purple-centered spots with yellow halo on leaves and seed stalks. Leaves break over.",
+        "recommended_action": "Spray systemic plus contact fungicide immediately upon seeing purple elliptical lesions.",
+        "prevention_tips": "Avoid overhead sprinkler irrigation; ensure good drainage and weed control.",
+        "organic_control": "Foliar spray with neem oil (5ml/L) + sticker, or Trichoderma harzianum (5g/L).",
+        "chemical_control": "Spray Tebuconazole 25.9% EC @ 1ml/L or Difenoconazole 25% EC @ 1ml/L mixed with Mancozeb 75% WP @ 2.5g/L and a sticker/spreader (0.5ml/L).",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Severe infection can cause 50-70% yield loss and ruin onion seed crop production.",
+        "translations": {
+          "hi": {
+            "name": "प्याज का बैंगनी धब्बा / पर्पल ब्लॉच (Purple Blotch)",
+            "recommended_action": "बैंगनी धब्बे दिखने पर टेबुकोनाजोल या मैंकोजेब के साथ स्टीकर मिलाकर तुरंत छिड़कें।",
+            "prevention_tips": "ऊपर से पानी देने से बचें। खेत में खरपतवार न होने दें।",
+            "organic_control": "नीम का तेल (5 मिली/लीटर) स्टीकर के साथ मिलाकर छिड़कें।",
+            "chemical_control": "टेबुकोनाजोल 25.9% EC (1 मिली/लीटर) + मैंकोजेब (2.5 ग्राम/लीटर) + चिपचिपा पदार्थ (स्टीकर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कांद्यावरील जांभळा करपा (Purple Blotch)",
+            "recommended_action": "पानांवर जांभळे लांबट चट्टे दिसताच टेबुकोनाझोल + मॅन्कोझेब + स्टिकर फवारा.",
+            "prevention_tips": "तुषार सिंचन टाळा. शेतातील तण नियंत्रण ठेवा.",
+            "organic_control": "नीम तेल (५ मिली/लिटर) स्टिकरसोबत फवारा.",
+            "chemical_control": "टेबुकोनाझोल २५.९% EC (१ मिली/लिटर) + मॅन्कोझेब (२.५ ग्रॅम/लिटर) + स्टिकर (०.५ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Downy Mildew",
+        "pathogen_type": "Oomycete (Peronospora destructor)",
+        "description": "Pale, elongated yellowish patches covered with violet-gray downy mold, especially in cool humid mornings.",
+        "recommended_action": "Apply targeted oomycete systemic fungicide before rainfall or high humidity periods.",
+        "prevention_tips": "Rotate with non-allium crops for at least 3 years. Maintain row orientation along prevailing wind.",
+        "organic_control": "Spray copper hydroxide or copper soap solution preventively.",
+        "chemical_control": "Spray Metalaxyl 8% + Mancozeb 64% WP @ 2.5g/L or Dimethomorph 50% WP @ 1g/L with a spreading agent.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Destroys foliage rapidly in temperatures of 10-15°C with high relative humidity.",
+        "translations": {
+          "hi": {
+            "name": "प्याज का डाउनी मिल्ड्यू / मृदुरोमिल आसिता (Downy Mildew)",
+            "recommended_action": "पत्तियों पर बैंगनी-धूसर फफूंद दिखने पर रिडोमिल एमजेड का तुरंत छिड़काव करें।",
+            "prevention_tips": "3 साल तक प्याज या लहसुन न लगाएं। हवादार खेत चुनें।",
+            "organic_control": "कॉपर हाइड्रोक्साइड का छिड़काव करें।",
+            "chemical_control": "रिडोमिल (मेटालेक्सिल + मैंकोजेब) 2.5 ग्राम/लीटर स्टीकर के साथ छिड़कें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कांद्यावरील केवडा / डाऊनी मिल्ड्यू (Downy Mildew)",
+            "recommended_action": "पानांवर करडी बुरशी दिसताच रिडोमिल एमझेड फवारा.",
+            "prevention_tips": "कांदा पिकाची फेरपालट करा. हवा खेळती राहील असे अंतर ठेवा.",
+            "organic_control": "कॉपर बुरशीनाशक प्रतिबंधात्मक फवारा.",
+            "chemical_control": "रिडोमिल एमझेड (२.५ ग्रॅम/लिटर) स्टिकर टाकून फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Stemphylium Leaf Blight",
+        "pathogen_type": "Fungal (Stemphylium vesicarium)",
+        "description": "Small yellow to orange water-soaked flecks that enlarge into extensive light brown spots with dark olive fungal centers.",
+        "recommended_action": "Spray azoxystrobin or difenoconazole combined with mancozeb.",
+        "prevention_tips": "Control thrips strictly; thrips feeding wounds allow Stemphylium fungus to invade leaf tissue.",
+        "organic_control": "Spray 5% neem extract to suppress thrips and apply Trichoderma to foliage.",
+        "chemical_control": "Spray Difenoconazole 25% EC @ 1ml/L or Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Often follows thrips injury or purple blotch infection.",
+        "translations": {
+          "hi": {
+            "name": "प्याज का स्टेमफिलियम झुलसा (Stemphylium Leaf Blight)",
+            "recommended_action": "थ्रिप्स कीट को नियंत्रित करें और डाइफेनोकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "थ्रिप्स की रोकथाम जरूरी है क्योंकि इसके घाव से ही फफूंद घुसती है।",
+            "organic_control": "थ्रिप्स नियंत्रण के लिए 5% नीम तेल का छिड़काव करें।",
+            "chemical_control": "डाइफेनोकोनाजोल 25% EC (1 मिली/लीटर) या एमिस्टार टॉप (1 मिली/लीटर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "कांद्यावरील स्टेम्फिलियम करपा (Stemphylium Leaf Blight)",
+            "recommended_action": "थ्रिप्सचा बंदोबस्त करा आणि डायफेनोकोनाझोल फवारा.",
+            "prevention_tips": "फुलकिडे (थ्रिप्स) नियंत्रण वेळेवर करा.",
+            "organic_control": "थ्रिप्स नियंत्रणासाठी नीम तेल फवारा.",
+            "chemical_control": "डायफेनोकोनाझोल २५% EC (१ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Fusarium Basal Plate Rot",
+        "pathogen_type": "Fungal (Fusarium oxysporum f. sp. cepae)",
+        "description": "Progressive yellowing and dieback of leaves starting from tips. Roots turn pinkish-brown and rot away; basal plate shows brownish decay.",
+        "recommended_action": "Uproot infected bulbs to prevent soil spread. Do not store soft bulbs.",
+        "prevention_tips": "Rotate with non-allium crops for 4-5 years. Avoid mechanical injury during weeding.",
+        "organic_control": "Seedling root dip in Trichoderma viride (10g/L) for 30 minutes before transplanting.",
+        "chemical_control": "Soil drenching with Carbendazim 50% WP @ 2g/L or Thiophanate-methyl 70% WP @ 1.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes extensive rotting both in field and during onion storage.",
+        "translations": {
+          "hi": {
+            "name": "प्याज का तना सड़न / बेसल रॉट (Basal Plate Rot)",
+            "recommended_action": "संक्रमित सड़े प्याज उखाड़ें। रोपाई से पहले जड़ों को ट्राइकोडर्मा से उपचारित करें।",
+            "prevention_tips": "4-5 साल तक उस खेत में प्याज न लगाएं। निराई-गुड़ाई में जड़ें न काटें।",
+            "organic_control": "रोपाई से पहले ट्राइकोडर्मा (10 ग्राम/लीटर) के घोल में जड़ें 30 मिनट भिगोएं।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (2 ग्राम/लीटर) से पौधों की जड़ों में ड्रेन्चिंग करें।",
+            "urgency": "3 दिन में उपचार करें"
+          },
+          "mr": {
+            "name": "कांद्याची मुळे कुजणे / तळ कुजव्या (Basal Rot)",
+            "recommended_action": "कुजलेले कांदे काढून टाका. पुनर्लागवडीपूर्वी ट्रायकोडर्माची प्रक्रिया करा.",
+            "prevention_tips": "४-५ वर्षे कांदा पिकाची फेरपालट करा.",
+            "organic_control": "रोपांची मुळे ट्रायकोडर्मा (१० ग्रॅम/लिटर) मध्ये ३० मिनिटे बुडवून लावा.",
+            "chemical_control": "कार्बेन्डाझिम ५०% WP (२ ग्रॅम/लिटर) मुळांशी आळवणी करा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      },
+      {
+        "name": "White Rot",
+        "pathogen_type": "Fungal (Stromatinia cepivora / Sclerotium cepivorum)",
+        "description": "Leaves turn yellow and die back. Dense white fluffy fungal growth develops at bulb base studded with tiny black poppy-seed-like sclerotia.",
+        "recommended_action": "Quarantine the affected plot. Carefully dig out infected plants with soil and bag them for destruction.",
+        "prevention_tips": "Do not transfer soil or implements from infested to clean fields. Sclerotia survive 20+ years.",
+        "organic_control": "Soil solarization with clear polyethylene tarp for 6-8 weeks during peak summer.",
+        "chemical_control": "Drench base with Tebuconazole 250 EC @ 1ml/L or Fludioxonil @ 1.5g/L.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "One of the most persistent soil diseases of allium species.",
+        "translations": {
+          "hi": {
+            "name": "प्याज का सफेद सड़न / व्हाइट रॉट (White Rot)",
+            "recommended_action": "संक्रमित पौधों को मिट्टी सहित थैली में भरकर नष्ट करें। यह फफूंद मिट्टी में 20 साल रह सकती है।",
+            "prevention_tips": "गर्मियों में गहरी जुताई और पॉलीथीन से मिट्टी का सौरीकरण करें।",
+            "organic_control": "मई-जून में प्लास्टिक मल्च बिछाकर 6-8 सप्ताह धूप में तपाएं।",
+            "chemical_control": "टेबुकोनाजोल 250 EC (1 मिली/लीटर) से जड़ों में ड्रेन्चिंग करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में रोकथाम करें"
+          },
+          "mr": {
+            "name": "कांद्यावरील पांढरा कुजव्या (White Rot)",
+            "recommended_action": "रोगट कांदे मातीसकट काढून नष्ट करा. अवजारे स्वच्छ धुवून वापरा.",
+            "prevention_tips": "उन्हाळ्यात जमिनीचे निर्जंतुकीकरण करा.",
+            "organic_control": "उन्हाळ्यात प्लास्टिक आच्छादन टाकून जमीन तापू द्या.",
+            "chemical_control": "टेबुकोनाझोल (१ मिली/लिटर) ची आळवणी करा.",
+            "urgency": "तातडीने: २४ तासांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Wheat",
+    "scientific_name": "Triticum aestivum",
+    "icon": "🌾",
+    "category": "Cereal",
+    "diseases": [
+      {
+        "name": "Leaf Rust",
+        "pathogen_type": "Fungal (Puccinia triticina)",
+        "description": "Small, round to oval reddish-orange to brown pustules scattered irregularly on the upper surface of wheat leaves. Rubbing leaves leaves orange powdery rust on fingers.",
+        "recommended_action": "Spray triazole fungicide at first appearance of orange pustules on flag leaf or canopy.",
+        "prevention_tips": "Sow recommended rust-resistant varieties. Avoid delayed late-season sowing.",
+        "organic_control": "Spray sour buttermilk (50ml/L) or neem oil formulation preventively.",
+        "chemical_control": "Spray Propiconazole 25% EC (Tilt) @ 1ml/L (200ml in 200L water/acre) or Tebuconazole 25.9% EC @ 1ml/L.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "Can reduce grain yield by 30-50% if flag leaf is infected before milky stage.",
+        "translations": {
+          "hi": {
+            "name": "गेहूं का भूरा रतुआ / लीफ रस्ट (Leaf Rust)",
+            "recommended_action": "पत्तियों पर नारंगी-भूरे चूर्ण जैसे फफोले दिखते ही प्रोपिकोनाजोल (टिल्ट) का तुरंत छिड़काव करें।",
+            "prevention_tips": "रतुआ-रोधी किस्में लगाएं। समय पर बुवाई करें, पछेती बुवाई से बचें।",
+            "organic_control": "खट्टी छाछ (50 मिली/लीटर) या नीम तेल का छिड़काव करें।",
+            "chemical_control": "प्रोपिकोनाजोल 25% EC (1 मिली/लीटर यानी 200 मिली प्रति एकड़) का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "गव्हावरील तांबेरा रोग (Leaf Rust)",
+            "recommended_action": "पानांवर नारंगी रंगाची पावडर दिसताच प्रोपिकोनाझोल (टिल्ट) ची फवारणी करा.",
+            "prevention_tips": "तांबेरा-प्रतिरोधक वाण पेरा. वेळेवर पेरणी करा.",
+            "organic_control": "आंबट ताक (५० मिली/लिटर) फवारा.",
+            "chemical_control": "प्रोपिकोनाझोल २५% EC (१ मिली/लिटर - २०० मिली/एकर) फवारा.",
+            "urgency": "तातडीने: २४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Stripe Rust (Yellow Rust)",
+        "pathogen_type": "Fungal (Puccinia striiformis)",
+        "description": "Bright yellow pustules arranged in narrow, distinct parallel stripes along leaf veins resembling yellow sewing machine stitches.",
+        "recommended_action": "CRITICAL: Immediately spray Propiconazole upon observing yellow striped pustules.",
+        "prevention_tips": "Avoid growing susceptible varieties in foothills/northern plains. Scout fields weekly during winter.",
+        "organic_control": "Spray bio-agents preventively, but chemical triazoles are strongly advised for yellow rust epidemics.",
+        "chemical_control": "Spray Propiconazole 25% EC @ 1ml/L or Tebuconazole 50% + Trifloxystrobin 25% WG (Nativo) @ 0.6g/L.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Capable of causing 100% crop destruction under cool humid winter conditions.",
+        "translations": {
+          "hi": {
+            "name": "गेहूं का पीला रतुआ / स्ट्राइप रस्ट (Yellow Rust)",
+            "recommended_action": "पीली पट्टियों में फफोले दिखते ही तुरंत प्रोपिकोनाजोल या नेटिवो का छिड़काव करें।",
+            "prevention_tips": "उत्तरी मैदानों में पीले रतुआ रोधी किस्में लगाएं।",
+            "organic_control": "शुरुआती लक्षण पर जैविक स्प्रे, लेकिन महामारी में तुरंत कवकनाशी दें।",
+            "chemical_control": "प्रोपिकोनाजोल 25% EC (1 मिली/लीटर) या नेटिवो (0.6 ग्राम/लीटर) का तुरंत छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "गव्हावरील पिवळा तांबेरा (Yellow Stripe Rust)",
+            "recommended_action": "पानांवर पिवळ्या ओळी दिसताच प्रोपिकोनाझोल किंवा नॅटिव्हो फवारा.",
+            "prevention_tips": "प्रतिरोधक वाण वापरा.",
+            "organic_control": "तातडीने फवारणी करणे आवश्यक.",
+            "chemical_control": "प्रोपिकोनाझोल २५% EC (१ मिली/लिटर) त्वरित फवारा.",
+            "urgency": "अति तातडीचे: २४ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Fusarium Head Blight",
+        "pathogen_type": "Fungal (Fusarium graminearum)",
+        "description": "Bleached or prematurely whitened spikelets within green wheat heads. Pinkish-orange fungal sporodochia appear on glumes during moist weather.",
+        "recommended_action": "Foliar fungicide application at early flowering/anthesis stage.",
+        "prevention_tips": "Do not plant wheat directly following maize in no-till systems. Plow down crop residues.",
+        "organic_control": "Spray bio-antagonist Bacillus amyloliquefaciens at early anthesis.",
+        "chemical_control": "Spray Prothioconazole + Tebuconazole (Prosaro) @ 1ml/L or Tebuconazole 25.9% EC @ 1.25ml/L at 10-20% flowering.",
+        "urgency": "Act within 24-48 hours",
+        "severity_notes": "Produces vomitoxin / deoxynivalenol (DON) mycotoxins that render grain unfit for consumption.",
+        "translations": {
+          "hi": {
+            "name": "गेहूं का हेड ब्लाइट / बाली सड़न (Fusarium Head Blight)",
+            "recommended_action": "बालियों में फूल आने के समय फफूंदनाशक का छिड़काव करें।",
+            "prevention_tips": "फसल अवशेषों को गहरा जोतें। मक्का-गेहूं फसल चक्र में सावधानी रखें।",
+            "organic_control": "जैविक वैसिलस का छिड़काव करें।",
+            "chemical_control": "टेबुकोनाजोल 25.9% EC (1.25 मिली/लीटर) का फूल आने के समय छिड़काव करें।",
+            "urgency": "24-48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "गव्हावरील लोंबी करपा (Fusarium Head Blight)",
+            "recommended_action": "फुलोरा अवस्थेत टेबुकोनाझोल फवारा.",
+            "prevention_tips": "मका पिकानंतर लगेच गव्हाची पेरणी टाळा.",
+            "organic_control": "जैविक बुरशीनाशकांचा वापर करा.",
+            "chemical_control": "टेबुकोनाझोल २५.९% EC (१.२५ मिली/लिटर) फवारा.",
+            "urgency": "२४-४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Powdery Mildew",
+        "pathogen_type": "Fungal (Blumeria graminis f. sp. tritici)",
+        "description": "Fluffy white-to-gray cottony patches on leaves and leaf sheaths that later turn dull gray-brown with tiny black dots (cleistothecia).",
+        "recommended_action": "Spray systemic triazole fungicide when lower leaves begin showing white patches.",
+        "prevention_tips": "Avoid excessively heavy seeding rates and high nitrogen doses that create dense lush canopies.",
+        "organic_control": "Spray wettable sulfur 80% WDG @ 3g/L or potassium bicarbonate (4g/L).",
+        "chemical_control": "Spray Hexaconazole 5% EC @ 1ml/L or Propiconazole 25% EC @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Thrives in dense canopies with high humidity and mild temperatures (15-22°C).",
+        "translations": {
+          "hi": {
+            "name": "गेहूं का चूर्णिल आसिता / पाउडरी मिल्ड्यू (Powdery Mildew)",
+            "recommended_action": "सफेद पाउडर जैसे धब्बे दिखते ही हेक्साकोनाजोल या सल्फर का छिड़काव करें।",
+            "prevention_tips": "बहुत अधिक बीज दर न रखें और यूरिया का अत्यधिक उपयोग न करें।",
+            "organic_control": "घुलनशील गंधक (सल्फर) 3 ग्राम/लीटर का छिड़काव करें।",
+            "chemical_control": "हेक्साकोनाजोल 5% EC (1 मिली/लीटर) या प्रोपिकोनाजोल का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "गव्हावरील भुरी रोग (Powdery Mildew)",
+            "recommended_action": "पानांवर पांढरी पावडर दिसताच हेक्झाकोनाझोल किंवा सल्फर फवारा.",
+            "prevention_tips": "नत्राचा अतिवापर टाळा.",
+            "organic_control": "विद्राव्य गंधक (सल्फर) ३ ग्रॅम/लिटर फवारा.",
+            "chemical_control": "हेक्झाकोनाझोल ५% EC (१ मिली/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Septoria Leaf Blotch",
+        "pathogen_type": "Fungal (Zymoseptoria tritici)",
+        "description": "Irregular brownish lesions speckled with tiny black fruiting bodies (pycnidia) clearly visible under sunlight on leaves.",
+        "recommended_action": "Spray protectant plus systemic fungicide before disease reaches the upper two leaves.",
+        "prevention_tips": "Rotate with broadleaf crops. Shred and incorporate stubble after harvest.",
+        "organic_control": "Preventive spray with copper octanoate soap or neem oil.",
+        "chemical_control": "Spray Azoxystrobin 18.2% + Difenoconazole 11.4% SC @ 1ml/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Spreads via rain splash from lower leaves to flag leaf.",
+        "translations": {
+          "hi": {
+            "name": "गेहूं का सेप्टोरिया पत्ती धब्बा (Septoria Leaf Blotch)",
+            "recommended_action": "धब्बों में काले बिंदु दिखते ही डाइफेनोकोनाजोल या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "दलहनी फसलों के साथ फसल चक्र अपनाएं।",
+            "organic_control": "नीम तेल या तांबा युक्त स्प्रे करें।",
+            "chemical_control": "एमिस्टार टॉप (1 मिली/लीटर) अथवा मैंकोजेब 75% WP (2.5 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "गव्हावरील सेप्टोरिया करपा (Septoria Leaf Blotch)",
+            "recommended_action": "बुरशीनाशकाची फवारणी तातडीने करा.",
+            "prevention_tips": "पिकांची फेरपालट करा.",
+            "organic_control": "नीम तेल फवारा.",
+            "chemical_control": "डायफेनोकोनाझोल किंवा मॅन्कोझेब फवारा.",
+            "urgency": "३ दिवसांत फवारणी करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Tur (Pigeon Pea)",
+    "scientific_name": "Cajanus cajan",
+    "icon": "🌱",
+    "category": "Pulse",
+    "diseases": [
+      {
+        "name": "Fusarium Wilt",
+        "pathogen_type": "Fungal (Fusarium udum)",
+        "description": "Gradual wilting of green branches or entire plant, blackened stripe on stem extending upward from soil line, dark purple vascular ring inside cut stem.",
+        "recommended_action": "Uproot wilted plants immediately. Drench soil around nearby healthy plants with Trichoderma.",
+        "prevention_tips": "Plant wilt-resistant varieties (Asha, Maruti, BSMR-736). Rotate with sorghum or tobacco for 3 years.",
+        "organic_control": "Treat seed with Trichoderma viride @ 10g/kg seed. Apply Trichoderma enriched FYM in soil.",
+        "chemical_control": "Seed treatment with Carbendazim 2g/kg seed. Soil drenching with Carbendazim @ 2g/L at onset of symptoms.",
+        "urgency": "CRITICAL: Act within 48 hours",
+        "severity_notes": "Most destructive disease of pigeon pea in the Indian subcontinent.",
+        "translations": {
+          "hi": {
+            "name": "अरहर का उकठा रोग / विल्ट (Fusarium Wilt)",
+            "recommended_action": "सूख रहे पौधों को तुरंत उखाड़ें। बीज उपचारित करके ही बोएं।",
+            "prevention_tips": "उकठा-रोधी किस्में (आशा, मारुति, बीएसएमआर-736) लगाएं।",
+            "organic_control": "ट्राइकोडर्मा (10 ग्राम प्रति किग्रा बीज) से बीजोपचार करें।",
+            "chemical_control": "कार्बेन्डाजिम (2 ग्राम/किग्रा बीज) उपचार और 2 ग्राम/लीटर की दर से जड़ों में ड्रेन्चिंग करें।",
+            "urgency": "48 घंटे में उपचार करें"
+          },
+          "mr": {
+            "name": "तुरीवरील मर रोग (Fusarium Wilt)",
+            "recommended_action": "वाळलेली झाडे उपटून नष्ट करा. ट्रायकोडर्माची आळवणी करा.",
+            "prevention_tips": "मर-प्रतिरोधक वाण (मारुती, आशा, बी.एस.एम.आर.-७३६) वापरा.",
+            "organic_control": "ट्रायकोडर्मा व्हिरीडी (१० ग्रॅम/किलो बियाणे) बीजप्रक्रिया करा.",
+            "chemical_control": "कार्बेन्डाझिम २ ग्रॅम/किलो बियाण्यास चोळा आणि २ ग्रॅम/लिटरने आळवणी करा.",
+            "urgency": "४८ तासांत करा"
+          }
+        }
+      },
+      {
+        "name": "Phytophthora Blight",
+        "pathogen_type": "Oomycete (Phytophthora cajani)",
+        "description": "Rapid water-soaked brown lesions on stems and leaves, dark girdling stem cankers causing plant above the lesion to snap and dry out.",
+        "recommended_action": "Improve field surface drainage immediately. Spray systemic anti-oomycete fungicide.",
+        "prevention_tips": "Sow on ridges and furrows or broad bed furrow (BBF) to prevent water stagnation.",
+        "organic_control": "Seed treatment and soil drenching with Trichoderma viride.",
+        "chemical_control": "Spray Metalaxyl 8% + Mancozeb 64% WP @ 2.5g/L or Fosetyl-Al @ 2g/L upon water stagnation.",
+        "urgency": "CRITICAL: Act within 24 hours",
+        "severity_notes": "Can destroy entire fields in cloudy rainy weather within 48-72 hours.",
+        "translations": {
+          "hi": {
+            "name": "अरहर का फाइटोफ्थोरा झुलसा (Phytophthora Blight)",
+            "recommended_action": "खेत से पानी तुरंत निकालें। रिडोमिल या कॉपर फफूंदनाशक का छिड़काव करें।",
+            "prevention_tips": "मेड़ या कतार विधि से बुवाई करें ताकि पानी न रुके।",
+            "organic_control": "ट्राइकोडर्मा से बीज और भूमि का उपचार करें।",
+            "chemical_control": "रिडोमिल एमजेड (मेटालेक्सिल + मैंकोजेब) 2.5 ग्राम/लीटर का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "तुरीवरील फायटोफ्थोरा करपा (Phytophthora Blight)",
+            "recommended_action": "शेतातून पाण्याचा निचरा त्वरित करा. रिडोमिल फवारा.",
+            "prevention_tips": "गादीवाफ्यावर किंवा सरी-वरंब्यावर पेरणी करा.",
+            "organic_control": "ट्रायकोडर्मा विरिडीचा वापर करा.",
+            "chemical_control": "रिडोमिल एमझेड (२.५ ग्रॅम/लिटर) तातडीने फवारा.",
+            "urgency": "२४ तासांत फवारा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Turmeric",
+    "scientific_name": "Curcuma longa",
+    "icon": "🌿",
+    "category": "Spice",
+    "diseases": [
+      {
+        "name": "Leaf Blotch",
+        "pathogen_type": "Fungal (Taphrina maculans)",
+        "description": "Abundant small, reddish-brown to yellow spots on both leaf surfaces which coalesce into large brown necrotic blotches.",
+        "recommended_action": "Spray copper or dithiocarbamate fungicide at initial spot detection.",
+        "prevention_tips": "Provide shade in hot climates; avoid water stress during rhizome development.",
+        "organic_control": "Spray 1% Bordeaux mixture or Trichoderma foliar spray.",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Copper Oxychloride 50% WP @ 2.5g/L every 14 days.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces rhizome yield by up to 30%.",
+        "translations": {
+          "hi": {
+            "name": "हल्दी का पत्ती चित्ती रोग / लीफ ब्लॉच (Leaf Blotch)",
+            "recommended_action": "पत्तियों पर पीले-लाल धब्बे दिखने पर कॉपर ऑक्सीक्लोराइड या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "कंद विकास के समय नमी का ध्यान रखें।",
+            "organic_control": "1% बोर्डो मिश्रण का छिड़काव करें।",
+            "chemical_control": "कॉपर ऑक्सीक्लोराइड (2.5 ग्राम/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "हळदीवरील पानावरील ठिपके / ब्लॉच (Leaf Blotch)",
+            "recommended_action": "कॉपर ऑक्झिक्लोराईड किंवा मॅन्कोझेब फवारा.",
+            "prevention_tips": "पाण्याचा योग्य निचरा ठेवा.",
+            "organic_control": "१% बोर्डो मिश्रण फवारा.",
+            "chemical_control": "कॉपर ऑक्झिक्लोराईड (२.५ ग्रॅम/लिटर) किंवा मॅन्कोझेब फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Blight",
+        "pathogen_type": "Fungal (Colletotrichum capsici / Rhizoctonia)",
+        "description": "Elliptical to oblong brown lesions with greyish center and dark brown margin. Leaves dry up from margins inward.",
+        "recommended_action": "Apply systemic strobilurin or triazole fungicide.",
+        "prevention_tips": "Treat seed rhizomes before planting. Ensure balanced nutrition with micronutrients.",
+        "organic_control": "Rhizome treatment and foliar spray with Pseudomonas fluorescens (10g/L).",
+        "chemical_control": "Spray Propiconazole 25% EC @ 1ml/L or Carbendazim 12% + Mancozeb 63% WP (Saaf) @ 2g/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Severely reduces chlorophyll and curing percentage of turmeric fingers.",
+        "translations": {
+          "hi": {
+            "name": "हल्दी का पत्ती झुलसा (Leaf Blight)",
+            "recommended_action": "साफ (कार्बेन्डाजिम + मैंकोजेब) या प्रोपिकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "बुवाई से पहले कंद का शोधन अवश्य करें।",
+            "organic_control": "स्यूडोमोनास (10 ग्राम/लीटर) से कंद उपचार और छिड़काव करें।",
+            "chemical_control": "साफ (2 ग्राम/लीटर) या प्रोपिकोनाजोल 25% EC (1 मिली/लीटर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "हळदीवरील करपा (Leaf Blight)",
+            "recommended_action": "साफ बुरशीनाशक किंवा प्रोपिकोनाझोल फवारा.",
+            "prevention_tips": "बेणेप्रक्रिया केल्याशिवाय लागवड करू नका.",
+            "organic_control": "स्युडोमोनासने बेणे प्रक्रिया करा.",
+            "chemical_control": "साफ (२ ग्रॅम/लिटर) किंवा प्रोपिकोनाझोल (१ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Spot",
+        "pathogen_type": "Fungal (Colletotrichum / Curvularia)",
+        "description": "Brown circular spots that enlarge and cause necrotic drying across turmeric leaf foliage.",
+        "recommended_action": "Spray copper fungicide or mancozeb at first sign of circular spotting.",
+        "prevention_tips": "Avoid water stress followed by excess moisture.",
+        "organic_control": "Spray neem oil (5ml/L) + Trichoderma harzianum (5g/L).",
+        "chemical_control": "Spray Chlorothalonil 75% WP @ 2g/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Common in humid rainfed turmeric tracts.",
+        "translations": {
+          "hi": {
+            "name": "हल्दी का पत्ती धब्बा (Leaf Spot)",
+            "recommended_action": "मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "खेत में उचित नमी संतुलन बनाए रखें।",
+            "organic_control": "नीम तेल और ट्राइकोडर्मा का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "हळदीवरील पानावरील ठिपके (Leaf Spot)",
+            "recommended_action": "मॅन्कोझेब फवारा.",
+            "prevention_tips": "ओलावा योग्य ठेवा.",
+            "organic_control": "नीम तेल फवारा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Rhizoctonia Leaf Blight",
+        "pathogen_type": "Fungal (Rhizoctonia solani)",
+        "description": "Water-soaked irregular spots on leaf sheaths and blades that turn straw-colored with dark brown margins. Fluffy mycelium visible in humid weather.",
+        "recommended_action": "Spray validamycin or hexaconazole immediately.",
+        "prevention_tips": "Avoid excessive nitrogen; ensure soil has adequate organic matter.",
+        "organic_control": "Soil and foliar application of Trichoderma harzianum @ 5g/L.",
+        "chemical_control": "Spray Validamycin 3% L @ 2ml/L or Hexaconazole 5% EC @ 1ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Spreads rapidly across interconnected turmeric leaf sheaths during continuous rains.",
+        "translations": {
+          "hi": {
+            "name": "हल्दी का राइजोक्टोनिया झुलसा (Rhizoctonia Leaf Blight)",
+            "recommended_action": "वैलिडामाइसिन या हेक्साकोनाजोल का तुरंत छिड़काव करें।",
+            "prevention_tips": "यूरिया का अधिक प्रयोग न करें।",
+            "organic_control": "ट्राइकोडर्मा का छिड़काव करें।",
+            "chemical_control": "वैलिडामाइसिन 3% L (2 मिली/लीटर) या हेक्साकोनाजोल (1 मिली/लीटर) छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "हळदीवरील रायझोक्टोनिया करपा (Rhizoctonia Leaf Blight)",
+            "recommended_action": "व्हॅलिडामायसीन किंवा हेक्झाकोनाझोल फवारा.",
+            "prevention_tips": "नत्राचा अतिरेक टाळा.",
+            "organic_control": "ट्रायकोडर्मा वापरा.",
+            "chemical_control": "व्हॅलिडामायसीन ३% L (२ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Anthracnose",
+        "pathogen_type": "Fungal (Colletotrichum capsici)",
+        "description": "Elongated dark sunken lesions on central leaf midribs and leaf blades with concentric black acervuli rings.",
+        "recommended_action": "Spray systemic strobilurin or triazole fungicide immediately.",
+        "prevention_tips": "Use disease-free rhizomes; crop rotation with pulses or maize.",
+        "organic_control": "Spray 1% Bordeaux mixture or Trichoderma viride.",
+        "chemical_control": "Spray Azoxystrobin 23% SC @ 1ml/L or Propiconazole 25% EC @ 1ml/L.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Causes leaves to wither and drop prematurely.",
+        "translations": {
+          "hi": {
+            "name": "हल्दी का एंथ्रेक्नोज (Leaf Anthracnose)",
+            "recommended_action": "एजोक्सीस्ट्रोबिन या प्रोपिकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "रोगमुक्त कंद लगाएं।",
+            "organic_control": "1% बोर्डो मिश्रण का छिड़काव करें।",
+            "chemical_control": "एजोक्सीस्ट्रोबिन (1 मिली/लीटर) या प्रोपिकोनाजोल छिड़कें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "हळदीवरील ॲन्थ्रॅकनोज (Leaf Anthracnose)",
+            "recommended_action": "अझोक्सीस्ट्रॉबिन किंवा प्रोपिकोनाझोल फवारा.",
+            "prevention_tips": "निरोगी बेणे वापरा.",
+            "organic_control": "१% बोर्डो मिश्रण फवारा.",
+            "chemical_control": "अझोक्सीस्ट्रॉबिन (१ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Bajra (Pearl Millet)",
+    "scientific_name": "Pennisetum glaucum",
+    "icon": "🌾",
+    "category": "Cereal",
+    "diseases": [
+      {
+        "name": "Downy Mildew (Green Ear)",
+        "pathogen_type": "Oomycete (Sclerospora graminicola)",
+        "description": "Chlorosis on leaves with white downy growth underneath. Floral parts in earhead are converted into green leafy twisted structures (Green Ear disease).",
+        "recommended_action": "Rogue out infected green-ear plants. Spray metalaxyl-based fungicide.",
+        "prevention_tips": "Use certified seed treated with metalaxyl. Rogue out diseased plants before 30 days after sowing.",
+        "organic_control": "Seed treatment with bio-agent Pseudomonas fluorescens (10g/kg seed).",
+        "chemical_control": "Spray Metalaxyl-Mancozeb (Ridomil MZ) @ 2g/L at 20 and 35 days after sowing.",
+        "urgency": "CRITICAL: Act within 48 hours",
+        "severity_notes": "Most serious disease of bajra in arid and semi-arid zones.",
+        "translations": {
+          "hi": {
+            "name": "बाजरे का हरी बाली रोग / डाउनी मिल्ड्यू (Green Ear / Downy Mildew)",
+            "recommended_action": "हरी बाली बने पौधों को उखाड़ें। रिडोमिल एमजेड का छिड़काव करें।",
+            "prevention_tips": "मेटालेक्सिल शोधित बीज ही लगाएं। बुवाई के 30 दिन में रोगी पौधे निकालें।",
+            "organic_control": "स्यूडोमोनास (10 ग्राम/किग्रा) से बीजोपचार करें।",
+            "chemical_control": "रिडोमिल एमजेड (2 ग्राम/लीटर) का बुवाई के 20 और 35 दिन पर छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "बाजरीवरील गोसावी रोग / केवडा (Green Ear / Downy Mildew)",
+            "recommended_action": "बाधित झाडे उपटून टाका. रिडोमिल फवारा.",
+            "prevention_tips": "मेटॅलॅक्सिल प्रक्रिया केलेले बियाणे वापरा.",
+            "organic_control": "स्युडोमोनासने बीजप्रक्रिया करा.",
+            "chemical_control": "रिडोमिल एमझेड (२ ग्रॅम/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Rust",
+        "pathogen_type": "Fungal (Puccinia substriata)",
+        "description": "Minute reddish-brown to dark brown pustules on both leaf surfaces, drying leaves prematurely.",
+        "recommended_action": "Spray triazole or mancozeb at initial rust pustule notice.",
+        "prevention_tips": "Sow early in the season to escape late-season rust epidemics.",
+        "organic_control": "Spray sour buttermilk (50ml/L) or neem oil (5ml/L).",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2g/L or Propiconazole 25% EC @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces forage and grain quality.",
+        "translations": {
+          "hi": {
+            "name": "बाजरे का रतुआ रोग (Bajra Rust)",
+            "recommended_action": "पत्तियों पर भूरे फफोले दिखने पर मैंकोजेब या प्रोपिकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "मौसम के शुरुआत में ही बुवाई करें ताकि रतुआ से बचा जा सके।",
+            "organic_control": "खट्टी छाछ या नीम तेल का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2 ग्राम/लीटर) या प्रोपिकोनाजोल (1 मिली/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "बाजरीवरील तांबेरा (Bajra Rust)",
+            "recommended_action": "मॅन्कोझेब किंवा प्रोपिकोनाझोल फवारा.",
+            "prevention_tips": "हंगामाच्या सुरुवातीला वेळेवर पेरणी करा.",
+            "organic_control": "आंबट ताक किंवा नीम तेल फवारा.",
+            "chemical_control": "मॅन्कोझेब ७५% WP (२ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Anthracnose",
+        "pathogen_type": "Fungal (Colletotrichum graminicola)",
+        "description": "Small circular to elliptical reddish-brown spots with dark borders on leaves. Pith shows red discoloration.",
+        "recommended_action": "Spray carbendazim or mancozeb to protect foliage.",
+        "prevention_tips": "Crop rotation with broadleaf crops; seed treatment.",
+        "organic_control": "Seed treatment with Trichoderma viride (10g/kg).",
+        "chemical_control": "Spray Carbendazim 50% WP @ 1g/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Damages fodder value and grain filling.",
+        "translations": {
+          "hi": {
+            "name": "बाजरे का एंथ्रेक्नोज (Anthracnose)",
+            "recommended_action": "कार्बेन्डाजिम या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "दलहनी फसलों के साथ फसल चक्र अपनाएं।",
+            "organic_control": "ट्राइकोडर्मा से बीजोपचार करें।",
+            "chemical_control": "कार्बेन्डाजिम (1 ग्राम/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "बाजरीवरील ॲन्थ्रॅकनोज (Anthracnose)",
+            "recommended_action": "कार्बेन्डाझिम किंवा मॅन्कोझेब फवारा.",
+            "prevention_tips": "पिकांची फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्मा वापरा.",
+            "chemical_control": "कार्बेन्डाझिम (१ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Spot",
+        "pathogen_type": "Fungal (Bipolaris / Pyricularia)",
+        "description": "Spindle-shaped brown leaf spots causing blighting of leaves in dry and warm weather.",
+        "recommended_action": "Spray protective contact fungicide on leaves.",
+        "prevention_tips": "Use disease-free seed; maintain balanced N:P:K fertilization.",
+        "organic_control": "Neem seed kernel extract 5% foliar spray.",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2g/L or Zineb @ 2g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes foliage drying in late vegetative phase.",
+        "translations": {
+          "hi": {
+            "name": "बाजरे का पत्ती धब्बा (Leaf Spot)",
+            "recommended_action": "मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "संतुलित खाद दें।",
+            "organic_control": "नीम अर्क का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "बाजरीवरील पानावरील ठिपके (Leaf Spot)",
+            "recommended_action": "मॅन्कोझेब फवारा.",
+            "prevention_tips": "संतुलित खते द्या.",
+            "organic_control": "नीम अर्क फवारा.",
+            "chemical_control": "मॅन्कोझेब (२ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Jowar (Sorghum)",
+    "scientific_name": "Sorghum bicolor",
+    "icon": "🌾",
+    "category": "Cereal",
+    "diseases": [
+      {
+        "name": "Anthracnose",
+        "pathogen_type": "Fungal (Colletotrichum graminicola / sublineolum)",
+        "description": "Circular to elliptical red, purple or brown spots on leaves with distinct straw-colored centers containing tiny black dots. Stems show red stalk rot.",
+        "recommended_action": "Spray carbendazim or mancozeb upon noticing reddish-purple leaf spots.",
+        "prevention_tips": "Plant resistant cultivars. Avoid planting continuous sorghum monocultures.",
+        "organic_control": "Seed treatment with Trichoderma viride (10g/kg).",
+        "chemical_control": "Spray Carbendazim 50% WP @ 1g/L or Mancozeb 75% WP @ 2.5g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Stalk rot phase causes severe lodging and stem breakage during wind.",
+        "translations": {
+          "hi": {
+            "name": "ज्वार का एंथ्रेक्नोज / लाल सड़न (Anthracnose)",
+            "recommended_action": "पत्तियों पर लाल-बैंगनी धब्बे दिखने पर कार्बेन्डाजिम या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "प्रतिरोधी किस्में लगाएं। एक ही खेत में लगातार ज्वार न लगाएं।",
+            "organic_control": "ट्राइकोडर्मा (10 ग्राम/किग्रा) से बीजोपचार करें।",
+            "chemical_control": "कार्बेन्डाजिम 50% WP (1 ग्राम/लीटर) या मैंकोजेब (2.5 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "ज्वारीवरील ॲन्थ्रॅकनोज / तांबडे चट्टे (Anthracnose)",
+            "recommended_action": "पानांवर लाल-जांभळे चट्टे दिसल्यास कार्बेन्डाझिम किंवा मॅन्कोझेब फवारा.",
+            "prevention_tips": "प्रतिकारक्षम वाण वापरा. फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्माने बीजप्रक्रिया करा.",
+            "chemical_control": "कार्बेन्डाझिम (१ ग्रॅम/लिटर) किंवा मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Rust",
+        "pathogen_type": "Fungal (Puccinia purpurea)",
+        "description": "Small purple, red, or tan spots with blisters on both leaf surfaces that erupt with powdery reddish-brown spores.",
+        "recommended_action": "Spray protective contact or systemic fungicide.",
+        "prevention_tips": "Eradicate oxalis and weed hosts around field margins.",
+        "organic_control": "Spray neem formulation (5ml/L) or sour buttermilk.",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Propiconazole 25% EC @ 1ml/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Reduces forage digestibility and sugar content in sweet sorghum.",
+        "translations": {
+          "hi": {
+            "name": "ज्वार का रतुआ रोग (Sorghum Rust)",
+            "recommended_action": "पत्तियों पर लाल-भूरे फफोले दिखने पर मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "खेत की मेड़ों से खरपतवार नष्ट करें।",
+            "organic_control": "नीम तेल या खट्टी छाछ का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब 75% WP (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "ज्वारीवरील तांबेरा (Sorghum Rust)",
+            "recommended_action": "मॅन्कोझेब फवारा.",
+            "prevention_tips": "बांधावरील तण नष्ट करा.",
+            "organic_control": "नीम तेल किंवा आंबट ताक फवारा.",
+            "chemical_control": "मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत फवारा"
+          }
+        }
+      },
+      {
+        "name": "Leaf Spot",
+        "pathogen_type": "Fungal (Cercospora sorghi / Bipolaris)",
+        "description": "Narrow rectangular dark red to purple lesions delimited between leaf veins (Grey Leaf Spot).",
+        "recommended_action": "Spray copper or dithiocarbamate fungicide.",
+        "prevention_tips": "Incorporate sorghum stubble; rotate with cotton or pulses.",
+        "organic_control": "Foliar spray with Pseudomonas fluorescens (10g/L).",
+        "chemical_control": "Spray Mancozeb 75% WP @ 2.5g/L or Carbendazim 50% WP @ 1g/L.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Causes extensive blighting in humid coastal and irrigated tracts.",
+        "translations": {
+          "hi": {
+            "name": "ज्वार का पत्ती धब्बा (Leaf Spot)",
+            "recommended_action": "कार्बेन्डाजिम या मैंकोजेब का छिड़काव करें।",
+            "prevention_tips": "कपास या दलहन के साथ फसल चक्र रखें।",
+            "organic_control": "स्यूडोमोनास (10 ग्राम/लीटर) का छिड़काव करें।",
+            "chemical_control": "मैंकोजेब (2.5 ग्राम/लीटर) या कार्बेन्डाजिम (1 ग्राम/लीटर) छिड़कें।",
+            "urgency": "3 दिन में छिड़कें"
+          },
+          "mr": {
+            "name": "ज्वारीवरील पानावरील ठिपके (Leaf Spot)",
+            "recommended_action": "मॅन्कोझेब किंवा कार्बेन्डाझिम फवारा.",
+            "prevention_tips": "कपाशी किंवा कडधान्यासोबत फेरपालट करा.",
+            "organic_control": "स्युडोमोनास फवारा.",
+            "chemical_control": "मॅन्कोझेब (२.५ ग्रॅम/लिटर) फवारा.",
+            "urgency": "३ दिवसांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Groundnut (Peanut)",
+    "scientific_name": "Arachis hypogaea",
+    "icon": "🥜",
+    "category": "Oilseed",
+    "diseases": [
+      {
+        "name": "Tikka Leaf Spot / Collar Rot",
+        "pathogen_type": "Fungal (Cercospora arachidicola / Phaeoisariopsis personata / Aspergillus)",
+        "description": "Early and late Tikka disease: Circular dark brown to black spots with bright yellow halo on leaves. Collar rot shows blackening and rotting at ground level.",
+        "recommended_action": "Spray systemic plus contact fungicide immediately upon spotting circular dark Tikka lesions on lower leaves.",
+        "prevention_tips": "Seed treatment with bio-agent Trichoderma or Thiram. Maintain crop rotation with cereal crops.",
+        "organic_control": "Seed treatment with Trichoderma viride (10g/kg seed). Spray 5% neem seed kernel extract (NSKE).",
+        "chemical_control": "Spray Tebuconazole 25.9% EC @ 1ml/L or Carbendazim 12% + Mancozeb 63% WP (Saaf) @ 2g/L or Chlorothalonil @ 2g/L.",
+        "urgency": "CRITICAL: Act within 48 hours",
+        "severity_notes": "Causes massive defoliation and up to 50-70% reduction in pod yield.",
+        "translations": {
+          "hi": {
+            "name": "मूंगफली का टिक्का रोग व कॉलर रॉट (Tikka Leaf Spot)",
+            "recommended_action": "पत्तियों पर पीले घेरे वाले काले टिक्का धब्बे दिखते ही साफ (Saaf) या टेबुकोनाजोल का छिड़काव करें।",
+            "prevention_tips": "ट्राइकोडर्मा से बीजोपचार करें। अनाजों के साथ फसल चक्र अपनाएं।",
+            "organic_control": "ट्राइकोडर्मा (10 ग्राम/किग्रा बीज) से बीजोपचार करें और 5% नीम अर्क का छिड़काव करें।",
+            "chemical_control": "साफ (कार्बेन्डाजिम + मैंकोजेब) 2 ग्राम/लीटर अथवा टेबुकोनाजोल (1 मिली/लीटर) का छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़कें"
+          },
+          "mr": {
+            "name": "भुईमुगावरील टिक्का रोग व मानकुजव्या (Tikka Leaf Spot)",
+            "recommended_action": "पानांवर टिक्का चट्टे दिसताच साफ किंवा टेबुकोनाझोल फवारा.",
+            "prevention_tips": "ट्रायकोडर्माने बीजप्रक्रिया करा. पिकांची फेरपालट करा.",
+            "organic_control": "ट्रायकोडर्मा विरिडी बीजप्रक्रिया करा आणि ५% निंबोळी अर्क फवारा.",
+            "chemical_control": "साफ (२ ग्रॅम/लिटर) किंवा टेबुकोनाझोल (१ मिली/लिटर) फवारा.",
+            "urgency": "४८ तासांत फवारा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Ladyfinger (Okra)",
+    "scientific_name": "Abelmoschus esculentus",
+    "icon": "🥬",
+    "category": "Vegetable",
+    "diseases": [
+      {
+        "name": "Yellow Vein Mosaic & Powdery Mildew",
+        "pathogen_type": "Viral (YVMV vectored by Whitefly - Bemisia tabaci) / Fungal",
+        "description": "Network of bright yellow veins interlaced with green leaf tissue; stunted growth with small, hard, chlorotic yellow fruits. White powdery patches on leaves.",
+        "recommended_action": "Control whitefly vector immediately using yellow sticky traps and systemic insecticide. Rogue out early infected plants.",
+        "prevention_tips": "Grow YVMV-resistant varieties (e.g., Arka Anamika, Parbhani Kranti, Kashi Kranti). Avoid summer cultivation near infested fields.",
+        "organic_control": "Install 15-20 yellow sticky traps per acre. Spray neem oil (5ml/L) fortnightly to deter whiteflies.",
+        "chemical_control": "Spray Acetamiprid 20% SP @ 0.3g/L or Diafenthiuron 50% WP @ 1g/L for whitefly vector; Hexaconazole @ 1ml/L for powdery mildew.",
+        "urgency": "CRITICAL: Act within 24-48 hours",
+        "severity_notes": "If infection occurs within 20 days of germination, crop yield loss is 80-100%.",
+        "translations": {
+          "hi": {
+            "name": "भिंडी का पीला शिरा मोजेक व छाछिया (Yellow Vein Mosaic)",
+            "recommended_action": "सफेद मक्खी (व्हाइटफ्लाई) का तुरंत नियंत्रण करें। रोगग्रस्त पौधों को उखाड़कर नष्ट करें।",
+            "prevention_tips": "रोगरोधी किस्में ही लगाएं।",
+            "organic_control": "एकड़ में 20 पीले चिपचिपे कार्ड लगाएं और नीम तेल (5 मिली/लीटर) छिड़कें।",
+            "chemical_control": "सफेद मक्खी हेतु एसीटामिप्रिड (0.3 ग्राम/लीटर) या डायफेन्थियूरॉन (1 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "अति आवश्यक: 24-48 घंटे में रोकथाम करें"
+          },
+          "mr": {
+            "name": "भेंडीवरील पिवळा शिरा रोग / मोजॅक (Yellow Vein Mosaic)",
+            "recommended_action": "पांढऱ्या माशीचा त्वरित बंदोबस्त करा. पिवळे पडलेले झाड उपटून टाका.",
+            "prevention_tips": "प्रतिकारक्षम वाण लावा.",
+            "organic_control": "पिवळे चिकट सापळे एकरी २० लावा आणि नीम तेल ५ मिली/लिटर फवारा.",
+            "chemical_control": "पांढऱ्या माशीसाठी ॲसिटामिप्रीड (०.३ ग्रॅम/लिटर) किंवा डायफेंथियुरॉन फवारा.",
+            "urgency": "तातडीने: २४-४८ तासांत करा"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "crop": "Cherry",
+    "scientific_name": "Prunus avium",
+    "icon": "🍒",
+    "category": "Fruit",
+    "diseases": [
+      {
+        "name": "Bacterial Canker",
+        "pathogen_type": "Bacterial (Pseudomonas syringae)",
+        "description": "Gumming cankers on branches and trunk, blighted blossoms, and brown spots on leaves that drop out producing shot holes.",
+        "recommended_action": "Prune out diseased cankered branches during dry weather. Spray copper bactericide during autumn leaf fall and pre-bloom.",
+        "prevention_tips": "Disinfect pruning shears with 70% alcohol between cuts. Avoid winter pruning.",
+        "organic_control": "Apply copper octanoate or Bordeaux mixture at leaf fall.",
+        "chemical_control": "Spray Copper Hydroxide @ 2.5g/L or Streptomycin @ 0.2g/L during pre-bloom.",
+        "urgency": "Act within 3 days",
+        "severity_notes": "Can girdle large limbs and kill entire trees.",
+        "translations": {
+          "hi": {
+            "name": "चेरी का जीवाणु कैंकर (Bacterial Canker)",
+            "recommended_action": "सूखी शाखाओं को काटकर अलग करें। कॉपर कवकनाशी का छिड़काव करें।",
+            "prevention_tips": "कटाई-छंटाई के औजारों को सैनिटाइज करें।",
+            "organic_control": "बोर्डो मिश्रण का छिड़काव करें।",
+            "chemical_control": "कॉपर हाइड्रोक्साइड (2.5 ग्राम/लीटर) का छिड़काव करें।",
+            "urgency": "3 दिन में छिड़कें"
+          }
+        }
+      },
+      {
+        "name": "Brown Rot",
+        "pathogen_type": "Fungal (Monilinia fructicola)",
+        "description": "Brown rot on blossoms and rapidly rotting fruit covered with velvety tan-brown spore tufts. Rotting fruit mummifies on the twig.",
+        "recommended_action": "Remove and destroy all mummified fruit from trees and ground. Apply fungicide during bloom and pre-harvest.",
+        "prevention_tips": "Prune canopy for sunlight and air drying. Handle fruit gently to avoid harvesting bruises.",
+        "organic_control": "Spray sulfur or potassium bicarbonate at blossom time.",
+        "chemical_control": "Spray Tebuconazole @ 1ml/L or Fenbuconazole @ 1ml/L during bloom and 2-3 weeks before harvest.",
+        "urgency": "Act within 48 hours",
+        "severity_notes": "Severe pre-harvest and post-harvest fruit destruction.",
+        "translations": {
+          "hi": {
+            "name": "चेरी का भूरा सड़न / ब्राउन रॉट (Brown Rot)",
+            "recommended_action": "पेड़ पर लटके सूखे सड़े फलों को तोड़कर नष्ट करें। कवकनाशी का छिड़काव करें।",
+            "prevention_tips": "हवादार कैनोपी रखें।",
+            "organic_control": "गंधक (सल्फर) का छिड़काव करें।",
+            "chemical_control": "टेबुकोनाजोल (1 मिली/लीटर) का फूल आने और तुड़ाई से पहले छिड़काव करें।",
+            "urgency": "48 घंटे में छिड़कें"
+          }
+        }
+      }
+    ]
+  }
+]
