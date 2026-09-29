@@ -167,111 +167,49 @@ def seed_database(conn):
 
 def get_recommendation(crop: str, disease: str, lang: str = "en") -> Dict[str, Any]:
     """
-    Intelligent agronomic recommendation lookup:
-    1. Exact crop + disease lookup
-    2. Normalized & fuzzy crop + disease lookup (strips parentheses, aliases, plurals)
-    3. Keyword-level disease match for the identified crop
-    4. Crop fallback if specific disease name variant is uncataloged
+    Safe agronomic recommendation lookup.
+
+    Only an exact crop + disease record is accepted.
+    We intentionally do NOT fall back to:
+      - another disease with a similar keyword,
+      - another disease of the same crop,
+      - the first disease in a crop.
+
+    This prevents an AI prediction from receiving advice for a different
+    disease when the exact database record is unavailable.
     """
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    clean_crop = str(crop).strip()
-    clean_disease = str(disease).strip()
+    clean_crop = str(crop or "").strip()
+    clean_disease = str(disease or "").strip()
+    clean_lang = str(lang or "en").strip().lower()
 
-    # Normalization helpers
-    crop_base = re.sub(r"\(.*?\)", "", clean_crop).strip().lower()
-    crop_singular = crop_base[:-1] if (crop_base.endswith("s") and not crop_base.endswith("ss")) else crop_base
-    disease_base = re.sub(r"\(.*?\)", "", clean_disease).strip().lower()
-
-    # Step 1: Exact match
-    query_exact = """
-        SELECT d.*, c.name AS crop_name, c.icon AS crop_icon,
-               t.name AS trans_name, t.recommended_action AS trans_action,
-               t.prevention_tips AS trans_prev, t.organic_control AS trans_org,
-               t.chemical_control AS trans_chem, t.urgency AS trans_urgency
+    query = """
+        SELECT
+            d.*,
+            c.name AS crop_name,
+            c.icon AS crop_icon,
+            t.name AS trans_name,
+            t.recommended_action AS trans_action,
+            t.prevention_tips AS trans_prev,
+            t.organic_control AS trans_org,
+            t.chemical_control AS trans_chem,
+            t.urgency AS trans_urgency
         FROM diseases d
         JOIN crops c ON d.crop_id = c.id
         LEFT JOIN translations t
-          ON d.id = t.disease_id AND t.lang_code = ?
-        WHERE LOWER(c.name) = LOWER(?)
-          AND LOWER(d.name) = LOWER(?)
+          ON d.id = t.disease_id AND LOWER(t.lang_code) = LOWER(?)
+        WHERE LOWER(TRIM(c.name)) = LOWER(TRIM(?))
+          AND LOWER(TRIM(d.name)) = LOWER(TRIM(?))
         LIMIT 1
     """
-    cursor.execute(query_exact, (lang, clean_crop, clean_disease))
+
+    cursor.execute(
+        query,
+        (clean_lang, clean_crop, clean_disease)
+    )
     row = cursor.fetchone()
-
-    # Step 2: Fuzzy / alias match (handling e.g. "Sugarcane" + "Red Root" -> "Red Root (Red Rot)", "Grape" vs "Grapes")
-    if not row:
-        query_fuzzy = """
-            SELECT d.*, c.name AS crop_name, c.icon AS crop_icon,
-                   t.name AS trans_name, t.recommended_action AS trans_action,
-                   t.prevention_tips AS trans_prev, t.organic_control AS trans_org,
-                   t.chemical_control AS trans_chem, t.urgency AS trans_urgency
-            FROM diseases d
-            JOIN crops c ON d.crop_id = c.id
-            LEFT JOIN translations t
-              ON d.id = t.disease_id AND t.lang_code = ?
-            WHERE (
-                LOWER(c.name) LIKE ? OR ? LIKE '%' || LOWER(c.name) || '%'
-                OR LOWER(c.name) LIKE ? OR ? LIKE '%' || LOWER(c.name) || '%'
-            )
-            AND (
-                LOWER(d.name) LIKE ? OR ? LIKE '%' || LOWER(d.name) || '%'
-                OR LOWER(d.name) LIKE ? OR ? LIKE '%' || LOWER(d.name) || '%'
-            )
-            LIMIT 1
-        """
-        cursor.execute(
-            query_fuzzy,
-            (
-                lang,
-                f"%{crop_base}%", crop_base,
-                f"%{crop_singular}%", crop_singular,
-                f"%{clean_disease}%", clean_disease,
-                f"%{disease_base}%", disease_base,
-            )
-        )
-        row = cursor.fetchone()
-
-    # Step 3: Disease-keyword match on crop (e.g. "rust", "smut", "blight", "wilt", "rot")
-    if not row:
-        disease_words = [w for w in re.findall(r"\b[a-zA-Z]{4,}\b", clean_disease.lower()) if w not in {"leaf", "spot"}]
-        for word in disease_words:
-            query_word = """
-                SELECT d.*, c.name AS crop_name, c.icon AS crop_icon,
-                       t.name AS trans_name, t.recommended_action AS trans_action,
-                       t.prevention_tips AS trans_prev, t.organic_control AS trans_org,
-                       t.chemical_control AS trans_chem, t.urgency AS trans_urgency
-                FROM diseases d
-                JOIN crops c ON d.crop_id = c.id
-                LEFT JOIN translations t
-                  ON d.id = t.disease_id AND t.lang_code = ?
-                WHERE (LOWER(c.name) LIKE ? OR ? LIKE '%' || LOWER(c.name) || '%')
-                  AND LOWER(d.name) LIKE ?
-                LIMIT 1
-            """
-            cursor.execute(query_word, (lang, f"%{crop_base}%", crop_base, f"%{word}%"))
-            row = cursor.fetchone()
-            if row:
-                break
-
-    # Step 4: Crop fallback (return first disease of this crop if disease is generic like "Leaf Disease")
-    if not row:
-        query_crop_fallback = """
-            SELECT d.*, c.name AS crop_name, c.icon AS crop_icon,
-                   t.name AS trans_name, t.recommended_action AS trans_action,
-                   t.prevention_tips AS trans_prev, t.organic_control AS trans_org,
-                   t.chemical_control AS trans_chem, t.urgency AS trans_urgency
-            FROM diseases d
-            JOIN crops c ON d.crop_id = c.id
-            LEFT JOIN translations t
-              ON d.id = t.disease_id AND t.lang_code = ?
-            WHERE LOWER(c.name) LIKE ? OR ? LIKE '%' || LOWER(c.name) || '%'
-            LIMIT 1
-        """
-        cursor.execute(query_crop_fallback, (lang, f"%{crop_base}%", crop_base))
-        row = cursor.fetchone()
 
     conn.close()
 
@@ -283,33 +221,66 @@ def get_recommendation(crop: str, disease: str, lang: str = "en") -> Dict[str, A
             "disease": clean_disease,
             "original_disease": clean_disease,
             "pathogen_type": "Unknown",
-            "description": f"Agronomic advisory for {clean_crop} - {clean_disease} is being cataloged by our plant pathologists.",
-            "recommended_action": f"Carefully inspect {clean_crop} for lesion progression. Prune severely spotted leaves and maintain clean tools.",
-            "prevention_tips": "Ensure balanced irrigation, adequate spacing between plants, and avoid overnight foliage moisture.",
-            "organic_control": "Apply cold-pressed neem oil (5ml/L) with liquid soap weekly as broad preventive care.",
-            "chemical_control": "Consult your regional Krishi Vigyan Kendra (KVK) or extension officer for registered chemicals.",
-            "urgency": "Act within 2-3 days",
-            "severity_notes": "Monitor spread daily.",
-            "language": lang,
+            "description": (
+                f"No exact advisory is stored for "
+                f"{clean_crop} - {clean_disease}."
+            ),
+            "recommended_action": "",
+            "prevention_tips": "",
+            "organic_control": "",
+            "chemical_control": "",
+            "urgency": "Confirm diagnosis",
+            "severity_notes": (
+                "Do not use a different disease's treatment. "
+                "Confirm the diagnosis with a qualified agricultural "
+                "expert or a validated disease reference."
+            ),
+            "language": clean_lang,
         }
 
-    use_trans = bool(lang != "en" and row["trans_action"])
+    use_trans = bool(
+        clean_lang != "en" and row["trans_action"]
+    )
 
     return {
         "found": True,
         "crop": row["crop_name"],
         "crop_icon": row["crop_icon"],
-        "disease": row["trans_name"] if use_trans and row["trans_name"] else row["name"],
+        "disease": (
+            row["trans_name"]
+            if use_trans and row["trans_name"]
+            else row["name"]
+        ),
         "original_disease": row["name"],
         "pathogen_type": row["pathogen_type"],
         "description": row["description"],
-        "recommended_action": row["trans_action"] if use_trans else row["recommended_action"],
-        "prevention_tips": row["trans_prev"] if use_trans else row["prevention_tips"],
-        "organic_control": row["trans_org"] if use_trans else row["organic_control"],
-        "chemical_control": row["trans_chem"] if use_trans else row["chemical_control"],
-        "urgency": row["trans_urgency"] if use_trans and row["trans_urgency"] else row["urgency"],
+        "recommended_action": (
+            row["trans_action"]
+            if use_trans
+            else row["recommended_action"]
+        ),
+        "prevention_tips": (
+            row["trans_prev"]
+            if use_trans
+            else row["prevention_tips"]
+        ),
+        "organic_control": (
+            row["trans_org"]
+            if use_trans
+            else row["organic_control"]
+        ),
+        "chemical_control": (
+            row["trans_chem"]
+            if use_trans
+            else row["chemical_control"]
+        ),
+        "urgency": (
+            row["trans_urgency"]
+            if use_trans and row["trans_urgency"]
+            else row["urgency"]
+        ),
         "severity_notes": row["severity_notes"],
-        "language": lang,
+        "language": clean_lang,
     }
 
 
@@ -364,6 +335,58 @@ def get_scan_history(limit: int = 50, session_id: Optional[str] = None) -> List[
     conn.close()
     return [dict(row) for row in rows]
 
+
+
+def _severity_rank(severity: str) -> int:
+    levels = {"low": 1, "medium": 2, "high": 3, "critical": 4}
+    return levels.get(str(severity or "").strip().lower(), 0)
+
+
+def _calculate_progress(previous: Dict[str, Any], current: Dict[str, Any]) -> Dict[str, Any]:
+    prev_area = float(previous.get("affected_area_pct") or 0)
+    curr_area = float(current.get("affected_area_pct") or 0)
+    area_change = round(curr_area - prev_area, 2)
+    severity_change = _severity_rank(current.get("severity")) - _severity_rank(previous.get("severity"))
+    if area_change <= -5:
+        status, label, reason = "improving", "🟢 Improving", f"Affected area decreased by {abs(area_change):.1f}%."
+    elif area_change >= 5:
+        status, label, reason = "worsening", "🔴 Worsening", f"Affected area increased by {area_change:.1f}%."
+    elif severity_change < 0:
+        status, label, reason = "improving", "🟢 Improving", "Disease severity has decreased."
+    elif severity_change > 0:
+        status, label, reason = "worsening", "🔴 Worsening", "Disease severity has increased."
+    else:
+        status, label, reason = "stable", "🟡 Stable", "No significant change was detected."
+    return {"status": status, "label": label, "reason": reason, "previous_affected_area_pct": round(prev_area,2), "current_affected_area_pct": round(curr_area,2), "area_change_pct": area_change, "previous_severity": previous.get("severity"), "current_severity": current.get("severity"), "severity_change": severity_change}
+
+
+def get_scan_progress(scan_id: int, session_id: Optional[str] = None) -> Dict[str, Any]:
+    conn = get_db_connection(); cursor = conn.cursor()
+    cursor.execute("SELECT * FROM scans WHERE id = ?", (scan_id,)); row = cursor.fetchone()
+    if not row:
+        conn.close(); return {"found": False, "status": "not_found", "message": "Scan not found."}
+    current = dict(row)
+    if session_id and current.get("session_id") != session_id:
+        conn.close(); return {"found": False, "status": "not_found", "message": "Scan does not belong to this session."}
+    cursor.execute("""SELECT * FROM scans WHERE session_id = ? AND LOWER(TRIM(crop)) = LOWER(TRIM(?)) AND LOWER(TRIM(disease)) = LOWER(TRIM(?)) AND id <> ? ORDER BY datetime(created_at) DESC, id DESC LIMIT 1""", (current.get("session_id"), current.get("crop",""), current.get("disease",""), scan_id))
+    prev = cursor.fetchone(); conn.close()
+    if not prev:
+        return {"found": True, "status": "first_scan", "label": "🔵 First scan", "reason": "No previous scan of the same crop and disease is available for comparison.", "current": current, "previous": None}
+    result = _calculate_progress(dict(prev), current)
+    result.update({"found": True, "current_scan_id": current.get("id"), "previous_scan_id": prev["id"], "current_timestamp": current.get("created_at"), "previous_timestamp": prev["created_at"]})
+    return result
+
+
+def get_crop_disease_progress(crop: str, disease: str, session_id: str = "default_user", limit: int = 20) -> Dict[str, Any]:
+    conn = get_db_connection()
+    rows = conn.execute("""SELECT * FROM scans WHERE session_id = ? AND LOWER(TRIM(crop)) = LOWER(TRIM(?)) AND LOWER(TRIM(disease)) = LOWER(TRIM(?)) ORDER BY datetime(created_at) ASC, id ASC LIMIT ?""", (session_id, crop, disease, int(limit))).fetchall()
+    conn.close()
+    scans = [dict(r) for r in rows]; timeline = []
+    for i, current in enumerate(scans):
+        item = {"scan_id": current.get("id"), "created_at": current.get("created_at"), "crop": current.get("crop"), "disease": current.get("disease"), "confidence": current.get("confidence"), "severity": current.get("severity"), "affected_area_pct": current.get("affected_area_pct"), "image_name": current.get("image_name")}
+        item["progress"] = {"status":"first_scan","label":"🔵 First scan","reason":"Baseline scan."} if i == 0 else _calculate_progress(scans[i-1], current)
+        timeline.append(item)
+    return {"found": bool(scans), "crop": crop, "disease": disease, "count": len(scans), "timeline": timeline}
 
 def get_all_crops() -> List[Dict[str, Any]]:
     conn = get_db_connection()

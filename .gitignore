@@ -72,3 +72,8 @@ ml-model/data/*
 
 .vercel
 .env*
+
+# Backup files
+*_backup*
+*backup*
+

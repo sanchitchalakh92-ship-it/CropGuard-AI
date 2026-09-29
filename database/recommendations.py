@@ -9,6 +9,14 @@ try:
 except ImportError:
     from db import get_recommendation as db_get_recommendation
 
+try:
+    from .disease_knowledge import DISEASE_KNOWLEDGE, get_disease_info, get_disease_info_by_key
+except ImportError:
+    from disease_knowledge import DISEASE_KNOWLEDGE, get_disease_info, get_disease_info_by_key
+
+# Alias for test suite and external imports
+DISEASE_ADVISORIES = DISEASE_KNOWLEDGE
+
 SUPPORTED_LANGUAGES = {
     "en": {"name": "English", "native": "English", "flag": "🌐"},
     "hi": {"name": "Hindi", "native": "हिन्दी", "flag": "🇮🇳"},
@@ -28,10 +36,29 @@ SEVERITY_LEVELS = {
 def get_farmer_advisory(crop: str, disease: str, severity: str = "Medium", lang: str = "en") -> Dict[str, Any]:
     """
     Produce a complete structured advisory response tailored to the farmer.
-    Includes severity context, chemical + organic remedies, prevention steps, and urgency.
+    Integrates DB localized records and comprehensive scientific knowledge base.
     """
     rec_data = db_get_recommendation(crop, disease, lang=lang)
     sev_info = SEVERITY_LEVELS.get(severity, SEVERITY_LEVELS["Medium"])
+    d_info = get_disease_info(crop, disease) or get_disease_info_by_key(f"{crop}|{disease}")
+
+    # Fallback to disease knowledge base if DB record is generic or missing
+    if d_info and (not rec_data.get("found") or len(rec_data.get("description", "")) < 30):
+        desc = d_info.get("description", rec_data["description"])
+        urgency = d_info.get("urgency", rec_data["urgency"])
+        mgmt = d_info.get("management", [])
+        prev = d_info.get("prevention", [])
+
+        rec_data["description"] = desc
+        rec_data["urgency"] = urgency
+        if mgmt:
+            rec_data["recommended_action"] = mgmt[0]
+            if len(mgmt) > 1:
+                rec_data["organic_control"] = mgmt[1]
+            if len(mgmt) > 2:
+                rec_data["chemical_control"] = mgmt[2]
+        if prev:
+            rec_data["prevention_tips"] = "; ".join(prev)
 
     # Enhance with step-by-step action plan
     actions = [
@@ -41,7 +68,7 @@ def get_farmer_advisory(crop: str, disease: str, severity: str = "Medium", lang:
         {"step": 4, "title": "Long-term Prevention", "text": rec_data["prevention_tips"], "type": "prevention"}
     ]
 
-    return {
+    result = {
         "crop": rec_data["crop"],
         "crop_icon": rec_data.get("crop_icon", "🌱"),
         "disease": rec_data["disease"],
@@ -60,6 +87,18 @@ def get_farmer_advisory(crop: str, disease: str, severity: str = "Medium", lang:
         "language": lang,
         "language_name": SUPPORTED_LANGUAGES.get(lang, {}).get("name", "English")
     }
+
+    if d_info:
+        result.update({
+            "cause": d_info.get("cause", ""),
+            "symptoms": d_info.get("symptoms", []),
+            "spread": d_info.get("spread", []),
+            "management": d_info.get("management", []),
+            "prevention": d_info.get("prevention", []),
+            "detailed_knowledge": d_info
+        })
+
+    return result
 
 
 def get_available_languages() -> List[Dict[str, str]]:

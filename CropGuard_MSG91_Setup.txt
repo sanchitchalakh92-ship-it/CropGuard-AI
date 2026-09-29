@@ -1,0 +1,45 @@
+CROPGUARD AI - REAL SMS OTP SETUP
+
+1. Replace:
+   database/auth_db.py
+   with auth_db_otp_real.py
+
+2. Replace:
+   backend/app.py
+   with app_otp_real.py
+
+3. Create/configure your MSG91 account and OTP template.
+   MSG91 requires the appropriate India DLT entity/header/template setup
+   for SMS delivery.
+
+4. Set these Windows environment variables in PowerShell:
+
+   setx MSG91_AUTH_KEY "YOUR_MSG91_AUTH_KEY"
+   setx MSG91_OTP_TEMPLATE_ID "YOUR_MSG91_OTP_TEMPLATE_ID"
+   setx MSG91_COUNTRY_CODE "91"
+
+   IMPORTANT:
+   - Replace the placeholder values with your actual MSG91 values.
+   - Never paste your real auth key into frontend JavaScript.
+   - Close and reopen PowerShell after setx.
+
+5. Install requests if needed:
+   cd "C:\Users\chala\OneDrive\Desktop\synergy\backend"
+   pip install requests
+
+6. Start the backend:
+   cd "C:\Users\chala\OneDrive\Desktop\synergy\backend"
+   python app.py
+
+7. Registration API flow:
+   POST /api/register/request-otp
+   POST /api/register/verify-otp
+   POST /api/register/resend-otp
+
+8. IMPORTANT:
+   Your current register.html/authentication.js must be updated to call
+   the new OTP endpoints. Do not use the old direct registration flow
+   from the frontend.
+
+9. MSG91 OTP API documentation:
+   https://docs.msg91.com/otp

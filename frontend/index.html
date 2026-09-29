@@ -5,435 +5,4700 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>CropGuard AI — Early Crop Disease Detection & Local Farmer Advisory</title>
   <meta name="description" content="AI-powered leaf disease detection and actionable pest management in regional languages for farmers.">
-  
-  <!-- Google Fonts: Inter -->
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Logged-in Farmer Profile */
+    .farmer-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.75rem;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--border-color);
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      color: var(--primary-dark);
+      font-size: 0.82rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .farmer-avatar {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e8f5e9;
+      border-radius: 50%;
+      font-size: 1rem;
+    }
+
+    #farmerName {
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 900px) {
+      .farmer-profile {
+        padding: 0.35rem 0.55rem;
+      }
+
+      .farmer-avatar {
+        width: 29px;
+        height: 29px;
+        flex-basis: 29px;
+      }
+
+      #farmerName {
+        max-width: 125px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .farmer-profile {
+        gap: 0.35rem;
+        font-size: 0.75rem;
+      }
+
+      #farmerName {
+        max-width: 95px;
+      }
+    }
+  
+  <style>
+    /* Farmer Account / Delete Account */
+    .farmer-account-btn {
+      border: 1px solid var(--border-color);
+      background: #fff;
+      color: var(--primary-dark);
+      border-radius: 999px;
+      padding: 0.48rem 0.72rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .farmer-account-btn:hover {
+      background: #f1f8f3;
+      border-color: #b7d8bf;
+    }
+
+    .danger-modal-box {
+      max-width: 520px;
+    }
+
+    .danger-warning {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      border-radius: var(--radius-md);
+      padding: 0.9rem 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      font-size: 0.85rem;
+    }
+
+    .delete-account-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0.7rem 0.8rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .delete-account-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.1);
+    }
+
+    .delete-account-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .delete-account-btn {
+      border: none;
+      background: #dc2626;
+      color: #fff;
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .delete-account-btn:hover {
+      background: #b91c1c;
+    }
+
+    .delete-account-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    @media (max-width: 600px) {
+      .farmer-account-btn {
+        padding: 0.4rem 0.58rem;
+      }
+
+      .delete-account-actions {
+        flex-direction: column-reverse;
+      }
+
+      .delete-account-actions button {
+        width: 100%;
+      }
+    }
+
+  </style>
+  <style>
+    /* CropGuard AI Voice Assistant */
+    .voice-assistant-box{
+      margin-top:1rem;
+      padding:.9rem 1rem;
+      border:1px solid var(--border-color);
+      border-radius:var(--radius-md);
+      background:#f8fafc
+    }
+
+    .voice-assistant-controls{
+      display:flex;
+      gap:.6rem;
+      align-items:center;
+      flex-wrap:wrap
+    }
+
+    .voice-assistant-btn,
+    .voice-stop-btn{
+      border-radius:var(--radius-sm);
+      padding:.65rem 1rem;
+      cursor:pointer;
+      font-weight:700
+    }
+
+    .voice-assistant-btn{
+      border:none;
+      background:var(--primary);
+      color:#fff
+    }
+
+    .voice-assistant-btn.listening{
+      animation:cropguardVoicePulse 1.2s infinite
+    }
+
+    .voice-stop-btn{
+      border:1px solid var(--border-color);
+      background:#fff;
+      color:var(--text-primary)
+    }
+
+    #voiceAssistantStatus{
+      margin-top:.55rem;
+      font-size:.78rem;
+      color:var(--text-muted)
+    }
+
+    @keyframes cropguardVoicePulse{
+      0%,100%{transform:scale(1)}
+      50%{transform:scale(1.04)}
+    }
+
+    @media(max-width:600px){
+      .voice-assistant-controls{
+        flex-direction:column;
+        align-items:stretch
+      }
+
+      .voice-assistant-btn,
+      .voice-stop-btn{
+        width:100%
+      }
+    }
+  
+</style>
+
+
+</style>
+  <script>
+    // Hide the scanner immediately while the login session is checked.
+    document.documentElement.classList.add("cropguard-auth-check");
+  </script>
+
+  <style>
+    html.cropguard-auth-check body {
+      visibility: hidden;
+    }
+  </style>
+
+<style>
+    /* CropGuard AI - Farmer Location & Disease Outbreak */
+    .outbreak-panel {
+      margin: 1rem 0 1.25rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,.05);
+      overflow: hidden;
+    }
+
+    .outbreak-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .75rem;
+      padding: .9rem 1rem;
+      background: #f0fdf4;
+      border-bottom: 1px solid #dcfce7;
+    }
+
+    .outbreak-panel-title {
+      font-weight: 800;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+
+    .location-status {
+      font-size: .78rem;
+      color: var(--text-muted);
+      margin-top: .2rem;
+    }
+
+    .location-body {
+      padding: 1rem;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: .65rem;
+      margin: .85rem 0;
+    }
+
+    .location-field {
+      padding: .65rem .75rem;
+      background: #f8fafc;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+    }
+
+    .location-field-label {
+      display: block;
+      font-size: .68rem;
+      color: var(--text-muted);
+      margin-bottom: .2rem;
+    }
+
+    .location-field-value {
+      display: block;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .location-actions {
+      display: flex;
+      gap: .55rem;
+      flex-wrap: wrap;
+    }
+
+    .outbreak-alert {
+      display: none;
+      margin: 0 1rem 1rem;
+      padding: .9rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid #fecaca;
+      background: #fef2f2;
+      color: #991b1b;
+    }
+
+    .outbreak-alert.active {
+      display: block;
+      animation: cropguardOutbreakPulse 1.5s ease-in-out 2;
+    }
+
+    .outbreak-alert-title {
+      font-weight: 800;
+      margin-bottom: .25rem;
+    }
+
+    .outbreak-alert-text {
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    @keyframes cropguardOutbreakPulse {
+      0%, 100% { box-shadow: 0 0 0 rgba(220,38,38,0); }
+      50% { box-shadow: 0 0 0 5px rgba(220,38,38,.10); }
+    }
+
+    @media (max-width: 800px) {
+      .location-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 500px) {
+      .location-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .location-actions {
+        flex-direction: column;
+      }
+
+      .location-actions .btn {
+        width: 100%;
+      }
+    }
+</style>
+
+<style id="cropguard-premium-ui">
+:root{
+  --cg-navy:#062b49;
+  --cg-navy-2:#07385d;
+  --cg-blue:#0a6da8;
+  --cg-green:#16a34a;
+  --cg-bg:#f4f8fb;
+  --cg-card:#ffffff;
+  --cg-text:#102a43;
+  --cg-muted:#627d98;
+  --cg-border:#dbe7ef;
+  --cg-shadow:0 12px 32px rgba(16,42,67,.08);
+  --cg-radius:18px;
+}
+*{box-sizing:border-box}
+body{
+  background:var(--cg-bg)!important;
+  color:var(--cg-text);
+  overflow-x:hidden;
+}
+.bg-ambient{opacity:.25!important}
+.app-header{
+  position:fixed!important;
+  z-index:1000;
+  top:0; left:270px; right:0;
+  height:72px;
+  background:rgba(255,255,255,.94)!important;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--cg-border)!important;
+  box-shadow:0 4px 18px rgba(16,42,67,.05);
+}
+.header-container{
+  max-width:none!important;
+  height:100%;
+  padding:0 28px!important;
+}
+.brand-wrapper{display:none!important}
+.header-controls{width:100%; justify-content:flex-end!important; gap:10px!important}
+.header-controls:before{
+  content:"⌕  Search CropGuard...";
+  margin-right:auto;
+  display:flex; align-items:center;
+  width:260px; height:40px;
+  padding:0 14px;
+  border:1px solid var(--cg-border);
+  border-radius:12px;
+  color:#7b8fa3;
+  background:#f8fbfd;
+  font-size:13px;
+}
+.auth-buttons{display:none!important}
+.server-status-btn{border-radius:999px!important}
+.farmer-profile{box-shadow:none!important}
+.app-nav{
+  position:fixed!important;
+  z-index:1100;
+  left:0; top:0; bottom:0;
+  width:270px!important;
+  padding:18px 14px!important;
+  background:linear-gradient(180deg,#05243d 0%,#062f4f 55%,#031b2e 100%)!important;
+  border:0!important;
+  box-shadow:8px 0 28px rgba(2,24,41,.12);
+  overflow-y:auto;
+}
+.nav-container{
+  width:100%!important;
+  max-width:none!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:7px!important;
+}
+.cg-side-brand{
+  display:flex; align-items:center; gap:10px;
+  padding:6px 10px 22px;
+  color:#fff;
+}
+.cg-side-logo{
+  width:42px;height:42px;border-radius:13px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,#74d34b,#159447);
+  font-size:22px;
+  box-shadow:0 8px 18px rgba(20,145,71,.25);
+}
+.cg-side-brand strong{display:block;font-size:18px;letter-spacing:-.3px}
+.cg-side-brand small{display:block;color:#a9c5d8;font-size:9px;margin-top:2px}
+.nav-btn{
+  width:100%!important;
+  min-height:46px;
+  justify-content:flex-start!important;
+  padding:0 14px!important;
+  border-radius:11px!important;
+  border:1px solid transparent!important;
+  color:#d8e7f1!important;
+  background:transparent!important;
+  font-weight:600!important;
+  text-align:left;
+}
+.nav-btn:hover{background:rgba(255,255,255,.08)!important}
+.nav-btn.active{
+  color:#fff!important;
+  background:linear-gradient(90deg,#0b78ba,#075b91)!important;
+  box-shadow:0 8px 18px rgba(0,91,145,.25);
+}
+.nav-icon{width:24px!important;font-size:17px!important}
+.cg-nav-divider{height:1px;background:rgba(255,255,255,.13);margin:14px 8px 8px}
+.cg-side-user{
+  margin-top:auto;
+  padding:14px 10px 6px;
+  border-top:1px solid rgba(255,255,255,.13);
+  color:#fff;
+}
+.cg-side-user-row{display:flex;align-items:center;gap:10px}
+.cg-side-user-avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#eaf7ee}
+.cg-side-user small{display:block;color:#9fb7c9;font-size:10px}
+.cg-side-user strong{
+  display:block;
+  font-size:15px;
+  font-weight:800;
+  color:#fff;
+  line-height:1.2;
+  white-space:nowrap;
+  overflow:visible;
+  text-overflow:clip;
+}
+.cg-side-user-info{
+  min-width:0;
+  flex:1;
+  overflow:visible;
+}
+.cg-side-user small{
+  display:block;
+  color:#9fb7c9;
+  font-size:10px;
+  margin-top:3px;
+}
+.cg-side-user-info strong{
+  max-width:none!important;
+}
+.cg-settings-btn{
+  display:none!important;
+}
+.cg-settings-btn:hover{
+  background:rgba(255,255,255,.08)!important;
+}
+.cg-side-user{position:relative;cursor:pointer}
+.cg-side-user-row{
+  padding:9px 8px;
+  border-radius:12px;
+  transition:background .2s ease,transform .2s ease;
+}
+.cg-side-user-row:hover{background:rgba(255,255,255,.08);transform:translateY(-1px)}
+.cg-side-user-row:focus-visible{outline:2px solid #66d3ff;outline-offset:2px}
+.cg-profile-menu{
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:70px;
+  display:none;
+  padding:7px;
+  background:#fff;
+  border:1px solid #d9e5ee;
+  border-radius:14px;
+  box-shadow:0 16px 35px rgba(2,32,52,.25);
+  z-index:1000;
+}
+.cg-profile-menu.open{display:block;animation:cgMenuIn .16s ease-out}
+.cg-profile-menu button{
+  width:100%;display:flex;align-items:center;gap:10px;
+  border:0;background:transparent;color:#123047;
+  padding:11px 12px;border-radius:10px;
+  font:600 13px Inter,Arial,sans-serif;text-align:left;cursor:pointer;
+}
+.cg-profile-menu button:hover{background:#eef7fb}
+.cg-profile-menu .cg-logout-item{color:#b42318}
+.cg-profile-menu .cg-logout-item:hover{background:#fff1f0}
+.cg-menu-divider{height:1px;background:#e6edf2;margin:5px 4px}
+@keyframes cgMenuIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.cg-profile-menu{left:5px;right:5px;bottom:64px}}
+
+.cg-settings-btn:focus-visible{
+  outline:2px solid #66d3ff;
+  outline-offset:2px;
+}
+.app-main{
+  margin-left:270px!important;
+  padding:92px 30px 36px!important;
+  max-width:none!important;
+  width:auto!important;
+}
+.tab-pane{max-width:1400px;margin:0 auto}
+.card,.weather-controls-box,.chat-container{
+  border:1px solid var(--cg-border)!important;
+  box-shadow:var(--cg-shadow)!important;
+  border-radius:var(--cg-radius)!important;
+}
+.cg-home-hero{
+  position:relative; overflow:hidden;
+  min-height:150px;
+  border-radius:20px;
+  padding:25px 28px;
+  color:#fff;
+  background:
+    linear-gradient(100deg,rgba(4,45,73,.96),rgba(8,109,168,.86)),
+    linear-gradient(120deg,#0a6da8,#16a34a);
+  box-shadow:0 16px 34px rgba(6,43,73,.18);
+}
+.cg-home-hero:after{
+  content:"🌿";
+  position:absolute;right:30px;bottom:-18px;
+  font-size:110px;opacity:.14;transform:rotate(-10deg)
+}
+.cg-eyebrow{font-size:12px;opacity:.82;margin-bottom:7px}
+.cg-home-title{font-size:28px;line-height:1.15;margin:0 0 7px;font-weight:800}
+.cg-home-subtitle{font-size:13px;opacity:.88;max-width:650px}
+.cg-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+.cg-stat-card{
+  background:#fff;border:1px solid var(--cg-border);border-radius:16px;
+  padding:16px;box-shadow:0 8px 22px rgba(16,42,67,.06)
+}
+.cg-stat-icon{font-size:20px;margin-bottom:8px}
+.cg-stat-value{font-size:24px;font-weight:800;color:var(--cg-text)}
+.cg-stat-label{font-size:11px;color:var(--cg-muted);margin-top:3px}
+.cg-stat-good{color:#16834a}
+.cg-stat-warn{color:#d97706}
+.cg-home-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:18px}
+.cg-card{
+  background:#fff;border:1px solid var(--cg-border);border-radius:18px;
+  padding:18px;box-shadow:var(--cg-shadow)
+}
+.cg-card-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.cg-card-title h3{margin:0;font-size:15px}
+.cg-card-title span{font-size:11px;color:var(--cg-muted)}
+.cg-location-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cg-location-box{padding:13px;border-radius:14px;background:#f7fbfd;border:1px solid #e4eef4}
+.cg-location-box small{display:block;color:var(--cg-muted);font-size:10px}
+.cg-location-box strong{display:block;margin-top:3px;font-size:13px}
+.cg-alert{
+  padding:15px;border-radius:15px;
+  background:#fff5f5;border:1px solid #fecaca
+}
+.cg-alert strong{display:block;color:#b91c1c;font-size:13px}
+.cg-alert p{margin:5px 0 0;font-size:12px;color:#7f1d1d;line-height:1.45}
+.cg-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.cg-action{
+  border:1px solid var(--cg-border);background:#fff;border-radius:14px;
+  padding:13px;text-align:left;cursor:pointer;transition:.2s;
+}
+.cg-action:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(16,42,67,.08);border-color:#9cc7df}
+.cg-action b{display:block;font-size:12px;margin-top:7px}
+.cg-action span{font-size:21px}
+.cg-preview{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px
+}
+.cg-preview-box{padding:14px;border-radius:14px;background:#f8fbfd;border:1px solid var(--cg-border)}
+.cg-preview-number{font-size:22px;font-weight:800}
+.cg-progress{height:7px;background:#e9f0f4;border-radius:99px;overflow:hidden;margin-top:9px}
+.cg-progress i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#0a6da8,#16a34a)}
+.cg-mini-list{display:grid;gap:9px}
+.cg-mini-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #edf2f5;font-size:12px}
+.cg-mini-row:last-child{border-bottom:0}
+.cg-pill{padding:4px 8px;border-radius:999px;background:#ecfdf5;color:#166534;font-size:10px;font-weight:700}
+.cg-section-title{font-size:22px;font-weight:800;margin:0 0 5px}
+.cg-section-sub{font-size:12px;color:var(--cg-muted);margin:0 0 18px}
+.cg-report-grid{display:grid;grid-template-columns:1.4fr .6fr;gap:18px}
+.cg-bars{display:grid;gap:13px}
+.cg-bar-row{display:grid;grid-template-columns:105px 1fr 45px;gap:10px;align-items:center;font-size:11px}
+.cg-bar{height:10px;background:#edf3f6;border-radius:99px;overflow:hidden}
+.cg-bar i{display:block;height:100%;border-radius:99px;background:#0a6da8}
+.cg-table{width:100%;border-collapse:collapse;font-size:11px}
+.cg-table th,.cg-table td{padding:10px 7px;border-bottom:1px solid #edf2f5;text-align:left}
+.cg-table th{color:#627d98;font-weight:700}
+.cg-mobile-nav{display:none}
+
+/* Improve existing sections to match the mockup */
+.hero-banner{border-radius:20px!important;box-shadow:var(--cg-shadow)!important}
+.scanner-grid{gap:18px!important}
+.results-card{min-height:520px}
+.weather-radar-grid{gap:18px!important}
+.chat-header{border-radius:18px 18px 0 0!important}
+.history-grid{gap:14px!important}
+
+/* Mobile */
+@media(max-width:1000px){
+  .app-header{left:0!important}
+  .app-nav{
+    width:78px!important;padding:14px 9px!important
+  }
+  .cg-side-brand strong,.cg-side-brand small,.nav-btn span:not(.nav-icon),.cg-side-user div:not(.cg-side-user-avatar){display:none}
+  .cg-side-brand{justify-content:center;padding:4px 0 18px}
+  .nav-btn{justify-content:center!important;padding:0!important}
+  .nav-icon{margin:0!important}
+  .app-main{margin-left:78px!important;padding:88px 18px 30px!important}
+  .cg-stat-grid{grid-template-columns:repeat(2,1fr)}
+  .cg-home-grid,.cg-report-grid{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .app-header{height:62px!important}
+  .header-container{padding:0 10px!important}
+  .header-controls:before{display:none}
+  .farmer-profile{display:none!important}
+  .farmer-account-btn{display:none!important}
+  .lang-selector-wrap{font-size:11px}
+  .server-status-btn{max-width:32px;overflow:hidden;padding:7px!important}
+  #serverStatusText{display:none}
+  .app-nav{display:none!important}
+  .app-main{margin-left:0!important;padding:75px 12px 82px!important}
+  .cg-home-hero{min-height:165px;padding:21px}
+  .cg-home-title{font-size:23px}
+  .cg-stat-grid{grid-template-columns:1fr 1fr;gap:9px}
+  .cg-stat-card{padding:12px}
+  .cg-stat-value{font-size:20px}
+  .cg-location-grid{grid-template-columns:1fr}
+  .cg-actions{grid-template-columns:1fr}
+  .cg-preview{grid-template-columns:1fr}
+  .cg-mobile-nav{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    position:fixed;z-index:1200;left:8px;right:8px;bottom:8px;
+    background:rgba(5,36,61,.96);backdrop-filter:blur(15px);
+    border-radius:18px;padding:7px;
+    box-shadow:0 12px 28px rgba(2,24,41,.25)
+  }
+  .cg-mobile-nav button{
+    border:0;background:transparent;color:#d8e7f1;padding:8px 3px;border-radius:12px;font-size:9px
+  }
+  .cg-mobile-nav button.active{background:#0a6da8;color:#fff}
+  .cg-mobile-nav span{display:block;font-size:16px;margin-bottom:2px}
+}
+</style>
+
+
+  <!-- CropGuard AI - Village Disease Heatmap -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIINfQ3h6QZxH4Xb1Qx4g8h4V4k8c1m5s8="
+    crossorigin=""
+  >
+  <style id="cropguard-village-heatmap-style">
+    .cg-heatmap-card{
+      margin-top:18px;
+      overflow:hidden;
+    }
+    .cg-heatmap-toolbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:12px;
+    }
+    .cg-heatmap-filters{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .cg-heatmap-select{
+      border:1px solid var(--cg-border);
+      background:#fff;
+      color:var(--cg-text);
+      border-radius:10px;
+      padding:8px 10px;
+      font-size:12px;
+      outline:none;
+    }
+    .cg-heatmap-status{
+      font-size:11px;
+      color:var(--cg-muted);
+    }
+    #cropguardDiseaseMap{
+      width:100%;
+      height:430px;
+      border-radius:14px;
+      border:1px solid var(--cg-border);
+      overflow:hidden;
+      background:#eef5f8;
+    }
+    .cg-map-legend{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      font-size:11px;
+      color:var(--cg-muted);
+    }
+    .cg-map-legend span{
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+    }
+    .cg-map-dot{
+      width:10px;height:10px;border-radius:50%;display:inline-block;
+    }
+    .cg-map-dot.high{background:#dc2626}
+    .cg-map-dot.moderate{background:#f59e0b}
+    .cg-map-dot.low{background:#16a34a}
+    .cg-map-summary{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:9px;
+      margin-top:12px;
+    }
+    .cg-map-summary-box{
+      padding:11px;
+      border:1px solid var(--cg-border);
+      border-radius:12px;
+      background:#f8fbfd;
+    }
+    .cg-map-summary-box small{
+      display:block;
+      color:var(--cg-muted);
+      font-size:9px;
+    }
+    .cg-map-summary-box strong{
+      display:block;
+      margin-top:3px;
+      font-size:17px;
+    }
+    @media(max-width:700px){
+      #cropguardDiseaseMap{height:340px}
+      .cg-map-summary{grid-template-columns:repeat(2,1fr)}
+      .cg-heatmap-toolbar{align-items:stretch}
+      .cg-heatmap-filters{width:100%}
+      .cg-heatmap-select,.cg-heatmap-filters .btn{flex:1}
+    }
+  </style>
+
+
+<style id="cg-location-in-myfarm">
+.cg-myfarm-location-wrap{
+  width:100%;
+  margin-top:20px;
+}
+#tab-myfarm #farmerLocationPanel{
+  width:100%;
+}
+@media(max-width:700px){
+  .cg-myfarm-location-wrap{margin-top:14px;}
+}
+</style>
+
+
+<style id="cropguard-report-analysis-dashboard">
+/* ==========================================================
+   CropGuard AI — Reports & Analytics Dashboard
+   Visual system inspired by the supplied dashboard reference.
+   Uses existing APIs and preserves the rest of the application.
+   ========================================================== */
+.cg-report-dashboard{
+  --rd-green:#159447;
+  --rd-green-dark:#083b2d;
+  --rd-green-soft:#eaf7e9;
+  --rd-blue:#147fc0;
+  --rd-orange:#f3a51b;
+  --rd-red:#e74735;
+  --rd-text:#12352d;
+  --rd-muted:#6b7e76;
+  --rd-border:#dce8df;
+  --rd-card:#fff;
+  --rd-shadow:0 8px 24px rgba(30,78,53,.08);
+  width:100%;
+  max-width:1450px;
+  margin:0 auto;
+  color:var(--rd-text);
+}
+.cg-rd-hero{
+  min-height:122px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  padding:24px 28px;
+  border-radius:18px;
+  color:#fff;
+  background:
+    linear-gradient(90deg,rgba(6,67,45,.97),rgba(20,128,76,.80)),
+    linear-gradient(120deg,#1b6d49,#8fbd76);
+  box-shadow:0 12px 30px rgba(19,80,49,.16);
+}
+.cg-rd-hero:after{
+  content:"🌾   🌿   🌱";
+  position:absolute;
+  right:30px;
+  bottom:-24px;
+  font-size:78px;
+  opacity:.20;
+  letter-spacing:7px;
+  pointer-events:none;
+}
+.cg-rd-eyebrow{
+  font-size:10px;
+  letter-spacing:1.7px;
+  font-weight:800;
+  opacity:.78;
+  margin-bottom:6px;
+}
+.cg-rd-hero h2{
+  margin:0;
+  font-size:30px;
+  line-height:1.1;
+  font-weight:800;
+}
+.cg-rd-hero p{
+  margin:7px 0 0;
+  font-size:13px;
+  opacity:.9;
+}
+.cg-rd-period{
+  z-index:1;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(255,255,255,.96);
+  color:#294d3e;
+  border-radius:12px;
+  padding:7px 10px;
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+}
+.cg-rd-period select{
+  border:0!important;
+  background:transparent!important;
+  font-weight:700;
+  color:#294d3e!important;
+  padding:2px 22px 2px 3px!important;
+  box-shadow:none!important;
+  outline:none;
+}
+
+.cg-rd-kpis{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin:10px 0;
+}
+.cg-rd-kpi{
+  min-height:105px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  background:var(--rd-card);
+  border:1px solid var(--rd-border);
+  border-radius:14px;
+  box-shadow:var(--rd-shadow);
+}
+.cg-rd-kpi-icon{
+  width:43px;
+  height:43px;
+  flex:0 0 43px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  font-size:21px;
+}
+.cg-rd-kpi-icon.health{background:#e5f6e7}
+.cg-rd-kpi-icon.scans{background:#e6f2ff}
+.cg-rd-kpi-icon.risk{background:#fff4dc}
+.cg-rd-kpi-icon.disease{background:#ffebeb}
+.cg-rd-kpi-icon.areas{background:#e8f7e7}
+.cg-rd-kpi-main{min-width:0}
+.cg-rd-kpi-main span{
+  display:block;
+  font-size:10px;
+  color:#547060;
+  font-weight:700;
+}
+.cg-rd-kpi-main strong{
+  display:block;
+  margin:4px 0 2px;
+  font-size:25px;
+  line-height:1;
+  color:#102f27;
+}
+.cg-rd-kpi-main small{
+  display:block;
+  color:#6c7e75;
+  font-size:8px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.cg-rd-kpi-mark{
+  position:absolute;
+  right:11px;
+  bottom:13px;
+  color:#2ba34a;
+  font-weight:800;
+  font-size:15px;
+}
+.cg-rd-kpi-mark.blue{color:#4b9ee2}
+.cg-rd-kpi-mark.orange{color:#dc8b17}
+.cg-rd-kpi-mark.red{color:#6aaee4}
+.cg-rd-kpi-mark.green{color:#76a98e}
+
+.cg-rd-grid{
+  display:grid;
+  gap:10px;
+  margin-bottom:10px;
+}
+.cg-rd-grid-main{
+  grid-template-columns:1.38fr .92fr 1.15fr;
+}
+.cg-rd-card{
+  min-width:0;
+  background:var(--rd-card);
+  border:1px solid var(--rd-border);
+  border-radius:14px;
+  box-shadow:var(--rd-shadow);
+  padding:14px;
+}
+.cg-rd-card-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.cg-rd-card-head h3{
+  margin:0;
+  font-size:14px;
+  color:#132f28;
+}
+.cg-rd-card-head p{
+  margin:4px 0 0;
+  color:var(--rd-muted);
+  font-size:8px;
+}
+.cg-rd-select{
+  border:1px solid #d7e4dc!important;
+  border-radius:9px!important;
+  background:#fff!important;
+  color:#345344!important;
+  padding:7px 9px!important;
+  font-size:9px!important;
+  box-shadow:none!important;
+}
+.cg-rd-trend-wrap{
+  height:228px;
+  position:relative;
+  overflow:hidden;
+}
+#rdTrendSvg{
+  width:100%;
+  height:100%;
+  display:block;
+}
+.cg-rd-gridline{stroke:#e4ece7;stroke-width:1}
+.cg-rd-axis-label{
+  fill:#789086;
+  font-size:9px;
+  font-family:Inter,Arial,sans-serif;
+}
+.cg-rd-area{fill:rgba(40,159,75,.12)}
+.cg-rd-line{
+  fill:none;
+  stroke:#159447;
+  stroke-width:3;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.cg-rd-point{
+  fill:#159447;
+  stroke:#fff;
+  stroke-width:2;
+}
+.cg-rd-empty{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  color:#819188;
+  font-size:10px;
+  text-align:center;
+  padding:20px;
+}
+
+.cg-rd-donut-row{
+  min-height:225px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+.cg-rd-donut{
+  width:155px;
+  height:155px;
+  flex:0 0 155px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:conic-gradient(#e74735 0 25%,#f5aa1a 25% 50%,#2586d4 50% 67%,#8c43ca 67% 82%,#28a653 82% 100%);
+  position:relative;
+}
+.cg-rd-donut:after{
+  content:"";
+  position:absolute;
+  inset:28px;
+  background:#fff;
+  border-radius:50%;
+}
+.cg-rd-donut>div{
+  position:relative;
+  z-index:1;
+  text-align:center;
+}
+.cg-rd-donut strong{
+  display:block;
+  font-size:22px;
+  color:#102f27;
+}
+.cg-rd-donut span{
+  font-size:9px;
+  color:#6c7e75;
+}
+.cg-rd-legend{
+  display:grid;
+  gap:8px;
+  min-width:130px;
+}
+.cg-rd-legend-row{
+  display:grid;
+  grid-template-columns:10px 1fr auto;
+  align-items:center;
+  gap:7px;
+  font-size:9px;
+  color:#4b6358;
+}
+.cg-rd-legend-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+}
+.cg-rd-legend-row b{color:#284b3b}
+
+.cg-rd-crop-card{
+  min-width:0;
+}
+.cg-rd-table-scroll{
+  width:100%;
+  overflow:auto;
+}
+.cg-rd-table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:9px;
+  min-width:440px;
+}
+.cg-rd-table th{
+  padding:7px 6px;
+  color:#60766b;
+  background:#f8fbf8;
+  font-weight:800;
+  text-align:left;
+  border-bottom:1px solid #e4ece7;
+}
+.cg-rd-table td{
+  padding:8px 6px;
+  color:#365245;
+  border-bottom:1px solid #edf2ee;
+  vertical-align:middle;
+}
+.cg-rd-table tr:last-child td{border-bottom:0}
+.cg-rd-muted-row{
+  color:#7b8c84!important;
+  text-align:center!important;
+  padding:20px!important;
+}
+.cg-rd-health-badge,
+.cg-rd-risk-badge{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:7px;
+  font-size:8px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.cg-rd-health-badge{background:#e5f5e8;color:#247642}
+.cg-rd-health-badge.medium{background:#fff2d7;color:#a76a00}
+.cg-rd-health-badge.low{background:#ffe8e6;color:#b93227}
+.cg-rd-risk-badge{background:#e3f4e7;color:#277443}
+.cg-rd-risk-badge.medium{background:#fff0d2;color:#a46a00}
+.cg-rd-risk-badge.high{background:#ffe3e2;color:#bd3026}
+
+.cg-rd-grid-map{
+  grid-template-columns:1.35fr 1fr;
+}
+.cg-rd-map-card{
+  overflow:hidden;
+}
+.cg-rd-record-card{
+  min-width:0;
+}
+.cg-rd-records th:last-child,
+.cg-rd-records td:last-child{text-align:right}
+.cg-rd-view-btn{
+  border:0;
+  background:#e5f4e6;
+  color:#26743f;
+  border-radius:7px;
+  padding:5px 8px;
+  font-size:8px;
+  font-weight:800;
+}
+.cg-rd-severity{
+  display:inline-block;
+  min-width:42px;
+  text-align:center;
+  padding:4px 6px;
+  border-radius:7px;
+  font-weight:800;
+}
+.cg-rd-severity.healthy{background:#e4f5e8;color:#267842}
+.cg-rd-severity.low{background:#fff0d1;color:#9a6500}
+.cg-rd-severity.medium{background:#ffe8ca;color:#a84c00}
+.cg-rd-severity.high{background:#ffe0df;color:#b52e25}
+
+.cg-rd-grid-bottom{
+  grid-template-columns:1.35fr 1fr;
+}
+.cg-rd-insights{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.cg-rd-insight{
+  display:flex;
+  gap:9px;
+  min-height:92px;
+  padding:11px;
+  border-radius:10px;
+  background:#edf8ea;
+}
+.cg-rd-insight.warning{background:#fff4e4}
+.cg-rd-insight.danger{background:#ffebea}
+.cg-rd-insight.info{background:#e9f4fd}
+.cg-rd-insight>span{
+  font-size:20px;
+}
+.cg-rd-insight strong{
+  display:block;
+  font-size:10px;
+  color:#286b3d;
+}
+.cg-rd-insight.warning strong{color:#a76600}
+.cg-rd-insight.danger strong{color:#ba3429}
+.cg-rd-insight.info strong{color:#196aa1}
+.cg-rd-insight p{
+  margin:5px 0 0;
+  font-size:9px;
+  line-height:1.5;
+  color:#567066;
+}
+.cg-rd-live{
+  color:#6d8177;
+  font-size:8px;
+  white-space:nowrap;
+}
+.cg-rd-month-chart{
+  height:205px;
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  padding:8px 4px 2px;
+  border-bottom:1px solid #dce7df;
+}
+.cg-rd-month-bar{
+  flex:1;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  align-items:center;
+  gap:4px;
+}
+.cg-rd-month-value{
+  font-size:8px;
+  color:#547064;
+}
+.cg-rd-month-fill{
+  width:min(34px,75%);
+  min-height:4px;
+  border-radius:5px 5px 0 0;
+  background:linear-gradient(180deg,#72b98a,#3b9860);
+}
+.cg-rd-month-label{
+  font-size:8px;
+  color:#71847a;
+}
+.cg-rd-compat{
+  position:absolute!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+  clip:rect(0 0 0 0)!important;
+  white-space:nowrap!important;
+}
+.cg-rd-card .cg-heatmap-toolbar{
+  margin-top:0;
+}
+.cg-rd-map-card #cropguardDiseaseMap{
+  height:360px;
+  border-radius:11px;
+}
+
+/* Responsive */
+@media(max-width:1250px){
+  .cg-rd-kpis{grid-template-columns:repeat(3,1fr)}
+  .cg-rd-grid-main{grid-template-columns:1fr 1fr}
+  .cg-rd-crop-card{grid-column:1/-1}
+}
+@media(max-width:900px){
+  .cg-rd-grid-map,.cg-rd-grid-bottom{grid-template-columns:1fr}
+  .cg-rd-insights{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .cg-rd-hero{padding:18px;min-height:145px;align-items:flex-start;flex-direction:column}
+  .cg-rd-hero h2{font-size:23px}
+  .cg-rd-period{align-self:stretch;justify-content:center}
+  .cg-rd-kpis{grid-template-columns:1fr 1fr;gap:8px}
+  .cg-rd-kpi{min-height:95px;padding:10px}
+  .cg-rd-kpi-icon{width:36px;height:36px;flex-basis:36px;font-size:17px}
+  .cg-rd-kpi-main strong{font-size:20px}
+  .cg-rd-grid-main{grid-template-columns:1fr}
+  .cg-rd-donut-row{min-height:190px}
+  .cg-rd-insights{grid-template-columns:1fr}
+  .cg-rd-map-card #cropguardDiseaseMap{height:330px}
+}
+</style>
+
 </head>
+
 <body>
+
   <div class="bg-ambient"></div>
 
   <!-- Header Bar -->
   <header class="app-header">
     <div class="header-container">
+
       <div class="brand-wrapper">
+
         <div class="brand-icon-box">🌿</div>
+
         <div class="brand-text">
+
           <div style="display: flex; align-items: center; gap: 0.4rem;">
-            <h1 data-i18n="appTitle">CropGuard AI</h1>
-            <span class="brand-badge">MVP 1.0</span>
+
+            <h1 data-i18n="appTitle">
+              CropGuard AI
+            </h1>
+
+            <span class="brand-badge">
+              MVP 1.0
+            </span>
+
           </div>
-          <p style="font-size: 0.72rem; color: var(--text-muted);" data-i18n="tagline">Early Crop Disease Detection & Local Farmer Advisory</p>
+
+          <p
+            style="font-size: 0.72rem; color: var(--text-muted);"
+            data-i18n="tagline"
+          >
+            Early Crop Disease Detection & Local Farmer Advisory
+          </p>
+
         </div>
+
       </div>
 
+
       <div class="header-controls">
-        <button id="serverStatusBtn" class="server-status-btn" title="AI Backend Status — Click to configure connection" aria-label="Backend Server Status">
-          <span class="status-dot"></span>
-          <span id="serverStatusText">Checking Server...</span>
-        </button>
-        <div class="lang-selector-wrap">
-          <span>🌐</span>
-          <select id="langSelect" class="lang-selector" aria-label="Select Language">
-            <option value="en">English</option>
-            <option value="hi">हिन्दी (Hindi)</option>
-            <option value="mr">मराठी (Marathi)</option>
-            <option value="es">Español (Spanish)</option>
-            <option value="te">తెలుగు (Telugu)</option>
-          </select>
+
+        <!-- Farmer Authentication -->
+        <div
+          class="auth-buttons"
+          aria-label="Farmer account actions"
+        >
+
+          <a
+            href="/login.html"
+            class="auth-btn login-btn"
+          >
+            🔐 Login
+          </a>
+
+          <a
+            href="/register.html"
+            class="auth-btn register-btn"
+          >
+            📝 Register
+          </a>
+
         </div>
+
+
+        <button
+          id="serverStatusBtn"
+          class="server-status-btn"
+          title="AI Backend Status — Click to configure connection"
+          aria-label="Backend Server Status"
+        >
+
+          <span class="status-dot"></span>
+
+          <span id="serverStatusText">
+            Checking Server...
+          </span>
+
+        </button>
+
+
+        <div class="lang-selector-wrap">
+
+          <span>🌐</span>
+
+          <select
+            id="langSelect"
+            class="lang-selector"
+            aria-label="Select Language"
+          >
+
+            <option value="en">
+              English
+            </option>
+
+            <option value="hi">
+              हिन्दी (Hindi)
+            </option>
+
+            <option value="mr">
+              मराठी (Marathi)
+            </option>
+</select>
+
+        </div>
+
       </div>
+
     </div>
   </header>
 
+
   <!-- Navigation Tabs -->
-  <nav class="app-nav">
-    <div class="nav-container">
-      <button class="nav-btn active" data-tab="scanner">
-        <span class="nav-icon">🔍</span>
-        <span data-i18n="tabScanner">Leaf Diagnosis</span>
-      </button>
-      <button class="nav-btn" data-tab="doctor">
-        <span class="nav-icon">🤖</span>
-        <span data-i18n="tabDoctor">Crop Doctor AI</span>
-      </button>
-      <button class="nav-btn" data-tab="weather">
-        <span class="nav-icon">🌦️</span>
-        <span data-i18n="tabWeather">Weather Risk Radar</span>
-      </button>
-      <button class="nav-btn" data-tab="history">
-        <span class="nav-icon">📜</span>
-        <span data-i18n="tabHistory">Scan History</span>
-      </button>
+  <nav class="app-nav" aria-label="CropGuard main navigation">
+  <div class="nav-container">
+    <div class="cg-side-brand">
+      <div class="cg-side-logo">🌿</div>
+      <div><strong>CropGuard AI</strong><small>Healthy Crops • Brighter Future</small></div>
     </div>
-  </nav>
+
+    <button class="nav-btn active" data-tab="home"><span class="nav-icon">⌂</span><span data-i18n="tabHome">Home</span></button>
+    <button class="nav-btn" data-tab="weather"><span class="nav-icon">☁</span><span>Weather & Risk</span></button>
+    <button class="nav-btn" data-tab="scanner"><span class="nav-icon">⌕</span><span data-i18n="tabScanner">AI Disease Detection</span></button>
+    <button class="nav-btn" data-tab="doctor"><span class="nav-icon">◉</span><span data-i18n="tabDoctor">Crop Doctor AI</span></button>
+    <button class="nav-btn" data-tab="myfarm"><span class="nav-icon">⌂</span><span data-i18n="tabFarm">My Farm</span></button>
+    <button class="nav-btn" data-tab="reports"><span class="nav-icon">▥</span><span data-i18n="tabReports">Reports</span></button>
+    <button class="nav-btn" data-tab="history"><span class="nav-icon">◷</span><span data-i18n="tabHistory">Scan History</span></button>
+    <div class="cg-nav-divider"></div>
+    <button
+      id="accountSettingsBtn"
+      class="nav-btn cg-settings-btn"
+      type="button"
+      title="Account & Settings"
+      aria-label="Open account and settings"
+    >
+      <span class="nav-icon">⚙</span>
+      <span>Account & Settings</span>
+    </button>
+
+    <div class="cg-side-user" id="farmerProfileMenuWrap" aria-label="Logged-in farmer">
+      <div class="cg-side-user-row" id="farmerProfileBtn" role="button" tabindex="0" aria-haspopup="menu" aria-expanded="false">
+        <div class="cg-side-user-avatar">👨‍🌾</div>
+        <div class="cg-side-user-info">
+          <strong id="sideFarmerName">Farmer</strong>
+          <small>Farmer account</small>
+        </div>
+        <span style="margin-left:auto;color:#9fb7c9;font-size:13px;">⌃</span>
+      </div>
+
+      <div class="cg-profile-menu" id="farmerProfileMenu" role="menu" aria-hidden="true">
+        <button id="profileAccountBtn" type="button" role="menuitem">
+          <span>⚙️</span><span>Account &amp; Settings</span>
+        </button>
+        <div class="cg-menu-divider"></div>
+        <button id="profileLogoutBtn" class="cg-logout-item" type="button" role="menuitem">
+          <span>↪️</span><span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
 
   <!-- Main Application Content -->
   <main class="app-main">
 
+<section id="tab-home" class="tab-pane active">
+  <div class="cg-home-hero">
+    <div class="cg-eyebrow">AI-powered crop health companion</div>
+    <h2 class="cg-home-title">Good Morning, <span id="homeFarmerName">Farmer</span> 👋</h2>
+    <p class="cg-home-subtitle">Let's protect your crops with early disease detection, weather intelligence and farmer-friendly guidance.</p>
+  </div>
+
+  <div class="cg-stat-grid">
+    <div class="cg-stat-card"><div class="cg-stat-icon">🛡️</div><div class="cg-stat-value cg-stat-good" id="homeHealthScore">82%</div><div class="cg-stat-label">Crop Health · Good</div></div>
+    <div class="cg-stat-card"><div class="cg-stat-icon">⚠️</div><div class="cg-stat-value cg-stat-warn">24%</div><div class="cg-stat-label">Disease Risk · Low</div></div>
+    <div class="cg-stat-card"><div class="cg-stat-icon">☁️</div><div class="cg-stat-value">28°C</div><div class="cg-stat-label">Current Weather · Cloudy</div></div>
+    <div class="cg-stat-card"><div class="cg-stat-icon">◷</div><div class="cg-stat-value" id="homeScanCount">0</div><div class="cg-stat-label">Total Scans</div></div>
+  </div>
+
+  <div class="cg-home-grid">
+    <div class="cg-card">
+      <div class="cg-card-title"><h3>📍 Your Farm</h3><span id="homeLocationStatus">Location status</span></div>
+      <div class="cg-location-grid">
+        <div class="cg-location-box"><small>Village</small><strong id="homeVillage">Not detected</strong></div>
+        <div class="cg-location-box"><small>Taluka</small><strong id="homeTaluka">Not detected</strong></div>
+        <div class="cg-location-box"><small>District</small><strong id="homeDistrict">Not detected</strong></div>
+        <div class="cg-location-box"><small>State</small><strong id="homeState">Not detected</strong></div>
+      </div>
+      <div class="cg-actions">
+        <button class="cg-action" data-open-tab="scanner"><span>📷</span><b>Scan Leaf</b></button>
+        <button class="cg-action" data-open-tab="doctor"><span>🤖</span><b>Ask Crop Doctor</b></button>
+        <button class="cg-action" data-open-tab="weather"><span>🌦️</span><b>Check Risk</b></button>
+      </div>
+    </div>
+
+    <div class="cg-card">
+      <div class="cg-card-title"><h3>🚨 Recent Alert</h3><span>Nearby area</span></div>
+      <div class="cg-alert" id="homeOutbreakCard">
+        <strong>Monitoring your area</strong>
+        <p>CropGuard will show an aggregated disease alert when enough nearby reports indicate increased disease activity.</p>
+      </div>
+      <div class="cg-card-title" style="margin-top:18px"><h3>🌱 Current Crop</h3><span id="homeLatestDate">Latest scan</span></div>
+      <div class="cg-preview">
+        <div class="cg-preview-box"><div class="cg-preview-number" id="homeLatestCrop">—</div><small>Crop</small></div>
+        <div class="cg-preview-box"><div class="cg-preview-number" id="homeLatestDisease">—</div><small>Disease</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
     <!-- ======================================================== -->
     <!-- TAB 1: LEAF DIAGNOSIS SCANNER -->
     <!-- ======================================================== -->
-    <section id="tab-scanner" class="tab-pane active">
+
+    <section
+      id="tab-scanner"
+      class="tab-pane active"
+    >
+
+
+      <!-- ======================================================== -->
+      <!-- FARMER LOCATION & DISEASE OUTBREAK ALERT -->
+      <!-- ======================================================== -->
       
+
       <!-- Hero Banner -->
       <div class="hero-banner">
+
         <div class="hero-content">
+
           <div class="hero-tag">
-            <span>✨</span> <span>Precision Agriculture AI</span>
+
+            <span>✨</span>
+
+            <span>
+              Precision Agriculture AI
+            </span>
+
           </div>
-          <h2 class="hero-title" data-i18n="heroTitle">Protect Your Harvest with AI Diagnostics</h2>
-          <p class="hero-subtitle" data-i18n="heroSubtitle">Instant leaf disease detection, % infection severity, and farmer-friendly remedies in your local language.</p>
-          
+
+
+          <h2
+            class="hero-title"
+            data-i18n="heroTitle"
+          >
+            Protect Your Harvest with AI Diagnostics
+          </h2>
+
+
+          <p
+            class="hero-subtitle"
+            data-i18n="heroSubtitle"
+          >
+            Instant leaf disease detection, % infection severity,
+            and farmer-friendly remedies in your local language.
+          </p>
+
+
           <div class="quick-stats-row">
+
             <div class="stat-chip">
+
               <span>🎯</span>
-              <div><b data-i18n="statAccuracy">96.4% Model Accuracy</b></div>
+
+              <div>
+                <b data-i18n="statAccuracy">
+                  96.4% Model Accuracy
+                </b>
+              </div>
+
             </div>
+
+
             <div class="stat-chip">
+
               <span>🦠</span>
-              <div><b data-i18n="statDiseases">18+ Crop Pathogens</b></div>
+
+              <div>
+                <b data-i18n="statDiseases">
+                  18+ Crop Pathogens
+                </b>
+              </div>
+
             </div>
+
+
             <div class="stat-chip">
+
               <span>🗣️</span>
-              <div><b data-i18n="statLanguages">5 Regional Languages</b></div>
+
+              <div>
+                <b data-i18n="statLanguages">
+                  5 Regional Languages
+                </b>
+              </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
 
       <!-- Scanner Grid -->
       <div class="scanner-grid">
-        
+
+
         <!-- Left: Upload Box & Samples -->
         <div class="upload-column">
+
           <div class="card">
+
             <div class="card-header">
+
               <h3 class="card-title">
-                <span>📸</span> <span data-i18n="uploadTitle">Upload or Capture Leaf Photo</span>
+
+                <span>📸</span>
+
+                <span data-i18n="uploadTitle">
+                  Upload or Capture Leaf Photo
+                </span>
+
               </h3>
+
             </div>
+
 
             <!-- Drag & Drop Zone -->
-            <div id="dropzone" class="dropzone-container">
-              <div class="dropzone-icon">🍃</div>
-              <div class="dropzone-text">
-                <h3 data-i18n="uploadTitle">Upload or Capture Leaf Photo</h3>
-                <p data-i18n="uploadSubtitle">Drag and drop leaf image or choose from your camera</p>
+            <div
+              id="dropzone"
+              class="dropzone-container"
+            >
+
+              <div class="dropzone-icon">
+                🍃
               </div>
+
+
+              <div class="dropzone-text">
+
+                <h3 data-i18n="uploadTitle">
+                  Upload or Capture Leaf Photo
+                </h3>
+
+                <p data-i18n="uploadSubtitle">
+                  Drag and drop leaf image or choose from your camera
+                </p>
+
+              </div>
+
 
               <div class="upload-action-buttons">
+
                 <!-- Mobile Camera Button -->
-                <button id="btnCamera" class="btn btn-camera" type="button">
-                  <span>📷</span> <span data-i18n="btnTakePhoto">Take Photo</span>
+                <button
+                  id="btnCamera"
+                  class="btn btn-camera"
+                  type="button"
+                >
+
+                  <span>📷</span>
+
+                  <span data-i18n="btnTakePhoto">
+                    Take Photo
+                  </span>
+
                 </button>
+
+
                 <!-- File Picker Button -->
-                <button id="btnPickFile" class="btn btn-primary" type="button">
-                  <span>📁</span> <span data-i18n="btnUpload">Choose Image</span>
+                <button
+                  id="btnPickFile"
+                  class="btn btn-primary"
+                  type="button"
+                >
+
+                  <span>📁</span>
+
+                  <span data-i18n="btnUpload">
+                    Choose Image
+                  </span>
+
                 </button>
+
               </div>
 
+
               <!-- Hidden Inputs -->
-              <input id="fileInput" class="file-input-hidden" type="file" accept="image/*">
-              <input id="cameraInput" class="file-input-hidden" type="file" accept="image/*" capture="environment">
+              <input
+                id="fileInput"
+                class="file-input-hidden"
+                type="file"
+                accept="image/*"
+              >
+
+              <input
+                id="cameraInput"
+                class="file-input-hidden"
+                type="file"
+                accept="image/*"
+                capture="environment"
+              >
+
             </div>
+
 
             <!-- Quick Test Sample Leaves Bar -->
             <div class="sample-bar-section">
+
               <div class="sample-bar-header">
-                <h4 data-i18n="sampleHeader">Quick Test with Sample Leaves</h4>
-                <span style="font-size: 0.75rem; color: var(--primary);">1-Click Demo</span>
+
+                <h4 data-i18n="sampleHeader">
+                  Quick Test with Sample Leaves
+                </h4>
+
+                <span
+                  style="font-size: 0.75rem; color: var(--primary);"
+                >
+                  1-Click Demo
+                </span>
+
               </div>
-              <div id="samplesContainer" class="samples-carousel">
+
+
+              <div
+                id="samplesContainer"
+                class="samples-carousel"
+              >
                 <!-- Populated via JS -->
               </div>
+
             </div>
+
           </div>
+
         </div>
+
 
         <!-- Right: Results & Treatment Dashboard -->
         <div class="results-column">
+
           <div class="card results-card">
+
             <div class="card-header">
+
               <h3 class="card-title">
-                <span>📋</span> <span>Diagnostic Analysis & Treatment</span>
+
+                <span>📋</span>
+
+                <span>
+                  Diagnostic Analysis & Treatment
+                </span>
+
               </h3>
+
             </div>
+
 
             <!-- Empty State -->
-            <div id="emptyState" class="empty-state">
-              <div class="empty-state-icon">🔬</div>
-              <h3 data-i18n="emptyStateTitle">No Leaf Analyzed Yet</h3>
-              <p data-i18n="emptyStateDesc">Take a photo of a sick leaf or select a quick sample leaf above to get an instant diagnosis.</p>
-            </div>
+            <div
+              id="emptyState"
+              class="empty-state"
+            >
 
-            <!-- Loading State -->
-            <div id="loadingState" class="loading-state">
-              <div class="spinner"></div>
-              <h3 data-i18n="loadingTitle">Analyzing Leaf Image...</h3>
-              <p style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="loadingSubtitle">
-                Segmenting leaf tissue, identifying pathogens, and generating actionable remedy...
-              </p>
-            </div>
-
-            <!-- Filled Results Content -->
-            <div id="resultsContent" class="results-content">
-              
-              <!-- Crop & Disease Header -->
-              <div class="diagnosis-header-card">
-                <img id="diagnosisImg" class="diagnosis-img-preview" src="" alt="Analyzed Leaf">
-                <div class="diagnosis-meta">
-                  <div id="cropTag" class="crop-tag">🌱 Tomato</div>
-                  <h3 id="diseaseTitle" class="disease-name-title">Early Blight</h3>
-                  <div class="badge-row">
-                    <span id="severityBadge" class="badge badge-medium badge-pulse">⚠️ Severity: Medium</span>
-                    <span id="urgencyBadge" class="badge urgency-badge">⏱️ Act within 24-48 hours</span>
-                  </div>
-                </div>
+              <div class="empty-state-icon">
+                🔬
               </div>
 
-              <!-- Dual Meters (Severity & AI Confidence) -->
+              <h3 data-i18n="emptyStateTitle">
+                No Leaf Analyzed Yet
+              </h3>
+
+              <p data-i18n="emptyStateDesc">
+                Take a photo of a sick leaf or select a quick
+                sample leaf above to get an instant diagnosis.
+              </p>
+
+            </div>
+
+
+            <!-- Loading State -->
+            <div
+              id="loadingState"
+              class="loading-state"
+            >
+
+              <div class="spinner"></div>
+
+              <h3 data-i18n="loadingTitle">
+                Analyzing Leaf Image...
+              </h3>
+
+              <p
+                style="color: var(--text-muted); font-size: 0.85rem;"
+                data-i18n="loadingSubtitle"
+              >
+                Segmenting leaf tissue, identifying pathogens,
+                and generating actionable remedy...
+              </p>
+
+            </div>
+
+
+            <!-- Filled Results Content -->
+            <div
+              id="resultsContent"
+              class="results-content"
+            >
+
+              <!-- Crop & Disease Header -->
+              <div class="diagnosis-header-card">
+
+                <img
+                  id="diagnosisImg"
+                  class="diagnosis-img-preview"
+                  src=""
+                  alt="Analyzed Leaf"
+                >
+
+
+                <div class="diagnosis-meta">
+
+                  <div
+                    id="cropTag"
+                    class="crop-tag"
+                  >
+                    🌱 Tomato
+                  </div>
+
+
+                  <h3
+                    id="diseaseTitle"
+                    class="disease-name-title"
+                  >
+                    Early Blight
+                  </h3>
+
+
+                  <div class="badge-row">
+
+                    <span
+                      id="severityBadge"
+                      class="badge badge-medium badge-pulse"
+                    >
+                      ⚠️ Severity: Medium
+                    </span>
+
+
+                    <span
+                      id="urgencyBadge"
+                      class="badge urgency-badge"
+                    >
+                      ⏱️ Act within 24-48 hours
+                    </span>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- Dual Meters -->
               <div class="meters-grid">
+
                 <!-- Leaf Infection Area Meter -->
                 <div class="meter-box">
+
                   <div class="meter-header">
-                    <span data-i18n="affectedAreaLabel">Infected Leaf Area</span>
-                    <span id="affectedPctVal" class="meter-val">28.5%</span>
+
+                    <span data-i18n="affectedAreaLabel">
+                      Infected Leaf Area
+                    </span>
+
+                    <span
+                      id="affectedPctVal"
+                      class="meter-val"
+                    >
+                      28.5%
+                    </span>
+
                   </div>
+
+
                   <div class="progress-track">
-                    <div id="affectedFill" class="progress-fill" style="width: 28.5%; background: var(--severity-medium);"></div>
+
+                    <div
+                      id="affectedFill"
+                      class="progress-fill"
+                      style="width: 28.5%; background: var(--severity-medium);"
+                    ></div>
+
                   </div>
+
                 </div>
+
 
                 <!-- AI Confidence Meter -->
                 <div class="meter-box">
+
                   <div class="meter-header">
-                    <span data-i18n="confidenceLabel">AI Confidence</span>
-                    <span id="confidenceVal" class="meter-val">94%</span>
+
+                    <span data-i18n="confidenceLabel">
+                      AI Confidence
+                    </span>
+
+                    <span
+                      id="confidenceVal"
+                      class="meter-val"
+                    >
+                      94%
+                    </span>
+
                   </div>
+
+
                   <div class="progress-track">
-                    <div id="confidenceFill" class="progress-fill" style="width: 94%; background: var(--severity-healthy);"></div>
+
+                    <div
+                      id="confidenceFill"
+                      class="progress-fill"
+                      style="width: 94%; background: var(--severity-healthy);"
+                    ></div>
+
                   </div>
+
                 </div>
+
               </div>
+
 
               <!-- Action Plan Section -->
               <div class="action-plan-wrap">
+
                 <div class="section-subtitle">
-                  <span data-i18n="actionPlanTitle">Actionable Treatment Plan</span>
-                  <button id="speechBtn" class="speech-btn" type="button">
-                    <span>🔊</span> <span data-i18n="btnListen">Listen Aloud</span>
+
+                  <span data-i18n="actionPlanTitle">
+                    Actionable Treatment Plan
+                  </span>
+
+
+                  <button
+                    id="speechBtn"
+                    class="speech-btn"
+                    type="button"
+                  >
+
+                    <span>🔊</span>
+
+                    <span data-i18n="btnListen">
+                      Listen Aloud
+                    </span>
+
                   </button>
+
                 </div>
 
-                <div id="actionStepsList" class="action-cards-list">
+
+                <div
+                  id="actionStepsList"
+                  class="action-cards-list"
+                >
                   <!-- Injected via JS -->
                 </div>
+
               </div>
 
-              <!-- Ask Doctor for More Button -->
+
+              <!-- Ask Doctor -->
               <div style="margin-top: 1.25rem;">
-                <button id="btnAskDoctorForScan" class="btn btn-outline" style="width: 100%;" type="button">
-                  <span>💬</span> <span data-i18n="btnAskDoctor">Ask Crop Doctor About This</span>
+
+                <button
+                  id="btnAskDoctorForScan"
+                  class="btn btn-outline"
+                  style="width: 100%;"
+                  type="button"
+                >
+
+                  <span>💬</span>
+
+                  <span data-i18n="btnAskDoctor">
+                    Ask Crop Doctor About This
+                  </span>
+
                 </button>
+
               </div>
 
             </div>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- ======================================================== -->
-    <!-- TAB 2: CROP DOCTOR AI CHATBOT (KISAN SAHAYAK) -->
+    <!-- TAB 2: CROP DOCTOR AI CHATBOT -->
     <!-- ======================================================== -->
-    <section id="tab-doctor" class="tab-pane">
+
+    <section
+      id="tab-doctor"
+      class="tab-pane"
+    >
+
       <div class="chat-container">
-        
+
         <div class="chat-header">
+
           <div class="chat-header-info">
-            <div class="chat-avatar">👨‍🌾</div>
+
+            <div class="chat-avatar">
+              👨‍🌾
+            </div>
+
             <div>
-              <h3 style="font-size: 1.05rem; font-weight: 700;">Kisan Sahayak (Crop Doctor AI)</h3>
-              <p style="font-size: 0.75rem; color: #d1fae5;">RAG Agronomy Knowledge Base • Real-time Guidance</p>
+
+              <h3
+                style="font-size: 1.05rem; font-weight: 700;"
+              >
+                Kisan Sahayak (Crop Doctor AI)
+              </h3>
+
+              <p
+                style="font-size: 0.75rem; color: #d1fae5;"
+              >
+                RAG Agronomy Knowledge Base • Real-time Guidance
+              </p>
+
             </div>
+
           </div>
-          <span class="badge" style="background: rgba(255,255,255,0.2); color:#fff;">Online</span>
+
+
+          <span
+            class="badge"
+            style="background: rgba(255,255,255,0.2); color:#fff;"
+          >
+            Online
+          </span>
+
         </div>
 
-        <div id="chatMessages" class="chat-messages-area">
+
+        <div
+          id="chatMessages"
+          class="chat-messages-area"
+        >
+
           <div class="chat-msg bot">
+
             <div class="chat-bubble">
+
               🌱 <b>Namaste Farmer Friend!</b><br>
-              I am your AI Crop Doctor. Ask me anything about leaf spots, pesticide dosages, organic neem sprays, crop rotation, or fungal disease prevention!
+
+              I am your AI Crop Doctor. Ask me anything about
+              leaf spots, pesticide dosages, organic neem sprays,
+              crop rotation, or fungal disease prevention!
+
             </div>
+
           </div>
+
         </div>
 
-        <!-- Suggestion Chips Bar -->
+
+        <!-- Suggestion Chips -->
         <div class="chat-suggestions-bar">
-          <button class="chip-btn" type="button">How to treat Tomato Early Blight organically?</button>
-          <button class="chip-btn" type="button">What is the Mancozeb dosage for potato blight?</button>
-          <button class="chip-btn" type="button">How to cure whitefly infestation?</button>
-          <button class="chip-btn" type="button">How to prevent rice blast disease?</button>
+
+          <button
+            class="chip-btn"
+            type="button"
+          >
+            How to treat Tomato Early Blight organically?
+          </button>
+
+          <button
+            class="chip-btn"
+            type="button"
+          >
+            What is the Mancozeb dosage for potato blight?
+          </button>
+
+          <button
+            class="chip-btn"
+            type="button"
+          >
+            How to cure whitefly infestation?
+          </button>
+
+          <button
+            class="chip-btn"
+            type="button"
+          >
+            How to prevent rice blast disease?
+          </button>
+
         </div>
+
 
         <!-- Chat Input -->
         <div class="chat-input-bar">
-          <input id="chatInput" class="chat-input" type="text" placeholder="Ask about organic neem sprays, fertilizer dosages, leaf spots..." data-i18n-placeholder="chatPlaceholder">
-          <button id="chatSendBtn" class="btn btn-primary" type="button">
-            <span>➤</span> <span data-i18n="btnSend">Ask</span>
+
+          <input
+            id="chatInput"
+            class="chat-input"
+            type="text"
+            placeholder="Ask about organic neem sprays, fertilizer dosages, leaf spots..."
+            data-i18n-placeholder="chatPlaceholder"
+          >
+
+          <button
+            id="chatSendBtn"
+            class="btn btn-primary"
+            type="button"
+          >
+
+            <span>➤</span>
+
+            <span data-i18n="btnSend">
+              Ask
+            </span>
+
           </button>
+
+        </div>
+
+
+        <!-- Voice Assistant -->
+        <div
+          class="voice-assistant-box"
+          id="voiceAssistantBox"
+        >
+
+          <div
+            style="font-size:.9rem;font-weight:700;margin-bottom:.45rem;"
+          >
+            🎤 Voice Assistant
+          </div>
+
+
+          <div class="voice-assistant-controls">
+
+            <button
+              id="voiceAssistantBtn"
+              class="voice-assistant-btn"
+              type="button"
+            >
+              🎤 Speak to CropGuard
+            </button>
+
+
+            <button
+              id="voiceAssistantStopBtn"
+              class="voice-stop-btn"
+              type="button"
+            >
+              ⏹ Stop Voice
+            </button>
+
+          </div>
+
+
+          <div id="voiceAssistantStatus">
+            Click “Speak to CropGuard” and ask your crop question.
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- ======================================================== -->
     <!-- TAB 3: WEATHER & DISEASE RISK RADAR -->
     <!-- ======================================================== -->
-    <section id="tab-weather" class="tab-pane">
+
+    <section
+      id="tab-weather"
+      class="tab-pane"
+    >
+
       <div class="weather-radar-grid">
-        
+
+
         <!-- Controls Sidebar -->
         <div class="weather-controls-box">
-          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;" data-i18n="weatherTitle">Weather-Driven Disease Risk</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;" data-i18n="weatherSubtitle">Microclimate parameters for disease sporulation</p>
+
+          <h3
+            style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem;"
+            data-i18n="weatherTitle"
+          >
+            Weather-Driven Disease Risk
+          </h3>
+
+
+          <p
+            style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;"
+            data-i18n="weatherSubtitle"
+          >
+            Microclimate parameters for disease sporulation
+          </p>
+
 
           <div class="slider-group">
+
             <div class="slider-label">
-              <span>🌡️ Temperature</span>
-              <span id="tempVal" style="color: var(--primary); font-weight: 700;">26.0°C</span>
+
+              <span>
+                🌡️ Temperature
+              </span>
+
+              <span
+                id="tempVal"
+                style="color: var(--primary); font-weight: 700;"
+              >
+                26.0°C
+              </span>
+
             </div>
-            <input id="tempSlider" class="range-slider" type="range" min="10" max="45" step="0.5" value="26.0">
+
+
+            <input
+              id="tempSlider"
+              class="range-slider"
+              type="range"
+              min="10"
+              max="45"
+              step="0.5"
+              value="26.0"
+            >
+
           </div>
+
 
           <div class="slider-group">
+
             <div class="slider-label">
-              <span>💧 Relative Humidity</span>
-              <span id="humidityVal" style="color: #0284c7; font-weight: 700;">82%</span>
+
+              <span>
+                💧 Relative Humidity
+              </span>
+
+              <span
+                id="humidityVal"
+                style="color: #0284c7; font-weight: 700;"
+              >
+                82%
+              </span>
+
             </div>
-            <input id="humiditySlider" class="range-slider" type="range" min="20" max="100" step="1" value="82">
+
+
+            <input
+              id="humiditySlider"
+              class="range-slider"
+              type="range"
+              min="20"
+              max="100"
+              step="1"
+              value="82"
+            >
+
           </div>
+
 
           <div class="slider-group">
+
             <div class="slider-label">
-              <span>🌧️ Rainfall / Dew</span>
-              <span id="rainVal" style="color: #6366f1; font-weight: 700;">4.5 mm</span>
+
+              <span>
+                🌧️ Rainfall / Dew
+              </span>
+
+              <span
+                id="rainVal"
+                style="color: #6366f1; font-weight: 700;"
+              >
+                4.5 mm
+              </span>
+
             </div>
-            <input id="rainSlider" class="range-slider" type="range" min="0" max="25" step="0.5" value="4.5">
+
+
+            <input
+              id="rainSlider"
+              class="range-slider"
+              type="range"
+              min="0"
+              max="25"
+              step="0.5"
+              value="4.5"
+            >
+
           </div>
 
-          <div style="background: #f1f5f9; padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-secondary);">
-            💡 <i>Fungal spores germinate when relative humidity exceeds 75% with temperatures between 18°C and 28°C.</i>
+
+          <div
+            style="background: #f1f5f9; padding: 0.85rem; border-radius: var(--radius-md); font-size: 0.8rem; color: var(--text-secondary);"
+          >
+            💡 <i>
+              Fungal spores germinate when relative humidity
+              exceeds 75% with temperatures between 18°C and 28°C.
+            </i>
           </div>
+
         </div>
+
 
         <!-- Radar Results Area -->
         <div class="card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <h3 style="font-size: 1.2rem; font-weight: 800;">Real-Time Risk Analysis</h3>
-            <span id="weatherOverallBadge" class="badge badge-high">High Risk Alert</span>
+
+          <div
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;"
+          >
+
+            <h3
+              style="font-size: 1.2rem; font-weight: 800;"
+            >
+              Real-Time Risk Analysis
+            </h3>
+
+
+            <span
+              id="weatherOverallBadge"
+              class="badge badge-high"
+            >
+              High Risk Alert
+            </span>
+
           </div>
+
 
           <div style="margin-bottom: 1.5rem;">
-            <h4 id="weatherHeadline" style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;">
+
+            <h4
+              id="weatherHeadline"
+              style="font-size: 1.1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem;"
+            >
               High Fungal Blight Outbreak Risk Detected!
             </h4>
-            <p id="weatherSummary" style="font-size: 0.9rem; color: var(--text-secondary);">
-              High relative humidity (82%) and optimal temp (26°C) create prime conditions for Late Blight, Scab, and Downy Mildew.
+
+
+            <p
+              id="weatherSummary"
+              style="font-size: 0.9rem; color: var(--text-secondary);"
+            >
+              High relative humidity (82%) and optimal temp (26°C)
+              create prime conditions for Late Blight, Scab,
+              and Downy Mildew.
             </p>
+
           </div>
 
+
           <!-- Risk Breakdown Cards -->
-          <div id="riskCardsContainer" class="risk-cards-grid" style="margin-bottom: 1.5rem;">
+          <div
+            id="riskCardsContainer"
+            class="risk-cards-grid"
+            style="margin-bottom: 1.5rem;"
+          >
             <!-- Injected via JS -->
           </div>
 
+
           <!-- Advisory Checklist -->
-          <div style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem;">
-            <h5 style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.6rem;">🛡️ Agronomic Field Preparation Checklist:</h5>
-            <ul id="weatherChecklist" style="list-style: none;">
+          <div
+            style="background: #f8fafc; border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem;"
+          >
+
+            <h5
+              style="font-size: 0.9rem; font-weight: 700; margin-bottom: 0.6rem;"
+            >
+              🛡️ Agronomic Field Preparation Checklist:
+            </h5>
+
+
+            <ul
+              id="weatherChecklist"
+              style="list-style: none;"
+            >
               <!-- Injected via JS -->
             </ul>
+
           </div>
+
         </div>
 
       </div>
+
     </section>
 
 
     <!-- ======================================================== -->
     <!-- TAB 4: SCAN HISTORY -->
     <!-- ======================================================== -->
-    <section id="tab-history" class="tab-pane">
+
+    <section
+      id="tab-history"
+      class="tab-pane"
+    >
+
       <div class="card">
+
         <div class="card-header">
+
           <h3 class="card-title">
-            <span>📜</span> <span data-i18n="historyTitle">Previous Crop Scans</span>
+
+            <span>📜</span>
+
+            <span data-i18n="historyTitle">
+              Previous Crop Scans
+            </span>
+
           </h3>
-          <button id="refreshHistoryBtn" class="btn btn-outline btn-sm" type="button">
-            <span>🔄</span> <span>Refresh</span>
+
+
+          <button
+            id="refreshHistoryBtn"
+            class="btn btn-outline btn-sm"
+            type="button"
+          >
+
+            <span>🔄</span>
+
+            <span>
+              Refresh
+            </span>
+
           </button>
+
         </div>
 
-        <div id="historyGrid" class="history-grid">
+
+        <div
+          id="historyGrid"
+          class="history-grid"
+        >
           <!-- Injected via JS -->
         </div>
+
       </div>
+
     </section>
 
-  </main>
 
-  <!-- Backend Server Settings Modal -->
-  <div id="serverModal" class="modal-backdrop">
-    <div class="modal-box">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); display: flex; align-items: center; gap: 0.5rem;">
-          <span>⚙️</span> <span>AI Backend Server Connection</span>
-        </h3>
-        <button id="closeServerModalBtn" style="background: transparent; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted); line-height: 1;">&times;</button>
+
+<section id="tab-myfarm" class="tab-pane">
+  <h2 class="cg-section-title">My Farm</h2>
+  <p class="cg-section-sub">Manage your farm profile and track crop health in one place.</p>
+  <div class="cg-home-grid">
+    <div class="cg-card">
+      <div class="cg-card-title"><h3>👨‍🌾 Farmer Profile</h3><span>Secure account</span></div>
+      <div class="cg-location-grid">
+        <div class="cg-location-box"><small>Farmer</small><strong id="farmProfileName">Farmer</strong></div>
+        <div class="cg-location-box"><small>Email</small><strong id="farmProfileEmail">—</strong></div>
+        <div class="cg-location-box"><small>Village</small><strong id="farmProfileVillage">—</strong></div>
+        <div class="cg-location-box"><small>District</small><strong id="farmProfileDistrict">—</strong></div>
       </div>
-      <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;">
-        CropGuard AI runs a deep learning PyTorch model (MobileNetV2) to diagnose crop diseases and OpenCV to segment affected leaf area. Connect this device to your active backend server.
-      </p>
-      <div style="margin-bottom: 1rem;">
-        <label for="serverUrlInput" style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-primary);">Backend Server Base URL:</label>
-        <input type="text" id="serverUrlInput" placeholder="e.g. http://10.220.178.129:5000 or https://xyz.trycloudflare.com" style="width: 100%; padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.85rem; font-family: monospace; outline: none;">
-        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.3;">
-          Tip: On mobile, connect to your PC's Wi-Fi IP (e.g. <code>http://10.220.178.129:5000</code>) or enter your public tunnel URL. Leave empty to use the same host.
-        </div>
-      </div>
-      <div id="serverPingResult" style="padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.8rem; margin-bottom: 1rem; display: none;"></div>
-      <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
-        <button id="testServerBtn" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Test Ping</button>
-        <button id="saveServerBtn" class="btn btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Save & Connect</button>
+    </div>
+    <div class="cg-card">
+      <div class="cg-card-title"><h3>🌿 Crop Health</h3><span>Current view</span></div>
+      <div class="cg-preview">
+        <div class="cg-preview-box"><div class="cg-preview-number cg-stat-good">82%</div><small>Tomato health</small><div class="cg-progress"><i style="width:82%"></i></div></div>
+        <div class="cg-preview-box"><div class="cg-preview-number cg-stat-warn">24%</div><small>Disease risk</small><div class="cg-progress"><i style="width:24%"></i></div></div>
       </div>
     </div>
   </div>
 
+
+  <div class="cg-myfarm-location-wrap">
+<div class="outbreak-panel" id="farmerLocationPanel">
+
+        <div class="outbreak-panel-header">
+          <div>
+            <div class="outbreak-panel-title">📍 Farmer Location & Disease Alerts</div>
+            <div class="location-status" id="locationStatus">
+              Detect your village to receive nearby disease outbreak alerts.
+            </div>
+          </div>
+
+          <span class="badge" id="outbreakStatusBadge"
+                style="background:#ecfdf5;color:#166534;">
+            Monitoring
+          </span>
+        </div>
+
+        <div class="location-body">
+
+          <div class="location-actions">
+            <button id="detectLocationBtn"
+                    class="btn btn-primary"
+                    type="button">
+              📍 Detect My Village
+            </button>
+
+            <button id="refreshOutbreakBtn"
+                    class="btn btn-outline"
+                    type="button">
+              🔄 Check Outbreak Alerts
+            </button>
+          </div>
+
+          <div class="location-grid">
+
+            <div class="location-field">
+              <span class="location-field-label">Village</span>
+              <span class="location-field-value" id="farmerVillage">Not detected</span>
+            </div>
+
+            <div class="location-field">
+              <span class="location-field-label">Taluka</span>
+              <span class="location-field-value" id="farmerTaluka">Not detected</span>
+            </div>
+
+            <div class="location-field">
+              <span class="location-field-label">District</span>
+              <span class="location-field-value" id="farmerDistrict">Not detected</span>
+            </div>
+
+            <div class="location-field">
+              <span class="location-field-label">State</span>
+              <span class="location-field-value" id="farmerState">Not detected</span>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="outbreak-alert" id="outbreakAlert" role="alert">
+          <div class="outbreak-alert-title" id="outbreakAlertTitle">
+            🚨 Disease Outbreak Alert
+          </div>
+          <div class="outbreak-alert-text" id="outbreakAlertText"></div>
+        </div>
+
+      </div>
+  </div>
+</section>
+
+
+<section id="tab-reports" class="tab-pane">
+  <div class="cg-report-dashboard">
+
+    <!-- Dashboard hero -->
+    <div class="cg-rd-hero">
+      <div>
+        <div class="cg-rd-eyebrow">CROPGUARD AI • FARM INTELLIGENCE</div>
+        <h2>Reports &amp; Analytics</h2>
+        <p>Your crop-health observations, disease patterns and scan history.</p>
+      </div>
+      <div class="cg-rd-period">
+        <span>▣</span>
+        <select id="reportPeriodSelect" aria-label="Report time period">
+          <option value="30">Last 30 Days</option>
+          <option value="90">Last 90 Days</option>
+          <option value="180" selected>Last 6 Months</option>
+          <option value="365">Last 12 Months</option>
+          <option value="all">All Scans</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- KPI cards -->
+    <div class="cg-rd-kpis">
+      <article class="cg-rd-kpi">
+        <div class="cg-rd-kpi-icon health">🌿</div>
+        <div class="cg-rd-kpi-main">
+          <span>Crop Health Index</span>
+          <strong id="rdHealthIndex">—</strong>
+          <small id="rdHealthChange">Based on your recent scans</small>
+        </div>
+        <div class="cg-rd-kpi-mark">↗</div>
+      </article>
+
+      <article class="cg-rd-kpi">
+        <div class="cg-rd-kpi-icon scans">▤</div>
+        <div class="cg-rd-kpi-main">
+          <span>Total Scans</span>
+          <strong id="rdTotalScans">0</strong>
+          <small id="rdScanPeriodText">Scans in selected period</small>
+        </div>
+        <div class="cg-rd-kpi-mark blue">▥</div>
+      </article>
+
+      <article class="cg-rd-kpi">
+        <div class="cg-rd-kpi-icon risk">⚠</div>
+        <div class="cg-rd-kpi-main">
+          <span>Avg Disease Risk</span>
+          <strong id="rdAvgRisk">—</strong>
+          <small id="rdRiskText">Calculated from scan severity</small>
+        </div>
+        <div class="cg-rd-kpi-mark orange">↓</div>
+      </article>
+
+      <article class="cg-rd-kpi">
+        <div class="cg-rd-kpi-icon disease">🐞</div>
+        <div class="cg-rd-kpi-main">
+          <span>Diseases Found</span>
+          <strong id="rdDiseasesFound">0</strong>
+          <small>Unique disease labels detected</small>
+        </div>
+        <div class="cg-rd-kpi-mark red">▥</div>
+      </article>
+
+      <article class="cg-rd-kpi">
+        <div class="cg-rd-kpi-icon areas">🌱</div>
+        <div class="cg-rd-kpi-main">
+          <span>Affected Areas</span>
+          <strong id="rdAffectedAreas">—</strong>
+          <small>Locations from available reports</small>
+        </div>
+        <div class="cg-rd-kpi-mark green">▥</div>
+      </article>
+    </div>
+
+    <!-- Trend + distribution -->
+    <div class="cg-rd-grid cg-rd-grid-main">
+      <article class="cg-rd-card cg-rd-trend-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>📈 Crop Health Trend</h3>
+            <p>Estimated from disease severity in your scans</p>
+          </div>
+          <select id="rdTrendPeriod" class="cg-rd-select" aria-label="Trend period">
+            <option value="6">Last 6 observations</option>
+            <option value="10">Last 10 observations</option>
+            <option value="20">Last 20 observations</option>
+          </select>
+        </div>
+        <div class="cg-rd-trend-wrap">
+          <svg id="rdTrendSvg" viewBox="0 0 760 250" preserveAspectRatio="none" aria-label="Crop health trend chart"></svg>
+          <div id="rdTrendEmpty" class="cg-rd-empty">Your health trend will appear after scans are recorded.</div>
+        </div>
+      </article>
+
+      <article class="cg-rd-card cg-rd-disease-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>🧬 Disease Distribution</h3>
+            <p>Detected conditions in selected period</p>
+          </div>
+        </div>
+        <div class="cg-rd-donut-row">
+          <div class="cg-rd-donut" id="rdDiseaseDonut">
+            <div><strong id="rdDiseaseTotal">0</strong><span>Scans</span></div>
+          </div>
+          <div id="rdDiseaseLegend" class="cg-rd-legend"></div>
+        </div>
+      </article>
+
+      <!-- Crop-wise analysis -->
+      <article class="cg-rd-card cg-rd-crop-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>🌱 Crop-wise Analysis</h3>
+            <p>Health, risk and latest detected condition</p>
+          </div>
+        </div>
+        <div class="cg-rd-table-scroll">
+          <table class="cg-rd-table">
+            <thead>
+              <tr>
+                <th>Crop</th><th>Scans</th><th>Health</th><th>Risk</th><th>Last Disease</th>
+              </tr>
+            </thead>
+            <tbody id="rdCropRows">
+              <tr><td colspan="5" class="cg-rd-muted-row">Loading crop analysis...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+
+    <!-- Heatmap + recent records -->
+    <div class="cg-rd-grid cg-rd-grid-map">
+      <article class="cg-rd-card cg-rd-map-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>🗺️ Village Disease Heatmap</h3>
+            <p>Aggregated disease activity from recent reports</p>
+          </div>
+          <button id="refreshDiseaseHeatmapBtn" class="btn btn-outline btn-sm" type="button">↻ Refresh Map</button>
+        </div>
+
+        <div class="cg-heatmap-toolbar">
+          <div class="cg-heatmap-filters">
+            <select id="heatmapDays" class="cg-heatmap-select" aria-label="Heatmap time window">
+              <option value="7" selected>Last 7 days</option>
+              <option value="14">Last 14 days</option>
+              <option value="30">Last 30 days</option>
+            </select>
+            <select id="heatmapRiskFilter" class="cg-heatmap-select" aria-label="Risk filter">
+              <option value="ALL" selected>All risk levels</option>
+              <option value="HIGH">High risk</option>
+              <option value="MODERATE">Moderate risk</option>
+              <option value="LOW">Low risk</option>
+            </select>
+          </div>
+          <span id="heatmapStatus" class="cg-heatmap-status">Loading disease zones...</span>
+        </div>
+
+        <div id="cropguardDiseaseMap" aria-label="Village disease heatmap"></div>
+
+        <div class="cg-map-legend">
+          <span><i class="cg-map-dot high"></i> High Risk</span>
+          <span><i class="cg-map-dot moderate"></i> Moderate Risk</span>
+          <span><i class="cg-map-dot low"></i> Low Risk</span>
+        </div>
+
+        <div class="cg-map-summary">
+          <div class="cg-map-summary-box"><small>High risk</small><strong id="heatmapHighCount">0</strong></div>
+          <div class="cg-map-summary-box"><small>Moderate risk</small><strong id="heatmapModerateCount">0</strong></div>
+          <div class="cg-map-summary-box"><small>Low risk</small><strong id="heatmapLowCount">0</strong></div>
+          <div class="cg-map-summary-box"><small>Total zones</small><strong id="heatmapTotalCount">0</strong></div>
+        </div>
+      </article>
+
+      <article class="cg-rd-card cg-rd-record-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>📄 Recent Scan Records</h3>
+            <p>Your latest AI analysis results</p>
+          </div>
+          <button class="btn btn-outline btn-sm" data-open-tab="history">View All</button>
+        </div>
+        <div class="cg-rd-table-scroll">
+          <table class="cg-rd-table cg-rd-records">
+            <thead>
+              <tr><th>Date</th><th>Crop</th><th>Disease</th><th>Severity</th><th>Confidence</th><th></th></tr>
+            </thead>
+            <tbody id="rdRecentRows">
+              <tr><td colspan="6" class="cg-rd-muted-row">Loading your scan history...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+    </div>
+
+    <!-- Insights + statistics -->
+    <div class="cg-rd-grid cg-rd-grid-bottom">
+      <article class="cg-rd-card cg-rd-insights-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>💡 AI Insights &amp; Recommendations</h3>
+            <p>Generated from your available scan history</p>
+          </div>
+          <span class="cg-rd-live">Updated from latest scans</span>
+        </div>
+        <div id="rdInsights" class="cg-rd-insights">
+          <div class="cg-rd-insight neutral">
+            <span>🌱</span>
+            <div><strong>Keep scanning</strong><p>More scans will help CropGuard identify disease patterns and health changes over time.</p></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="cg-rd-card cg-rd-stats-card">
+        <div class="cg-rd-card-head">
+          <div>
+            <h3>📊 Scan Statistics</h3>
+            <p>Scans by month</p>
+          </div>
+          <select id="rdStatsPeriod" class="cg-rd-select" aria-label="Statistics period">
+            <option value="6" selected>Monthly</option>
+            <option value="12">12 Months</option>
+          </select>
+        </div>
+        <div id="rdMonthChart" class="cg-rd-month-chart">
+          <div class="cg-rd-empty">No scan data yet.</div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Compatibility elements used by existing CropGuard JS -->
+    <div class="cg-rd-compat" aria-hidden="true">
+      <span id="reportScanCount">0 scans</span>
+      <span id="reportTotalScans">0</span>
+      <span id="reportLatestCrop">—</span>
+      <span id="reportLatestDisease">—</span>
+      <table><tbody id="reportRows"></tbody></table>
+    </div>
+
+  </div>
+</section>
+
+
+  </main>
+
+
+  <!-- Farmer Account / Delete Account Modal -->
+  <div
+    id="accountModal"
+    class="modal-backdrop"
+    aria-hidden="true"
+  >
+    <div class="modal-box danger-modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+        <h3 style="font-size:1.1rem; font-weight:700; color:var(--primary-dark);">
+          👨‍🌾 Farmer Account
+        </h3>
+
+        <button
+          id="closeAccountModalBtn"
+          type="button"
+          style="background:transparent; border:none; font-size:1.4rem; cursor:pointer; color:var(--text-muted); line-height:1;"
+          aria-label="Close account settings"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="danger-warning">
+        <strong>⚠️ Delete your CropGuard AI account permanently?</strong>
+        <br>
+        This permanently removes your farmer account, scan history,
+        and uploaded leaf images. This action cannot be undone.
+      </div>
+
+      <div style="margin-bottom:0.85rem;">
+        <label
+          for="deleteCurrentPassword"
+          style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem;"
+        >
+          Current Password
+        </label>
+        <input
+          id="deleteCurrentPassword"
+          class="delete-account-input"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Enter your current password"
+        >
+      </div>
+
+      <div>
+        <label
+          for="deleteConfirmation"
+          style="display:block; font-size:0.8rem; font-weight:700; margin-bottom:0.4rem;"
+        >
+          Type <strong>DELETE</strong> to confirm
+        </label>
+        <input
+          id="deleteConfirmation"
+          class="delete-account-input"
+          type="text"
+          autocomplete="off"
+          placeholder="DELETE"
+        >
+      </div>
+
+      <div
+        id="deleteAccountMessage"
+        style="display:none; margin-top:0.8rem; padding:0.65rem 0.8rem; border-radius:var(--radius-sm); font-size:0.8rem;"
+        role="alert"
+      ></div>
+
+      <div class="delete-account-actions">
+        <button
+          id="cancelAccountDeleteBtn"
+          class="btn btn-outline"
+          type="button"
+        >
+          Cancel
+        </button>
+
+        <button
+          id="deleteAccountBtn"
+          class="delete-account-btn"
+          type="button"
+        >
+          🗑️ Delete My Account
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backend Server Settings Modal -->
+  <div
+    id="serverModal"
+    class="modal-backdrop"
+  >
+
+    <div class="modal-box">
+
+      <div
+        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;"
+      >
+
+        <h3
+          style="font-size: 1.1rem; font-weight: 700; color: var(--primary-dark); display: flex; align-items: center; gap: 0.5rem;"
+        >
+
+          <span>⚙️</span>
+
+          <span>
+            AI Backend Server Connection
+          </span>
+
+        </h3>
+
+
+        <button
+          id="closeServerModalBtn"
+          style="background: transparent; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted); line-height: 1;"
+        >
+          &times;
+        </button>
+
+      </div>
+
+
+      <p
+        style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.4;"
+      >
+        CropGuard AI runs a deep learning PyTorch model
+        (MobileNetV2) to diagnose crop diseases and OpenCV
+        to segment affected leaf area. Connect this device
+        to your active backend server.
+      </p>
+
+
+      <div style="margin-bottom: 1rem;">
+
+        <label
+          for="serverUrlInput"
+          style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-primary);"
+        >
+          Backend Server Base URL:
+        </label>
+
+
+        <input
+          type="text"
+          id="serverUrlInput"
+          placeholder="e.g. http://10.220.178.129:5000 or https://xyz.trycloudflare.com"
+          style="width: 100%; padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); border: 1px solid var(--border-color); font-size: 0.85rem; font-family: monospace; outline: none;"
+        >
+
+
+        <div
+          style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.4rem; line-height: 1.3;"
+        >
+          Tip: On mobile, connect to your PC's Wi-Fi IP
+          (e.g. <code>http://10.220.178.129:5000</code>)
+          or enter your public tunnel URL. Leave empty to use
+          the same host.
+        </div>
+
+      </div>
+
+
+      <div
+        id="serverPingResult"
+        style="padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.8rem; margin-bottom: 1rem; display: none;"
+      ></div>
+
+
+      <div
+        style="display: flex; gap: 0.5rem; justify-content: flex-end;"
+      >
+
+        <button
+          id="testServerBtn"
+          class="btn btn-secondary"
+          style="padding: 0.5rem 1rem; font-size: 0.85rem;"
+        >
+          Test Ping
+        </button>
+
+
+        <button
+          id="saveServerBtn"
+          class="btn btn-primary"
+          style="padding: 0.5rem 1.2rem; font-size: 0.85rem;"
+        >
+          Save & Connect
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
   <!-- Toast Notification Container -->
-  <div id="toastContainer" class="toast-container"></div>
+  <div
+    id="toastContainer"
+    class="toast-container"
+  ></div>
+
 
   <!-- Footer -->
+  <div class="cg-mobile-nav">
+  <button class="active" data-open-tab="home"><span>⌂</span>Home</button>
+  <button data-open-tab="weather"><span>☁</span>Weather</button>
+  <button data-open-tab="scanner"><span>⌕</span>Scan</button>
+  <button data-open-tab="doctor"><span>◉</span>Doctor</button>
+  <button data-open-tab="reports"><span>▥</span>Reports</button>
+</div>
+
   <footer class="app-footer">
-    <p>🌾 <b>CropGuard AI</b> — Empowering farmers with early disease detection and localized agronomy intelligence.</p>
-    <p style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--text-muted);">
-      Built for Hackathon MVP • Monorepo: /ml-model, /backend, /frontend, /database
+
+    <p>
+      🌾 <b>CropGuard AI</b> —
+      Empowering farmers with early disease detection
+      and localized agronomy intelligence.
     </p>
+
+
+    <p
+      style="font-size: 0.75rem; margin-top: 0.25rem; color: var(--text-muted);"
+    >
+      Built for Hackathon MVP • Monorepo:
+      /ml-model, /backend, /frontend, /database
+    </p>
+
   </footer>
+
 
   <!-- Scripts -->
   <script src="js/i18n.js"></script>
   <script src="js/audio.js"></script>
   <script src="js/camera.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Voice Assistant -->
+  <script>
+  (function(){
+
+    const btn =
+      document.getElementById("voiceAssistantBtn");
+
+    const stop =
+      document.getElementById("voiceAssistantStopBtn");
+
+    const status =
+      document.getElementById("voiceAssistantStatus");
+
+    const input =
+      document.getElementById("chatInput");
+
+    const send =
+      document.getElementById("chatSendBtn");
+
+    const messages =
+      document.getElementById("chatMessages");
+
+    const lang =
+      document.getElementById("langSelect");
+
+
+    if(
+      !btn ||
+      !stop ||
+      !status ||
+      !input ||
+      !messages
+    ){
+      return;
+    }
+
+
+    const SpeechRecognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+
+    let recognition = null;
+
+
+    function voiceLang(){
+
+      const map = {
+        en: "en-IN",
+        hi: "hi-IN",
+        mr: "mr-IN",
+        te: "te-IN",
+        es: "es-ES"
+      };
+
+      return map[
+        lang ? lang.value : "en"
+      ] || "en-IN";
+
+    }
+
+
+    function speak(text){
+
+      if(
+        !text ||
+        !("speechSynthesis" in window)
+      ){
+        return;
+      }
+
+
+      window.speechSynthesis.cancel();
+
+
+      const u =
+        new SpeechSynthesisUtterance(text);
+
+
+      u.lang =
+        voiceLang();
+
+      u.rate =
+        .9;
+
+      u.pitch =
+        1;
+
+
+      u.onstart =
+        () => {
+          status.textContent =
+            "🔊 CropGuard is speaking...";
+        };
+
+
+      u.onend =
+        () => {
+          status.textContent =
+            "✅ Voice answer finished.";
+        };
+
+
+      window.speechSynthesis.speak(u);
+
+    }
+
+
+    function botText(node){
+
+      const bubble =
+        node &&
+        node.querySelector
+          ? node.querySelector(".chat-bubble")
+          : null;
+
+
+      return bubble
+        ? bubble.innerText
+            .replace(/\s+/g," ")
+            .trim()
+        : "";
+
+    }
+
+
+    if(window.MutationObserver){
+
+      let ready = false;
+      let last = "";
+
+
+      new MutationObserver(
+        function(ms){
+
+          if(!ready){
+            ready = true;
+            return;
+          }
+
+
+          let text = "";
+
+
+          ms.forEach(
+            m =>
+              m.addedNodes.forEach(
+                n => {
+
+                  if(n.nodeType === 1){
+
+                    if(
+                      n.classList &&
+                      n.classList.contains("bot")
+                    ){
+
+                      text =
+                        botText(n);
+
+                    }
+
+                    else if(n.querySelector){
+
+                      const b =
+                        n.querySelector(
+                          ".chat-msg.bot"
+                        );
+
+                      if(b){
+                        text =
+                          botText(b);
+                      }
+
+                    }
+
+                  }
+
+                }
+              )
+          );
+
+
+          if(
+            text &&
+            text !== last
+          ){
+
+            last =
+              text;
+
+            speak(text);
+
+          }
+
+        }
+      ).observe(
+        messages,
+        {
+          childList: true,
+          subtree: true
+        }
+      );
+
+    }
+
+
+    if(!SpeechRecognition){
+
+      btn.disabled = true;
+
+      btn.style.opacity = ".6";
+
+      status.textContent =
+        "⚠️ Voice input needs Google Chrome or Microsoft Edge.";
+
+      return;
+
+    }
+
+
+    recognition =
+      new SpeechRecognition();
+
+
+    recognition.continuous =
+      false;
+
+    recognition.interimResults =
+      false;
+
+    recognition.maxAlternatives =
+      1;
+
+
+    recognition.onstart =
+      function(){
+
+        btn.classList.add(
+          "listening"
+        );
+
+        btn.textContent =
+          "🔴 Listening...";
+
+        status.textContent =
+          "🎤 Listening... Speak your crop question.";
+
+      };
+
+
+    recognition.onresult =
+      function(e){
+
+        const text =
+          e.results[0][0]
+            .transcript
+            .trim();
+
+
+        if(!text){
+
+          status.textContent =
+            "⚠️ No speech detected.";
+
+          return;
+
+        }
+
+
+        input.value =
+          text;
+
+
+        input.dispatchEvent(
+          new Event(
+            "input",
+            {
+              bubbles: true
+            }
+          )
+        );
+
+
+        status.textContent =
+          "📝 Heard: " + text;
+
+
+        if(send){
+
+          setTimeout(
+            () => send.click(),
+            250
+          );
+
+        }
+
+      };
+
+
+    recognition.onerror =
+      function(e){
+
+        btn.classList.remove(
+          "listening"
+        );
+
+        btn.textContent =
+          "🎤 Speak to CropGuard";
+
+
+        const msg = {
+
+          "not-allowed":
+            "❌ Microphone permission was denied.",
+
+          "no-speech":
+            "⚠️ No speech detected. Please try again.",
+
+          "audio-capture":
+            "❌ No microphone was found.",
+
+          "network":
+            "❌ Voice recognition needs a network connection."
+
+        };
+
+
+        status.textContent =
+          msg[e.error] ||
+          ("❌ Voice input error: " + e.error);
+
+      };
+
+
+    recognition.onend =
+      function(){
+
+        btn.classList.remove(
+          "listening"
+        );
+
+        btn.textContent =
+          "🎤 Speak to CropGuard";
+
+      };
+
+
+    btn.addEventListener(
+      "click",
+      function(){
+
+        if(
+          "speechSynthesis" in window
+        ){
+
+          window.speechSynthesis.cancel();
+
+        }
+
+
+        try{
+
+          recognition.lang =
+            voiceLang();
+
+          recognition.start();
+
+        }
+
+        catch(e){
+
+          status.textContent =
+            "🎤 Voice assistant is already listening...";
+
+        }
+
+      }
+    );
+
+
+    stop.addEventListener(
+      "click",
+      function(){
+
+        try{
+
+          recognition.stop();
+
+        }
+
+        catch(e){}
+
+
+        if(
+          "speechSynthesis" in window
+        ){
+
+          window.speechSynthesis.cancel();
+
+        }
+
+
+        btn.classList.remove(
+          "listening"
+        );
+
+        btn.textContent =
+          "🎤 Speak to CropGuard";
+
+
+        status.textContent =
+          "⏹ Voice stopped.";
+
+      }
+    );
+
+  })();
+  </script>
+<!-- CropGuard AI JavaScript -->
+<script src="/js/i18n.js"></script>
+<script src="/js/audio.js"></script>
+<script src="/js/camera.js"></script>
+
+
+<script>
+(function(){
+  const profileWrap=document.getElementById('farmerProfileMenuWrap');
+  const profileBtn=document.getElementById('farmerProfileBtn');
+  const menu=document.getElementById('farmerProfileMenu');
+  const accountBtn=document.getElementById('profileAccountBtn');
+  const logoutBtn=document.getElementById('profileLogoutBtn');
+  const legacyAccountBtn=document.getElementById('accountSettingsBtn');
+
+  if(!profileWrap || !profileBtn || !menu) return;
+
+  function setMenu(open){
+    menu.classList.toggle('open',open);
+    menu.setAttribute('aria-hidden',String(!open));
+    profileBtn.setAttribute('aria-expanded',String(open));
+  }
+
+  profileBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    setMenu(!menu.classList.contains('open'));
+  });
+
+  profileBtn.addEventListener('keydown',function(e){
+    if(e.key==='Enter' || e.key===' '){
+      e.preventDefault();
+      setMenu(!menu.classList.contains('open'));
+    }
+    if(e.key==='Escape') setMenu(false);
+  });
+
+  document.addEventListener('click',function(e){
+    if(!profileWrap.contains(e.target)) setMenu(false);
+  });
+
+  accountBtn && accountBtn.addEventListener('click',function(e){
+    e.stopPropagation();
+    setMenu(false);
+    if(legacyAccountBtn) legacyAccountBtn.click();
+  });
+
+  logoutBtn && logoutBtn.addEventListener('click',async function(e){
+    e.stopPropagation();
+    if(!window.confirm('Are you sure you want to logout from CropGuard AI?')) return;
+    logoutBtn.disabled=true;
+    logoutBtn.innerHTML='<span>⏳</span><span>Logging out...</span>';
+    try{
+      const response=await fetch('/api/logout',{method:'POST',credentials:'include',cache:'no-store'});
+      const data=await response.json().catch(()=>({}));
+      if(!response.ok || data.status!=='success') throw new Error(data.message||'Logout failed.');
+      localStorage.removeItem('cropguard_user');
+      window.location.replace('/login.html');
+    }catch(err){
+      console.error('Logout error:',err);
+      logoutBtn.disabled=false;
+      logoutBtn.innerHTML='<span>↪️</span><span>Logout</span>';
+      alert(err.message||'Could not logout. Please try again.');
+    }
+  });
+})();
+</script>
+
+<script>
+(function () {
+  const openBtn = document.getElementById("accountSettingsBtn");
+  const modal = document.getElementById("accountModal");
+  const closeBtn = document.getElementById("closeAccountModalBtn");
+  const cancelBtn = document.getElementById("cancelAccountDeleteBtn");
+  const deleteBtn = document.getElementById("deleteAccountBtn");
+  const passwordInput = document.getElementById("deleteCurrentPassword");
+  const confirmationInput = document.getElementById("deleteConfirmation");
+  const messageBox = document.getElementById("deleteAccountMessage");
+
+  if (!openBtn || !modal || !deleteBtn) return;
+
+  function showMessage(message, type) {
+    if (!messageBox) return;
+
+    messageBox.style.display = "block";
+    messageBox.textContent = message;
+
+    if (type === "success") {
+      messageBox.style.background = "#ecfdf5";
+      messageBox.style.color = "#166534";
+      messageBox.style.border = "1px solid #bbf7d0";
+    } else {
+      messageBox.style.background = "#fef2f2";
+      messageBox.style.color = "#991b1b";
+      messageBox.style.border = "1px solid #fecaca";
+    }
+  }
+
+  function openModal() {
+    modal.classList.add("active");
+    modal.setAttribute("aria-hidden", "false");
+    if (messageBox) messageBox.style.display = "none";
+    if (passwordInput) passwordInput.value = "";
+    if (confirmationInput) confirmationInput.value = "";
+    setTimeout(() => {
+      if (passwordInput) passwordInput.focus();
+    }, 50);
+  }
+
+  function closeModal() {
+    if (deleteBtn.disabled) return;
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+  }
+
+  openBtn.addEventListener("click", openModal);
+  closeBtn && closeBtn.addEventListener("click", closeModal);
+  cancelBtn && cancelBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", function (event) {
+    if (event.target === modal) closeModal();
+  });
+
+  confirmationInput && confirmationInput.addEventListener("input", function () {
+    this.value = this.value.toUpperCase();
+  });
+
+  deleteBtn.addEventListener("click", async function () {
+    const currentPassword = passwordInput
+      ? passwordInput.value
+      : "";
+
+    const confirmation = confirmationInput
+      ? confirmationInput.value.trim()
+      : "";
+
+    if (!currentPassword) {
+      showMessage("Enter your current password.", "error");
+      return;
+    }
+
+    if (confirmation !== "DELETE") {
+      showMessage("Type DELETE exactly to confirm.", "error");
+      return;
+    }
+
+    const confirmed = window.confirm(
+      "Your CropGuard AI account, scan history, and uploaded leaf images will be permanently deleted. Continue?"
+    );
+
+    if (!confirmed) return;
+
+    deleteBtn.disabled = true;
+    deleteBtn.textContent = "Deleting Account...";
+
+    try {
+      const response = await fetch("/api/delete-account", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          current_password: currentPassword,
+          confirmation: "DELETE"
+        })
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || data.status !== "success") {
+        throw new Error(
+          data.message || "Account deletion failed."
+        );
+      }
+
+      // Remove only local authentication data belonging to CropGuard.
+      localStorage.removeItem("cropguard_user");
+
+      showMessage(
+        "Account deleted successfully. Redirecting to login...",
+        "success"
+      );
+
+      setTimeout(function () {
+        window.location.replace("/login.html");
+      }, 900);
+
+    } catch (error) {
+      console.error("Delete account error:", error);
+      showMessage(
+        error.message || "Could not delete your account.",
+        "error"
+      );
+
+      deleteBtn.disabled = false;
+      deleteBtn.textContent = "🗑️ Delete My Account";
+    }
+  });
+})();
+</script>
+
+
+<script>
+/* ============================================================
+   CropGuard AI - Farmer Location & Disease Outbreak Frontend
+   ============================================================ */
+(function () {
+  "use strict";
+
+  const detectBtn = document.getElementById("detectLocationBtn");
+  const refreshBtn = document.getElementById("refreshOutbreakBtn");
+
+  const statusEl = document.getElementById("locationStatus");
+  const villageEl = document.getElementById("farmerVillage");
+  const talukaEl = document.getElementById("farmerTaluka");
+  const districtEl = document.getElementById("farmerDistrict");
+  const stateEl = document.getElementById("farmerState");
+
+  const alertEl = document.getElementById("outbreakAlert");
+  const alertTitleEl = document.getElementById("outbreakAlertTitle");
+  const alertTextEl = document.getElementById("outbreakAlertText");
+  const badgeEl = document.getElementById("outbreakStatusBadge");
+
+  if (!detectBtn || !refreshBtn) return;
+
+  function setStatus(message) {
+    if (statusEl) statusEl.textContent = message;
+  }
+
+  function setBadge(text, background, color) {
+    if (!badgeEl) return;
+    badgeEl.textContent = text;
+    badgeEl.style.background = background;
+    badgeEl.style.color = color;
+  }
+
+  function showOutbreakAlert(message, count) {
+    if (!alertEl) return;
+
+    alertEl.classList.add("active");
+
+    if (alertTitleEl) {
+      alertTitleEl.textContent = "🚨 Disease Outbreak Alert";
+    }
+
+    if (alertTextEl) {
+      alertTextEl.textContent =
+        message || (
+          "Multiple recent disease reports were detected near your area."
+          + (count ? " Nearby reports: " + count + "." : "")
+        );
+    }
+
+    setBadge("⚠️ Alert", "#fef2f2", "#991b1b");
+
+    if (window.showToast) {
+      try {
+        window.showToast(
+          "🚨 Disease outbreak alert detected near your area.",
+          "error"
+        );
+      } catch (_) {}
+    }
+  }
+
+  function hideOutbreakAlert() {
+    if (alertEl) alertEl.classList.remove("active");
+    setBadge("Monitoring", "#ecfdf5", "#166534");
+  }
+
+  async function detectLocation() {
+    if (!navigator.geolocation) {
+      setStatus("❌ Geolocation is not supported by this browser.");
+      return;
+    }
+
+    detectBtn.disabled = true;
+    detectBtn.textContent = "📍 Detecting...";
+    setStatus("Getting your approximate location...");
+
+    navigator.geolocation.getCurrentPosition(
+      async function (position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        try {
+          const response = await fetch("/api/location", {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              latitude: latitude,
+              longitude: longitude
+            })
+          });
+
+          const data = await response.json();
+
+          if (!response.ok || data.status !== "success") {
+            throw new Error(
+              data.message || "Could not identify your village."
+            );
+          }
+
+          // Backend returns location inside data.location.
+          const location = data.location || {};
+
+          villageEl.textContent = location.village || "Not available";
+          talukaEl.textContent = location.taluka || "Not available";
+          districtEl.textContent = location.district || "Not available";
+          stateEl.textContent = location.state || "Not available";
+
+          // Also update the Home dashboard location fields.
+          const homeVillage = document.getElementById("homeVillage");
+          const homeTaluka = document.getElementById("homeTaluka");
+          const homeDistrict = document.getElementById("homeDistrict");
+          const homeState = document.getElementById("homeState");
+          const homeLocationStatus = document.getElementById("homeLocationStatus");
+
+          if (homeVillage) homeVillage.textContent = location.village || "Not detected";
+          if (homeTaluka) homeTaluka.textContent = location.taluka || "Not detected";
+          if (homeDistrict) homeDistrict.textContent = location.district || "Not detected";
+          if (homeState) homeState.textContent = location.state || "Not detected";
+          if (homeLocationStatus) homeLocationStatus.textContent = "Saved location";
+
+          setStatus(
+            "✅ Location saved. CropGuard can now check nearby disease reports."
+          );
+
+          // Keep the existing local location cache used by the outbreak
+          // checker. The backend remains the source of truth.
+          localStorage.setItem(
+            "cropguard_location",
+            JSON.stringify({
+              latitude: latitude,
+              longitude: longitude,
+              village: location.village || "",
+              taluka: location.taluka || "",
+              district: location.district || "",
+              state: location.state || ""
+            })
+          );
+
+          await checkOutbreakAlerts();
+
+        } catch (error) {
+          console.error("CropGuard location error:", error);
+          setStatus("❌ " + (error.message || "Location detection failed."));
+        } finally {
+          detectBtn.disabled = false;
+          detectBtn.textContent = "📍 Detect My Village";
+        }
+      },
+
+      function (error) {
+        console.error("Geolocation error:", error);
+
+        let message = "❌ Could not access your location.";
+
+        if (error.code === 1) {
+          message =
+            "❌ Location permission was denied. Please allow location access.";
+        } else if (error.code === 2) {
+          message =
+            "❌ Your location could not be determined. Try again.";
+        } else if (error.code === 3) {
+          message =
+            "❌ Location request timed out. Try again.";
+        }
+
+        setStatus(message);
+
+        detectBtn.disabled = false;
+        detectBtn.textContent = "📍 Detect My Village";
+      },
+
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 300000
+      }
+    );
+  }
+
+  async function checkOutbreakAlerts() {
+    const saved = localStorage.getItem("cropguard_location");
+
+    if (!saved) {
+      setStatus("📍 Detect your village first.");
+      return;
+    }
+
+    let location;
+
+    try {
+      location = JSON.parse(saved);
+    } catch (_) {
+      setStatus("📍 Please detect your village again.");
+      return;
+    }
+
+    if (
+      typeof location.latitude !== "number" ||
+      typeof location.longitude !== "number"
+    ) {
+      setStatus("📍 Please detect your village again.");
+      return;
+    }
+
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = "🔄 Checking...";
+
+    try {
+      const response = await fetch("/api/outbreak/alerts", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          latitude: location.latitude,
+          longitude: location.longitude
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          data.message || "Could not check outbreak alerts."
+        );
+      }
+
+      if (data.outbreak_detected) {
+        showOutbreakAlert(
+          data.message,
+          data.nearby_cases
+        );
+      } else {
+        hideOutbreakAlert();
+
+        if (data.message) {
+          setStatus(
+            "✅ No outbreak threshold detected near your area."
+          );
+        }
+      }
+
+    } catch (error) {
+      console.error("Outbreak check error:", error);
+      setStatus(
+        "⚠️ Could not check outbreak alerts right now."
+      );
+    } finally {
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = "🔄 Check Outbreak Alerts";
+    }
+  }
+
+  detectBtn.addEventListener("click", detectLocation);
+  refreshBtn.addEventListener("click", checkOutbreakAlerts);
+
+  // Restore previously detected location for the current browser.
+  try {
+    const saved = localStorage.getItem("cropguard_location");
+
+    if (saved) {
+      const location = JSON.parse(saved);
+
+      villageEl.textContent = location.village || "Not detected";
+      talukaEl.textContent = location.taluka || "Not detected";
+      districtEl.textContent = location.district || "Not detected";
+      stateEl.textContent = location.state || "Not detected";
+
+      if (location.latitude && location.longitude) {
+        setStatus(
+          "📍 Saved village loaded. Checking for nearby alerts..."
+        );
+
+        // Small delay so authentication/app initialization can finish.
+        setTimeout(checkOutbreakAlerts, 1200);
+      }
+    }
+  } catch (error) {
+    console.warn("Could not restore saved CropGuard location.", error);
+  }
+
+  // Expose for your existing app.js if needed.
+  window.CropGuardOutbreak = {
+    detectLocation: detectLocation,
+    checkOutbreakAlerts: checkOutbreakAlerts
+  };
+
+})();
+</script>
+
+<script src="/js/authentication.js?v=2"></script>
+
+<script>
+(async function () {
+    const user = await protectScannerPage();
+
+    if (!user) {
+        return;
+    }
+})();
+</script>
+
+<script src="/js/app.js"></script>
+
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  function openTab(tab){
+    const btn=document.querySelector('.nav-btn[data-tab="'+tab+'"]');
+    if(btn) btn.click();
+    document.querySelectorAll('.cg-mobile-nav button').forEach(b=>b.classList.toggle('active',b.dataset.openTab===tab));
+  }
+  document.addEventListener('click',e=>{
+    const el=e.target.closest('[data-open-tab]');
+    if(el){ e.preventDefault(); openTab(el.dataset.openTab); }
+  });
+
+  async function loadDashboardData(){
+    try{
+      const me=await fetch('/api/me',{credentials:'include',cache:'no-store'}).then(r=>r.ok?r.json():null);
+      if(me && me.user){
+        const name=me.user.name||'Farmer';
+        ['homeFarmerName','sideFarmerName','farmProfileName'].forEach(id=>{if($(id)) $(id).textContent=name;});
+        if($('farmProfileEmail')) $('farmProfileEmail').textContent=me.user.email||'—';
+      }
+    }catch(e){}
+
+    try{
+      const loc=await fetch('/api/location',{credentials:'include',cache:'no-store'}).then(r=>r.ok?r.json():null);
+      if(loc && loc.location){
+        const x=loc.location;
+        [['homeVillage',x.village],['homeTaluka',x.taluka],['homeDistrict',x.district],['homeState',x.state],
+         ['farmProfileVillage',x.village],['farmProfileDistrict',x.district]].forEach(([id,v])=>{if($(id)) $(id).textContent=v||'Not detected';});
+        if($('homeLocationStatus')) $('homeLocationStatus').textContent='Saved location';
+      }
+    }catch(e){}
+
+    try{
+      const data=await fetch('/api/history?limit=100',{credentials:'include',cache:'no-store'}).then(r=>r.ok?r.json():null);
+      const scans=(data&&Array.isArray(data.scans))?data.scans:[];
+      if($('homeScanCount')) $('homeScanCount').textContent=scans.length;
+      if($('reportScanCount')) $('reportScanCount').textContent=scans.length+' scans';
+      if($('reportTotalScans')) $('reportTotalScans').textContent=scans.length;
+      if(scans.length){
+        const x=scans[0];
+        const crop=x.crop||x.crop_name||'—', disease=x.disease||x.disease_name||'—';
+        if($('homeLatestCrop')) $('homeLatestCrop').textContent=crop;
+        if($('homeLatestDisease')) $('homeLatestDisease').textContent=disease;
+        if($('reportLatestCrop')) $('reportLatestCrop').textContent=crop;
+        if($('reportLatestDisease')) $('reportLatestDisease').textContent=disease;
+        if($('homeLatestDate')) $('homeLatestDate').textContent=x.created_at||x.date||'Latest scan';
+        const rows=scans.slice(0,6).map(x=>{
+          const date=x.created_at||x.date||'—', c=x.crop||x.crop_name||'—', d=x.disease||x.disease_name||'—';
+          const sev=x.severity||x.severity_label||'—';
+          const conf=x.confidence!=null?(Number(x.confidence)<=1?(Number(x.confidence)*100).toFixed(0):Number(x.confidence).toFixed(0))+'%':'—';
+          return '<tr><td>'+date+'</td><td>'+c+'</td><td>'+d+'</td><td>'+sev+'</td><td>'+conf+'</td></tr>';
+        }).join('');
+        if($('reportRows')) $('reportRows').innerHTML=rows;
+      }
+    }catch(e){}
+  }
+
+  // Show the new Home screen once the existing application scripts are ready.
+  window.addEventListener('load',function(){
+    setTimeout(function(){ openTab('home'); loadDashboardData(); },120);
+  });
+})();
+</script>
+
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script>
+  /* ============================================================
+     CropGuard AI - Village Disease Heatmap
+     Uses GET /api/disease-heatmap
+     ============================================================ */
+  (function () {
+    "use strict";
+
+    const mapEl = document.getElementById("cropguardDiseaseMap");
+    const refreshBtn = document.getElementById("refreshDiseaseHeatmapBtn");
+    const daysEl = document.getElementById("heatmapDays");
+    const riskEl = document.getElementById("heatmapRiskFilter");
+    const statusEl = document.getElementById("heatmapStatus");
+
+    if (!mapEl || !refreshBtn || !daysEl || !riskEl) return;
+
+    let map = null;
+    let markersLayer = null;
+    let farmerLocationLayer = null;
+    let heatmapZones = [];
+    let mapReady = false;
+
+    function setStatus(text) {
+      if (statusEl) statusEl.textContent = text;
+    }
+
+    function riskColor(risk) {
+      if (risk === "HIGH") return "#dc2626";
+      if (risk === "MODERATE") return "#f59e0b";
+      if (risk === "LOW") return "#16a34a";
+      return "#64748b";
+    }
+
+    function ensureMap() {
+      if (mapReady) {
+        setTimeout(() => map.invalidateSize(), 80);
+        return;
+      }
+
+      map = L.map(mapEl, {
+        zoomControl: true,
+        scrollWheelZoom: true
+      }).setView([20.5937, 78.9629], 5);
+
+      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 18,
+        attribution: "Tiles &copy; Esri"
+      }).addTo(map);
+
+      tileLayer.on("tileerror", function () {
+        setStatus("⚠️ Map tiles could not be loaded. Please check your internet connection.");
+      });
+
+      markersLayer = L.layerGroup().addTo(map);
+      farmerLocationLayer = L.layerGroup().addTo(map);
+      mapReady = true;
+      setTimeout(() => map.invalidateSize(), 100);
+    }
+
+    function updateSummary(zones) {
+      const high = zones.filter(z => z.risk === "HIGH").length;
+      const moderate = zones.filter(z => z.risk === "MODERATE").length;
+      const low = zones.filter(z => z.risk === "LOW").length;
+
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      };
+
+      set("heatmapZoneCount", zones.length);
+      set("heatmapHighCount", high);
+      set("heatmapModerateCount", moderate);
+      set("heatmapLowCount", low);
+    }
+
+    async function loadFarmerLocationOnMap() {
+      if (!mapReady) return;
+
+      try {
+        const response = await fetch("/api/location", {
+          method: "GET",
+          credentials: "include",
+          cache: "no-store"
+        });
+
+        if (!response.ok) {
+          map.setView([19.7515, 75.7139], 7);
+          return;
+        }
+
+        const data = await response.json();
+        const location = data.location || {};
+        const lat = Number(location.latitude);
+        const lon = Number(location.longitude);
+
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+          map.setView([19.7515, 75.7139], 7);
+          return;
+        }
+
+        farmerLocationLayer.clearLayers();
+
+        const marker = L.marker([lat, lon]).addTo(farmerLocationLayer);
+
+        marker.bindPopup(
+          "<div style='min-width:190px'>" +
+            "<strong>📍 Your Saved Farm Location</strong><br>" +
+            "<b>Village:</b> " + escapeHtml(location.village || "Not available") + "<br>" +
+            "<b>Taluka:</b> " + escapeHtml(location.taluka || "Not available") + "<br>" +
+            "<b>District:</b> " + escapeHtml(location.district || "Not available") + "<br>" +
+            "<b>State:</b> " + escapeHtml(location.state || "Maharashtra") +
+          "</div>"
+        );
+
+        L.circle([lat, lon], {
+          radius: 5000,
+          color: "#0a6da8",
+          fillColor: "#0a6da8",
+          fillOpacity: 0.08,
+          weight: 2
+        }).addTo(farmerLocationLayer);
+
+        map.setView([lat, lon], 11);
+        setStatus(
+          "📍 Showing your village area • " +
+          (location.village || location.district || "Maharashtra")
+        );
+      } catch (error) {
+        map.setView([19.7515, 75.7139], 7);
+      }
+    }
+
+    function renderZones() {
+      if (!mapReady) return;
+      markersLayer.clearLayers();
+
+      const selectedRisk = riskEl.value;
+      const zones = heatmapZones.filter(z =>
+        selectedRisk === "ALL" || z.risk === selectedRisk
+      );
+
+      updateSummary(zones);
+
+      if (!zones.length) {
+        setStatus("No disease zones match the selected filters.");
+        return;
+      }
+
+      const bounds = [];
+
+      zones.forEach(zone => {
+        const lat = Number(zone.latitude);
+        const lon = Number(zone.longitude);
+
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
+
+        const color = riskColor(zone.risk);
+        const radius = zone.risk === "HIGH"
+          ? 18
+          : zone.risk === "MODERATE"
+            ? 14
+            : 11;
+
+        const marker = L.circleMarker([lat, lon], {
+          radius: radius,
+          color: color,
+          fillColor: color,
+          fillOpacity: 0.45,
+          weight: 3
+        }).addTo(markersLayer);
+
+        const latest = zone.latest_report
+          ? new Date(zone.latest_report).toLocaleString()
+          : "Recent";
+
+        marker.bindPopup(
+          "<div style='min-width:210px'>" +
+            "<strong>📍 " + escapeHtml(zone.village || "Monitoring Zone") + "</strong><br>" +
+            (zone.district ? "<small>" + escapeHtml(zone.district) + "</small><br>" : "") +
+            "<hr style='border:0;border-top:1px solid #e5e7eb;margin:7px 0'>" +
+            "<b>🌱 Crop:</b> " + escapeHtml(zone.crop || "—") + "<br>" +
+            "<b>🦠 Disease:</b> " + escapeHtml(zone.disease || "—") + "<br>" +
+            "<b>📊 Reports:</b> " + Number(zone.reports || 0) + " farmers<br>" +
+            "<b>⚠️ Risk:</b> " + escapeHtml(zone.risk || "—") + "<br>" +
+            "<b>📅 Latest:</b> " + escapeHtml(latest) +
+          "</div>"
+        );
+
+        bounds.push([lat, lon]);
+      });
+
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [30, 30], maxZoom: 12 });
+      }
+
+      setStatus(
+        zones.length + " aggregated disease zone" +
+        (zones.length === 1 ? "" : "s") +
+        " shown • " + daysEl.value + "-day window"
+      );
+    }
+
+    function escapeHtml(value) {
+      return String(value == null ? "" : value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    async function loadHeatmap() {
+      ensureMap();
+      await loadFarmerLocationOnMap();
+
+      refreshBtn.disabled = true;
+      refreshBtn.textContent = "🔄 Loading...";
+      setStatus("Fetching aggregated disease zones...");
+
+      try {
+        const days = encodeURIComponent(daysEl.value || "7");
+        const response = await fetch(
+          "/api/disease-heatmap?days=" + days,
+          {
+            method: "GET",
+            credentials: "include",
+            cache: "no-store"
+          }
+        );
+
+        const data = await response.json().catch(() => ({}));
+
+        if (response.status === 401) {
+          throw new Error("Please login to view the disease heatmap.");
+        }
+
+        if (!response.ok || data.status !== "success") {
+          throw new Error(data.message || "Could not load disease heatmap.");
+        }
+
+        heatmapZones = Array.isArray(data.zones) ? data.zones : [];
+        renderZones();
+
+        if (!heatmapZones.length) {
+          setStatus(
+            "No aggregated disease zone has reached the minimum report threshold yet."
+          );
+        }
+      } catch (error) {
+        console.error("Disease heatmap error:", error);
+        markersLayer && markersLayer.clearLayers();
+        heatmapZones = [];
+        updateSummary([]);
+        setStatus("⚠️ " + (error.message || "Heatmap loading failed."));
+      } finally {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "🔄 Refresh Map";
+      }
+    }
+
+    refreshBtn.addEventListener("click", loadHeatmap);
+    daysEl.addEventListener("change", loadHeatmap);
+    riskEl.addEventListener("change", renderZones);
+
+    // Load when Reports tab becomes visible.
+    document.addEventListener("click", function (event) {
+      const btn = event.target.closest(".nav-btn[data-tab='reports'], [data-open-tab='reports']");
+      if (!btn) return;
+      setTimeout(loadHeatmap, 120);
+    });
+
+    // Also expose a small public method for app.js if needed.
+    window.CropGuardDiseaseHeatmap = {
+      load: loadHeatmap,
+      refresh: loadHeatmap
+    };
+
+    // Initial load is delayed until the app/authentication scripts finish.
+    setTimeout(function () {
+      const reports = document.getElementById("tab-reports");
+      if (reports && reports.classList.contains("active")) {
+        loadHeatmap();
+      }
+    }, 1400);
+  })();
+  </script>
+
+
+<script id="cropguard-report-dashboard-js">
+(function(){
+  "use strict";
+
+  const $ = (id) => document.getElementById(id);
+  let allReportScans = [];
+
+  function num(v){
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function getSeverityScore(scan){
+    const raw = scan?.severity ?? scan?.severity_percent ?? scan?.affected_area ?? scan?.affected_area_pct;
+    const n = num(raw);
+    if(n !== null){
+      return Math.max(0, Math.min(100, n));
+    }
+    const s = String(scan?.severity_label ?? scan?.severity ?? "").toLowerCase();
+    if(s.includes("critical")) return 90;
+    if(s.includes("high") || s.includes("severe")) return 75;
+    if(s.includes("medium") || s.includes("moderate")) return 50;
+    if(s.includes("low") || s.includes("mild")) return 25;
+    if(s.includes("healthy") || s.includes("none")) return 5;
+    return null;
+  }
+
+  function healthFromScan(scan){
+    const sev = getSeverityScore(scan);
+    return sev === null ? null : Math.max(0, Math.min(100, 100 - sev));
+  }
+
+  function diseaseName(scan){
+    return String(scan?.disease ?? scan?.disease_name ?? scan?.prediction ?? "Unknown").trim() || "Unknown";
+  }
+
+  function cropName(scan){
+    return String(scan?.crop ?? scan?.crop_name ?? "Unknown").trim() || "Unknown";
+  }
+
+  function dateValue(scan){
+    const raw=scan?.created_at ?? scan?.date ?? scan?.timestamp;
+    const d=raw ? new Date(raw) : null;
+    return d && !Number.isNaN(d.getTime()) ? d : null;
+  }
+
+  function confidence(scan){
+    const n=num(scan?.confidence);
+    if(n===null) return null;
+    return n<=1 ? n*100 : n;
+  }
+
+  function riskLabel(score){
+    if(score===null) return "—";
+    if(score>=70) return "High";
+    if(score>=40) return "Medium";
+    return "Low";
+  }
+
+  function riskClass(label){
+    return label.toLowerCase();
+  }
+
+  function healthClass(score){
+    if(score===null) return "";
+    if(score>=75) return "";
+    if(score>=50) return "medium";
+    return "low";
+  }
+
+  function formatDate(scan){
+    const d=dateValue(scan);
+    if(!d) return String(scan?.created_at ?? scan?.date ?? "—").slice(0,16);
+    return d.toISOString().slice(0,10);
+  }
+
+  function filteredScans(){
+    const val=$("reportPeriodSelect")?.value || "180";
+    if(val==="all") return [...allReportScans];
+    const days=Number(val);
+    const cutoff=Date.now()-days*86400000;
+    const known=allReportScans.filter(s=>dateValue(s));
+    if(!known.length) return allReportScans;
+    return known.filter(s=>dateValue(s).getTime()>=cutoff);
+  }
+
+  function renderKpis(scans){
+    const healthScores=scans.map(healthFromScan).filter(v=>v!==null);
+    const avgHealth=healthScores.length ? healthScores.reduce((a,b)=>a+b,0)/healthScores.length : null;
+    const risks=healthScores.map(v=>100-v);
+    const avgRisk=risks.length ? risks.reduce((a,b)=>a+b,0)/risks.length : null;
+    const diseases=new Set(
+      scans.map(diseaseName).filter(d=>d.toLowerCase()!=="healthy" && d.toLowerCase()!=="unknown")
+    );
+
+    if($("rdHealthIndex")) $("rdHealthIndex").textContent=avgHealth===null?"—":Math.round(avgHealth)+"%";
+    if($("rdAvgRisk")) $("rdAvgRisk").textContent=avgRisk===null?"—":Math.round(avgRisk)+"%";
+    if($("rdTotalScans")) $("rdTotalScans").textContent=scans.length;
+    if($("rdDiseasesFound")) $("rdDiseasesFound").textContent=diseases.size;
+    if($("rdScanPeriodText")) $("rdScanPeriodText").textContent=(scans.length?"Scans in selected period":"No scans in selected period");
+
+    const healthText=avgHealth===null ? "Based on your recent scans" :
+      avgHealth>=75 ? "Overall crop health is good" :
+      avgHealth>=50 ? "Moderate health — monitor closely" : "High attention needed";
+    if($("rdHealthChange")) $("rdHealthChange").textContent=healthText;
+
+    if($("rdRiskText")){
+      $("rdRiskText").textContent=avgRisk===null ? "Calculated from scan severity" :
+        avgRisk>=70 ? "High risk — review recent results" :
+        avgRisk>=40 ? "Moderate risk — monitor crops" : "Currently low risk";
+    }
+
+    // Preserve existing compatibility fields.
+    if($("reportScanCount")) $("reportScanCount").textContent=scans.length+" scans";
+    if($("reportTotalScans")) $("reportTotalScans").textContent=scans.length;
+
+    const locations=new Set();
+    scans.forEach(s=>{
+      const loc=s.village||s.location?.village||s.district||s.location?.district;
+      if(loc) locations.add(String(loc));
+    });
+    if($("rdAffectedAreas")) $("rdAffectedAreas").textContent=locations.size || "—";
+  }
+
+  function renderTrend(scans){
+    const svg=$("rdTrendSvg"), empty=$("rdTrendEmpty");
+    if(!svg) return;
+    const limit=Number($("rdTrendPeriod")?.value || 6);
+    const arr=scans.filter(s=>dateValue(s)&&healthFromScan(s)!==null)
+      .sort((a,b)=>dateValue(a)-dateValue(b)).slice(-limit);
+    if(!arr.length){
+      svg.innerHTML="";
+      if(empty) empty.style.display="flex";
+      return;
+    }
+    if(empty) empty.style.display="none";
+
+    const W=760,H=250,L=45,R=12,T=15,B=34;
+    const pw=W-L-R, ph=H-T-B;
+    let grid="";
+    [0,25,50,75,100].forEach(v=>{
+      const y=T+ph-(v/100)*ph;
+      grid += `<line class="cg-rd-gridline" x1="${L}" y1="${y}" x2="${W-R}" y2="${y}"></line>`;
+      grid += `<text class="cg-rd-axis-label" x="${L-9}" y="${y+3}" text-anchor="end">${v}</text>`;
+    });
+
+    const pts=arr.map((s,i)=>{
+      const x=arr.length===1?L+pw/2:L+(i/(arr.length-1))*pw;
+      const y=T+ph-(healthFromScan(s)/100)*ph;
+      return {x,y,score:Math.round(healthFromScan(s)),date:dateValue(s)};
+    });
+    const path=pts.map((p,i)=>(i?"L":"M")+` ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(" ");
+    const area=path+` L ${pts[pts.length-1].x} ${T+ph} L ${pts[0].x} ${T+ph} Z`;
+
+    let labels="", points="";
+    pts.forEach((p,i)=>{
+      const label=p.date.toLocaleDateString(undefined,{month:"short",day:"numeric"});
+      labels += `<text class="cg-rd-axis-label" x="${p.x}" y="${H-9}" text-anchor="middle">${label}</text>`;
+      points += `<circle class="cg-rd-point" cx="${p.x}" cy="${p.y}" r="5"><title>${p.score}% health</title></circle>`;
+    });
+    svg.innerHTML=grid+`<path class="cg-rd-area" d="${area}"></path><path class="cg-rd-line" d="${path}"></path>`+points+labels;
+  }
+
+  function renderDisease(scans){
+    const counts={};
+    scans.forEach(s=>{
+      const d=diseaseName(s);
+      counts[d]=(counts[d]||0)+1;
+    });
+    const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+    const colors=["#e74735","#f5aa1a","#2586d4","#8c43ca","#28a653","#16a3a0","#7d8d95"];
+    const total=scans.length;
+    if($("rdDiseaseTotal")) $("rdDiseaseTotal").textContent=total;
+
+    const donut=$("rdDiseaseDonut");
+    if(donut){
+      if(total){
+        let cursor=0, stops=[];
+        entries.slice(0,7).forEach(([,count],i)=>{
+          const end=cursor+(count/total)*100;
+          stops.push(`${colors[i]} ${cursor}% ${end}%`);
+          cursor=end;
+        });
+        if(cursor<100) stops.push(`#dfe9e2 ${cursor}% 100%`);
+        donut.style.background=`conic-gradient(${stops.join(",")})`;
+      }else{
+        donut.style.background="#e4ece7";
+      }
+    }
+    const legend=$("rdDiseaseLegend");
+    if(legend){
+      legend.innerHTML=entries.length ? entries.slice(0,7).map(([name,count],i)=>
+        `<div class="cg-rd-legend-row"><i class="cg-rd-legend-dot" style="background:${colors[i]}"></i><span>${escapeHtml(name)}</span><b>${Math.round(count/total*100)}%</b></div>`
+      ).join("") : `<div class="cg-rd-muted-row">No scan data available.</div>`;
+    }
+  }
+
+  function renderCropAnalysis(scans){
+    const map={};
+    scans.forEach(s=>{
+      const crop=cropName(s);
+      if(!map[crop]) map[crop]={scans:0,health:[],latest:null};
+      map[crop].scans++;
+      const h=healthFromScan(s);
+      if(h!==null) map[crop].health.push(h);
+      const d=dateValue(s);
+      if(!map[crop].latest || (d && dateValue(map[crop].latest) && d>dateValue(map[crop].latest))) map[crop].latest=s;
+    });
+    const rows=Object.entries(map).sort((a,b)=>b[1].scans-a[1].scans);
+    const el=$("rdCropRows");
+    if(!el) return;
+    if(!rows.length){
+      el.innerHTML=`<tr><td colspan="5" class="cg-rd-muted-row">No crop data available yet.</td></tr>`;
+      return;
+    }
+    el.innerHTML=rows.slice(0,8).map(([crop,x])=>{
+      const h=x.health.length?Math.round(x.health.reduce((a,b)=>a+b,0)/x.health.length):null;
+      const risk=h===null?null:100-h;
+      const label=riskLabel(risk);
+      return `<tr>
+        <td><strong>${escapeHtml(crop)}</strong></td>
+        <td>${x.scans}</td>
+        <td><span class="cg-rd-health-badge ${healthClass(h)}">${h===null?"—":h+"%"}</span></td>
+        <td><span class="cg-rd-risk-badge ${riskClass(label)}">${label}</span></td>
+        <td>${escapeHtml(x.latest?diseaseName(x.latest):"—")}</td>
+      </tr>`;
+    }).join("");
+  }
+
+  function renderRecords(scans){
+    const el=$("rdRecentRows");
+    if(!el) return;
+    const rows=[...scans].sort((a,b)=>(dateValue(b)||0)-(dateValue(a)||0)).slice(0,7);
+    if(!rows.length){
+      el.innerHTML=`<tr><td colspan="6" class="cg-rd-muted-row">No scan history available.</td></tr>`;
+      return;
+    }
+    el.innerHTML=rows.map(s=>{
+      const sev=getSeverityScore(s);
+      const cls=sev===null?"":sev>=70?"high":sev>=40?"medium":sev>=15?"low":"healthy";
+      const conf=confidence(s);
+      return `<tr>
+        <td>${escapeHtml(formatDate(s))}</td>
+        <td>${escapeHtml(cropName(s))}</td>
+        <td>${escapeHtml(diseaseName(s))}</td>
+        <td><span class="cg-rd-severity ${cls}">${sev===null?(escapeHtml(String(s.severity||"—"))):Math.round(sev)+"%"}</span></td>
+        <td>${conf===null?"—":Math.round(conf)+"%"}</td>
+        <td><button class="cg-rd-view-btn" type="button" data-open-tab="history">View</button></td>
+      </tr>`;
+    }).join("");
+  }
+
+  function renderInsights(scans){
+    const el=$("rdInsights");
+    if(!el) return;
+    if(!scans.length){
+      el.innerHTML=`<div class="cg-rd-insight neutral"><span>🌱</span><div><strong>Start your scan history</strong><p>Upload leaf images to build CropGuard's personalized disease and health trend analysis.</p></div></div>`;
+      return;
+    }
+    const diseases={};
+    scans.forEach(s=>{
+      const d=diseaseName(s);
+      if(d.toLowerCase()!=="healthy") diseases[d]=(diseases[d]||0)+1;
+    });
+    const top=Object.entries(diseases).sort((a,b)=>b[1]-a[1])[0];
+    const latest=[...scans].sort((a,b)=>(dateValue(b)||0)-(dateValue(a)||0))[0];
+    const latestH=latest?healthFromScan(latest):null;
+    const high=scans.filter(s=>{const x=getSeverityScore(s);return x!==null&&x>=70}).length;
+
+    const insights=[];
+    if(top){
+      insights.push({cls:"danger",icon:"📈",title:`${top[0]} is the most reported`,text:`Detected in ${top[1]} scan${top[1]>1?"s":""} in the selected period. Review the Crop Doctor guidance and rescan after treatment.`});
+    }
+    if(high){
+      insights.push({cls:"warning",icon:"⚠️",title:"High-severity scans detected",text:`${high} recent result${high>1?"s":" has"} a high severity score. Prioritize affected crops and monitor them closely.`});
+    }
+    if(latestH!==null){
+      insights.push({cls:latestH>=75?"":"info",icon:latestH>=75?"🌿":"💧",title:latestH>=75?"Crop health is holding up":"Monitor crop health",text:`Your latest available scan indicates an estimated health level of ${Math.round(latestH)}%. Continue regular scanning to track change.`});
+    }
+    el.innerHTML=insights.slice(0,3).map(x=>`<div class="cg-rd-insight ${x.cls}"><span>${x.icon}</span><div><strong>${escapeHtml(x.title)}</strong><p>${escapeHtml(x.text)}</p></div></div>`).join("");
+  }
+
+  function renderMonths(scans){
+    const el=$("rdMonthChart");
+    if(!el) return;
+    const months=Number($("rdStatsPeriod")?.value||6);
+    const now=new Date();
+    const buckets=[];
+    for(let i=months-1;i>=0;i--){
+      const d=new Date(now.getFullYear(),now.getMonth()-i,1);
+      buckets.push({key:`${d.getFullYear()}-${d.getMonth()}`,label:d.toLocaleDateString(undefined,{month:"short"}),count:0});
+    }
+    scans.forEach(s=>{
+      const d=dateValue(s);
+      if(!d) return;
+      const key=`${d.getFullYear()}-${d.getMonth()}`;
+      const b=buckets.find(x=>x.key===key);
+      if(b) b.count++;
+    });
+    const max=Math.max(1,...buckets.map(x=>x.count));
+    el.innerHTML=buckets.map(b=>`<div class="cg-rd-month-bar"><span class="cg-rd-month-value">${b.count||""}</span><i class="cg-rd-month-fill" style="height:${Math.max(b.count?8:2,(b.count/max)*150)}px"></i><span class="cg-rd-month-label">${b.label}</span></div>`).join("");
+  }
+
+  function escapeHtml(v){
+    return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  }
+
+  function render(){
+    const scans=filteredScans();
+    renderKpis(scans);
+    renderTrend(scans);
+    renderDisease(scans);
+    renderCropAnalysis(scans);
+    renderRecords(scans);
+    renderInsights(scans);
+    renderMonths(scans);
+
+    if(scans[0]){
+      const latest=[...scans].sort((a,b)=>(dateValue(b)||0)-(dateValue(a)||0))[0];
+      if($("reportLatestCrop")) $("reportLatestCrop").textContent=cropName(latest);
+      if($("reportLatestDisease")) $("reportLatestDisease").textContent=diseaseName(latest);
+    }
+  }
+
+  async function loadReportData(){
+    try{
+      const response=await fetch("/api/history?limit=100",{credentials:"include",cache:"no-store"});
+      if(!response.ok) throw new Error("History request failed");
+      const data=await response.json();
+      allReportScans=Array.isArray(data.scans)?data.scans:[];
+      render();
+    }catch(err){
+      allReportScans=[];
+      render();
+      console.warn("CropGuard report dashboard:",err);
+    }
+  }
+
+  ["reportPeriodSelect","rdTrendPeriod","rdStatsPeriod"].forEach(id=>{
+    document.addEventListener("change",e=>{
+      if(e.target && e.target.id===id) render();
+    });
+  });
+
+  document.addEventListener("click",e=>{
+    const btn=e.target.closest("[data-open-tab]");
+    if(btn && btn.getAttribute("data-open-tab")==="history"){
+      // Existing CropGuard tab handler remains responsible for navigation.
+    }
+  });
+
+  window.addEventListener("load",function(){
+    setTimeout(loadReportData,350);
+  });
+
+  // Refresh report data whenever Reports is opened.
+  document.addEventListener("click",function(e){
+    const tab=e.target.closest("[data-tab='reports']");
+    if(tab) setTimeout(loadReportData,250);
+  });
+
+  window.CropGuardReportDashboard={
+    refresh:loadReportData,
+    render:render
+  };
+})();
+</script>
+
 </body>
 </html>

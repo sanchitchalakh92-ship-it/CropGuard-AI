@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>CropGuard AI - Farmer Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(
+                135deg,
+                #e8f5e9,
+                #f1f8e9,
+                #e3f2fd
+            );
+            padding: 20px;
+        }
+
+        .register-container {
+            width: 100%;
+            max-width: 450px;
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1b5e20;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #43a047;
+            box-shadow: 0 0 0 3px rgba(67,160,71,0.1);
+        }
+
+        .register-btn {
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            background: #2e7d32;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .register-btn:hover {
+            background: #1b5e20;
+        }
+
+        .register-btn:disabled {
+            background: #9e9e9e;
+            cursor: not-allowed;
+        }
+
+        .secondary-btn {
+            width: 100%;
+            border: 1px solid #2e7d32;
+            padding: 12px;
+            border-radius: 10px;
+            background: white;
+            color: #2e7d32;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .secondary-btn:hover {
+            background: #e8f5e9;
+        }
+
+        .secondary-btn:disabled {
+            color: #999;
+            border-color: #ccc;
+            cursor: not-allowed;
+            background: #f5f5f5;
+        }
+
+        .message {
+            display: none;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .message.error {
+            display: block;
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .message.success {
+            display: block;
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 22px;
+            color: #666;
+        }
+
+        .login-link a {
+            color: #2e7d32;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .password-note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .otp-section {
+            display: none;
+        }
+
+        .otp-section.active {
+            display: block;
+        }
+
+        .registration-section.hidden {
+            display: none;
+        }
+
+        .otp-info {
+            background: #f1f8e9;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 18px;
+            color: #33691e;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .otp-input {
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 8px;
+            font-weight: bold;
+        }
+
+        .resend-note {
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+            margin-top: 12px;
+        }
+
+        .back-btn {
+            border: none;
+            background: transparent;
+            color: #2e7d32;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="register-container">
+
+    <div class="logo">🌱</div>
+
+    <h1>CropGuard AI</h1>
+
+    <p class="subtitle" id="pageSubtitle">
+        Create your Farmer Account
+    </p>
+
+    <div id="message" class="message"></div>
+
+    <!-- STEP 1: Farmer registration details -->
+    <div id="registrationSection" class="registration-section">
+
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label for="name">Farmer Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+
+                <input
+                    type="tel"
+                    id="mobile"
+                    name="mobile"
+                    placeholder="Enter 10-digit mobile number"
+                    maxlength="15"
+                    required
+                    autocomplete="tel"
+                    inputmode="numeric"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="Enter email address"
+                    autocomplete="email"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create password"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+
+                <div class="password-note">
+                    Minimum 6 characters
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Re-enter password"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+            </div>
+
+            <button
+                type="submit"
+                id="sendOtpBtn"
+                class="register-btn"
+            >
+                Send OTP
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- STEP 2: OTP verification -->
+    <div id="otpSection" class="otp-section">
+
+        <div class="otp-info">
+            We sent a 6-digit verification code to
+            <strong id="maskedMobile">your email</strong>.
+            <br>
+            The code is valid for 5 minutes.
+        </div>
+
+        <form id="otpForm">
+
+            <div class="form-group">
+                <label for="otp">Enter OTP</label>
+
+                <input
+                    type="text"
+                    id="otp"
+                    class="otp-input"
+                    inputmode="numeric"
+                    autocomplete="one-time-code"
+                    maxlength="6"
+                    placeholder="••••••"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                id="verifyOtpBtn"
+                class="register-btn"
+            >
+                Verify OTP & Create Account
+            </button>
+
+        </form>
+
+        <button
+            type="button"
+            id="resendOtpBtn"
+            class="secondary-btn"
+            disabled
+        >
+            Resend OTP
+        </button>
+
+        <div id="resendNote" class="resend-note">
+            Resend available in 60 seconds
+        </div>
+
+        <button
+            type="button"
+            id="backBtn"
+            class="back-btn"
+        >
+            ← Change registration details
+        </button>
+
+    </div>
+
+    <div class="login-link">
+        Already have an account?
+        <a href="login.html">Login</a>
+    </div>
+
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    const API_BASE = window.location.origin;
+
+    const message = document.getElementById("message");
+    const registerForm = document.getElementById("registerForm");
+    const otpForm = document.getElementById("otpForm");
+
+    const registrationSection =
+        document.getElementById("registrationSection");
+
+    const otpSection =
+        document.getElementById("otpSection");
+
+    const sendOtpBtn =
+        document.getElementById("sendOtpBtn");
+
+    const verifyOtpBtn =
+        document.getElementById("verifyOtpBtn");
+
+    const resendOtpBtn =
+        document.getElementById("resendOtpBtn");
+
+    const resendNote =
+        document.getElementById("resendNote");
+
+    const maskedMobile =
+        document.getElementById("maskedMobile");
+
+    const pageSubtitle =
+        document.getElementById("pageSubtitle");
+
+    const backBtn =
+        document.getElementById("backBtn");
+
+    let registrationEmail = "";
+    let resendTimer = null;
+    let resendSeconds = 60;
+
+    function showMessage(text, type) {
+        message.textContent = text;
+        message.className = "message " + type;
+    }
+
+    function clearMessage() {
+        message.textContent = "";
+        message.className = "message";
+    }
+
+    function normalizeMobile(value) {
+        let digits = String(value || "").replace(/\D/g, "");
+
+        if (digits.startsWith("91") && digits.length === 12) {
+            digits = digits.substring(2);
+        }
+
+        return digits;
+    }
+
+    function normalizeEmail(value) {
+        return String(value || "").trim().toLowerCase();
+    }
+
+    function startResendTimer(seconds) {
+        clearInterval(resendTimer);
+
+        resendSeconds = seconds;
+        resendOtpBtn.disabled = true;
+
+        function update() {
+            if (resendSeconds <= 0) {
+                clearInterval(resendTimer);
+                resendOtpBtn.disabled = false;
+                resendNote.textContent = "You can request a new OTP now.";
+                return;
+            }
+
+            resendNote.textContent =
+                "Resend available in " +
+                resendSeconds +
+                " seconds";
+
+            resendSeconds -= 1;
+        }
+
+        update();
+        resendTimer = setInterval(update, 1000);
+    }
+
+    function showOtpSection(maskedNumber) {
+        registrationSection.classList.add("hidden");
+        otpSection.classList.add("active");
+
+        pageSubtitle.textContent =
+            "Verify your email address";
+
+        maskedMobile.textContent =
+            maskedNumber || "your email address";
+
+        document.getElementById("otp").value = "";
+        document.getElementById("otp").focus();
+
+        startResendTimer(60);
+    }
+
+    function showRegistrationSection() {
+        clearInterval(resendTimer);
+
+        registrationSection.classList.remove("hidden");
+        otpSection.classList.remove("active");
+
+        pageSubtitle.textContent =
+            "Create your Farmer Account";
+
+        document.getElementById("otp").value = "";
+    }
+
+    registerForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        clearMessage();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const mobileInput =
+            document.getElementById("mobile").value.trim();
+
+        const mobile =
+            normalizeMobile(mobileInput);
+
+        const email =
+            normalizeEmail(document.getElementById("email").value);
+
+        const password =
+            document.getElementById("password").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        if (!name) {
+            showMessage("Please enter your farmer name.", "error");
+            return;
+        }
+
+        if (mobile.length !== 10 || !/^[6-9]\d{9}$/.test(mobile)) {
+            showMessage(
+                "Please enter a valid 10-digit Indian mobile number.",
+                "error"
+            );
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            showMessage(
+                "Please enter a valid email address.",
+                "error"
+            );
+            return;
+        }
+
+        if (password.length < 6) {
+            showMessage(
+                "Password must contain at least 6 characters.",
+                "error"
+            );
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showMessage(
+                "Passwords do not match.",
+                "error"
+            );
+            return;
+        }
+
+        sendOtpBtn.disabled = true;
+        sendOtpBtn.textContent = "Sending OTP...";
+
+        try {
+            const response = await fetch(
+                API_BASE + "/api/register/request-otp",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        name: name,
+                        mobile: mobile,
+                        email: email,
+                        password: password
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || data.status !== "success") {
+                throw new Error(
+                    data.message ||
+                    "Could not send OTP."
+                );
+            }
+
+            registrationEmail = email;
+
+            showMessage(
+                "OTP sent successfully to your email address.",
+                "success"
+            );
+
+            showOtpSection(data.email);
+        } catch (error) {
+            console.error("OTP request error:", error);
+
+            showMessage(
+                error.message ||
+                "Could not send OTP. Please try again.",
+                "error"
+            );
+        } finally {
+            sendOtpBtn.disabled = false;
+            sendOtpBtn.textContent = "Send OTP";
+        }
+    });
+
+    otpForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        clearMessage();
+
+        const otp =
+            document.getElementById("otp").value
+                .replace(/\D/g, "");
+
+        if (otp.length !== 6) {
+            showMessage(
+                "Please enter the 6-digit OTP.",
+                "error"
+            );
+            return;
+        }
+
+        if (!registrationEmail) {
+            showMessage(
+                "Registration session expired. Please register again.",
+                "error"
+            );
+            showRegistrationSection();
+            return;
+        }
+
+        verifyOtpBtn.disabled = true;
+        verifyOtpBtn.textContent = "Verifying...";
+
+        try {
+            const response = await fetch(
+                API_BASE + "/api/register/verify-otp",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        email: registrationEmail,
+                        otp: otp
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || data.status !== "success") {
+                throw new Error(
+                    data.message ||
+                    "OTP verification failed."
+                );
+            }
+
+            showMessage(
+                "Email verified! Account created successfully. Redirecting to login...",
+                "success"
+            );
+
+            setTimeout(function () {
+                window.location.replace("/login.html");
+            }, 1200);
+
+        } catch (error) {
+            console.error("OTP verification error:", error);
+
+            showMessage(
+                error.message ||
+                "Could not verify OTP.",
+                "error"
+            );
+        } finally {
+            verifyOtpBtn.disabled = false;
+            verifyOtpBtn.textContent =
+                "Verify OTP & Create Account";
+        }
+    });
+
+    resendOtpBtn.addEventListener("click", async function () {
+        clearMessage();
+
+        if (!registrationEmail) {
+            showMessage(
+                "Registration session expired. Please register again.",
+                "error"
+            );
+            showRegistrationSection();
+            return;
+        }
+
+        resendOtpBtn.disabled = true;
+        resendOtpBtn.textContent = "Sending...";
+
+        try {
+            const response = await fetch(
+                API_BASE + "/api/register/resend-otp",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        email: registrationEmail
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            if (!response.ok || data.status !== "success") {
+                throw new Error(
+                    data.message ||
+                    "Could not resend OTP."
+                );
+            }
+
+            showMessage(
+                "A new OTP has been sent.",
+                "success"
+            );
+
+            startResendTimer(
+                Number(data.resend_after || 60)
+            );
+
+        } catch (error) {
+            console.error("OTP resend error:", error);
+
+            showMessage(
+                error.message ||
+                "Could not resend OTP.",
+                "error"
+            );
+
+            resendOtpBtn.disabled = false;
+        } finally {
+            resendOtpBtn.textContent = "Resend OTP";
+        }
+    });
+
+    backBtn.addEventListener("click", function () {
+        clearMessage();
+        showRegistrationSection();
+    });
+
+    document.getElementById("otp").addEventListener(
+        "input",
+        function () {
+            this.value = this.value
+                .replace(/\D/g, "")
+                .slice(0, 6);
+        }
+    );
+})();
+</script>
+
+</body>
+</html>
